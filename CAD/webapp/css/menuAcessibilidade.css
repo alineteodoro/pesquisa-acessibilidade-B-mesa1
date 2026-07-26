@@ -1,0 +1,489 @@
+:root {
+    --azul-escuro: #102030;
+    --azul-medio: #0245A8;
+    --azul-claro: #1E88EE;
+    --branco-azulado: #F6F7FF;
+    --branco: #FFFFFF;
+
+    --menu-width: 380px;
+}
+
+/* ==========================
+   Overlay
+========================== */
+/* .accessibility-menu::backdrop{
+    background:rgba(0,0,0,.45);
+    backdrop-filter:blur(2px);
+} */
+
+
+/* ==========================
+   Painel
+========================== */
+
+.accessibility-menu{
+
+    border:none;
+    border-radius: 2rem;
+    padding:0;
+
+    margin:0;
+
+    width:100%;
+    max-width:380px;
+
+    height:100vh;
+
+    position:fixed;
+
+    left:30rem;
+    top:1rem;
+
+    background:#102030;
+
+    color:white;
+
+    overflow:auto;
+
+    box-shadow:-10px 0 40px rgba(0,0,0,.35);
+
+}
+
+.accessibility-menu.open{
+    transform:translateX(0);
+}
+
+/* ==========================
+   Cabeçalho
+========================== */
+
+.accessibility-header{
+
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    padding:1.4rem;
+    border-bottom:1px solid rgba(255,255,255,.08);
+    position:sticky;
+    top:0;
+    background:var(--azul-escuro);
+    z-index:5;
+}
+
+.accessibility-header h2{
+
+    margin:0;
+
+    font-size:1.4rem;
+    font-weight:700;
+
+}
+
+.close-accessibility{
+
+    width:42px;
+    height:42px;
+
+    border:none;
+
+    border-radius:12px;
+
+    background:#29384b;
+
+    color:white;
+
+    cursor:pointer;
+
+    transition:.2s;
+
+}
+
+.close-accessibility:hover{
+
+    background:#3b4f69;
+
+}
+
+/* ==========================
+   Conteúdo
+========================== */
+
+.accessibility-content{
+
+    display:flex;
+    flex-direction:column;
+
+    gap:18px;
+
+    padding:1.4rem;
+
+}
+
+/* ==========================
+   Card
+========================== */
+
+.accessibility-card{
+
+    background:#263445;
+
+    border-radius:16px;
+
+    padding:18px;
+
+    border:1px solid rgba(255,255,255,.07);
+
+}
+
+.accessibility-card h3{
+
+    display:flex;
+    align-items:center;
+    gap:.8rem;
+
+    margin:0 0 18px;
+
+    font-size:1rem;
+
+    font-weight:600;
+
+}
+
+/* ==========================
+   Texto
+========================== */
+
+.font-controls{
+
+    display:flex;
+    justify-content:center;
+    align-items:center;
+
+    gap:18px;
+
+}
+
+.font-controls button{
+
+    width:48px;
+    height:42px;
+
+    border-radius:10px;
+
+    border:1px solid #506177;
+
+    background:#324154;
+
+    color:white;
+
+    cursor:pointer;
+
+    font-size:1.4rem;
+
+}
+
+.font-controls output{
+
+    font-weight:700;
+
+    font-size:1.2rem;
+
+}
+
+/* ==========================
+   Botões grandes
+========================== */
+
+.segmented{
+
+    display:grid;
+
+    grid-template-columns:1fr 1fr;
+
+    gap:10px;
+
+}
+
+.segmented button{
+
+    height:44px;
+
+    border:none;
+
+    border-radius:10px;
+
+    background:#324154;
+
+    color:white;
+
+    cursor:pointer;
+
+    transition:.2s;
+
+}
+
+.segmented button:hover{
+
+    background:#40526a;
+
+}
+
+.segmented button.active{
+
+    background:var(--azul-claro);
+
+}
+
+/* ==========================
+   Grid Daltonismo
+========================== */
+
+.color-grid{
+
+    display:grid;
+
+    grid-template-columns:repeat(2,1fr);
+
+    gap:10px;
+
+}
+
+.color-grid button{
+
+    height:46px;
+
+    border-radius:10px;
+
+    border:1px solid #4d5d74;
+
+    background:#324154;
+
+    color:white;
+
+    cursor:pointer;
+
+    transition:.2s;
+
+}
+
+.color-grid button.active{
+
+    background:var(--azul-medio);
+
+}
+
+/* ==========================
+   Inputs de cor
+========================== */
+
+.color-picker{
+
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+
+    margin-bottom:15px;
+
+}
+
+.color-picker label{
+
+    font-weight:600;
+
+}
+
+.color-picker input[type=color]{
+
+    width:90px;
+    height:40px;
+
+    border:none;
+
+    border-radius:10px;
+
+    cursor:pointer;
+
+    background:none;
+
+}
+
+/* ==========================
+   Switch
+========================== */
+
+.switch{
+
+    display:flex;
+
+    justify-content:space-between;
+    align-items:center;
+
+    margin-bottom:18px;
+
+}
+
+.switch:last-child{
+
+    margin-bottom:0;
+
+}
+
+.switch label{
+
+    display:flex;
+
+    align-items:center;
+
+    gap:12px;
+
+    font-weight:500;
+
+}
+
+.switch input{
+
+    appearance:none;
+
+    width:52px;
+
+    height:30px;
+
+    border-radius:100px;
+
+    background:#68788c;
+
+    cursor:pointer;
+
+    position:relative;
+
+    transition:.2s;
+
+}
+
+.switch input::before{
+
+    content:"";
+
+    position:absolute;
+
+    width:24px;
+    height:24px;
+
+    border-radius:50%;
+
+    background:white;
+
+    top:3px;
+    left:3px;
+
+    transition:.2s;
+
+}
+
+.switch input:checked{
+
+    background:var(--azul-claro);
+
+}
+
+.switch input:checked::before{
+
+    transform:translateX(22px);
+
+}
+
+/* ==========================
+   Botão restaurar
+========================== */
+
+.reset-button{
+
+    margin-top:10px;
+
+    width:100%;
+
+    height:50px;
+
+    border:none;
+
+    border-radius:12px;
+
+    background:var(--azul-medio);
+
+    color:white;
+
+    font-size:1rem;
+
+    font-weight:700;
+
+    cursor:pointer;
+
+    transition:.2s;
+
+}
+
+.reset-button:hover{
+
+    background:var(--azul-claro);
+
+}
+
+/* ==========================
+   Scroll
+========================== */
+
+.accessibility-menu::-webkit-scrollbar{
+
+    width:8px;
+
+}
+
+.accessibility-menu::-webkit-scrollbar-thumb{
+
+    background:#4b5d73;
+    border-radius:50px;
+
+}
+
+.accessibility-button{
+
+    position:fixed;
+
+    right:24px;
+    bottom:24px;
+
+    width:64px;
+    height:64px;
+
+    border:none;
+
+    border-radius:50%;
+
+    background:#0245A8;
+
+    color:white;
+
+    font-size:2rem;
+
+    font-weight:bold;
+
+    cursor:pointer;
+
+    z-index:9999;
+
+    box-shadow:0 10px 20px rgba(0,0,0,.25);
+
+    transition:.25s;
+
+}
+
+.accessibility-button:hover{
+
+    transform:scale(1.08);
+
+    background:#1E88EE;
+
+}
+
+
+

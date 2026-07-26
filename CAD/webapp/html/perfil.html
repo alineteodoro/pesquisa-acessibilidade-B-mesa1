@@ -5,7 +5,8 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="../css/perfil.css">
-    <link rel="stylesheet" href="../css/menuGlobal.css">
+    <link rel="stylesheet" href="../css/Global.css">
+    <link rel="stylesheet" href="../css/menuAcessibilidade.css">
     <link rel="shortcut icon" type="image/x-icon" href="../assets/LogoModoEscuro.png">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -27,6 +28,7 @@
             <strong>Alanzoka</strong>
         </header>
         <nav>
+            <div class="active-indicator"></div>
             <ul>
                 <li>
                     <!-- <img src="../assets/LogoModoEscuro.png" alt="Logo">  -->
@@ -59,6 +61,145 @@
     <main>
 
     </main>
+    <button commandfor="accessibilityMenu" command="show-modal" id="accessibilityButton" class="accessibility-button"
+        aria-label="Abrir menu de acessibilidade" aria-controls="accessibilityMenu" aria-expanded="false">
+
+        A
+    </button>
+
+    <!-- menu -->
+    <dialog id="accessibilityMenu" class="accessibility-menu" aria-labelledby="accessibility-title">
+
+        <header class="accessibility-header">
+            <div>
+                <h2 id="accessibility-title">Menu de acessibilidade</h2>
+                <p>
+                    Personalize a plataforma conforme suas necessidades.
+                </p>
+            </div>
+
+        </header>
+
+        <div class="accessibility-content">
+
+            <!-- TEXTO -->
+            <section class="accessibility-card" aria-labelledby="text-title">
+                <h3 id="text-title">Texto</h3>
+                <div class="control-group">
+                    <label for="font-size-slider">Tamanho da fonte</label>
+                    <div class="font-controls">
+                        <button id="font-decrease" aria-label="Diminuir tamanho da fonte">A-</button>
+                        <output id="font-value">100%</output>
+                        <button id="font-increase" aria-label="Aumentar tamanho da fonte">A+</button>
+                    </div>
+                </div>
+            </section>
+
+            <!-- TEMA -->
+            <section class="accessibility-card" aria-labelledby="theme-title">
+                <h3 id="theme-title">Tema</h3>
+                <div class="segmented">
+                    <button class="selected">Claro</button>
+                    <button>Escuro</button>
+                </div>
+            </section>
+
+            <!-- CONTRASTE -->
+            <section class="accessibility-card" aria-labelledby="contrast-title">
+                <h3 id="contrast-title">
+                    Contraste
+                </h3>
+                <div class="segmented-column">
+                    <button>Padrão</button>
+                    <button>Alto contraste</button>
+                </div>
+            </section>
+
+            <!-- DALTONISMO -->
+            <section class="accessibility-card" aria-labelledby="color-title">
+                <h3 id="color-title">
+                    Modo de cores
+                </h3>
+                <div class="grid-buttons">
+                    <button>Normal</button>
+                    <button>Deuteranopia</button>
+                    <button>Protanopia</button>
+                    <button>Tritanopia</button>
+                </div>
+            </section>
+
+            <!-- CORES -->
+            <section class="accessibility-card" aria-labelledby="custom-color-title">
+                <h3 id="custom-color-title">Personalizar cores</h3>
+                <div class="color-picker">
+                    <label>Cor principal
+                        <input type="color" id="primaryColor">
+                    </label>
+                    <label>Cor de fundo
+                        <input type="color" id="backgroundColor">
+                    </label>
+                </div>
+            </section>
+
+            <!-- LEITURA -->
+
+            <section class="accessibility-card" aria-labelledby="reading-title">
+                <h3 id="reading-title">Leitura</h3>
+                <div class="switch-group">
+                    <label>
+                        <input type="checkbox" id="readingMode">
+                        <span>Modo leitura</span>
+                    </label>
+                    <label>
+                        <input type="checkbox" id="hideImages">
+                        <span>Ocultar imagens</span>
+                    </label>
+                    <label>
+                        <input type="checkbox" id="largeCursor">
+                        <span>Cursor grande</span>
+                    </label>
+                </div>
+            </section>
+
+            <!-- VOZ -->
+            <section class="accessibility-card" aria-labelledby="voice-title">
+                <h3 id="voice-title">Voz</h3>
+                <div class="switch-group">
+                    <label>
+                        <input type="checkbox" id="screenReader">
+                        <span>Narrar interface</span>
+                    </label>
+                    <label>
+                        <input type="checkbox" id="autoReadLinks">
+                        <span>Ler links automaticamente</span>
+                    </label>
+                </div>
+            </section>
+
+            <!-- ANIMAÇÕES -->
+            <section class="accessibility-card" aria-labelledby="motion-title">
+                <h3 id="motion-title">Movimento</h3>
+                <label>
+                    <input type="checkbox" id="reduceMotion">
+                    Reduzir animações
+                </label>
+            </section>
+
+            <!-- FOCO -->
+            <section class="accessibility-card" aria-labelledby="focus-title">
+                <h3 id="focus-title">Navegação</h3>
+                <label>
+                    <input type="checkbox" id="highlightFocus">
+                    Destacar foco do teclado
+                </label>
+            </section>
+        </div>
+
+        <footer class="accessibility-footer">
+            <button id="resetAccessibility">Restaurar padrões</button>
+        </footer>
+
+    </dialog>
 </body>
 
 </html>
