@@ -5,6 +5,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="../css/inicio.css">
+    <link rel="stylesheet" href="../css/menuGlobal.css">
     <link rel="shortcut icon" type="image/x-icon" href="../assets/LogoModoEscuro.png">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -15,21 +16,61 @@
 </head>
 
 <body>
-    <a class="skip-link" href="#search-input">
+    <a class="skip-link" href="#main-content">
         Pular para o conteúdo principal?
     </a>
-    <aside>
+    <!-- <button id="accessibilityButton"
+            aria-label="Abrir menu de acessibilidade"
+            aria-controls="accessibilityMenu"
+            aria-expanded="false">
+
+    </button>
+
+    <aside id="accessibilityMenu"
+           aria-labelledby="accessibilityTitle"
+           hidden>
+
+        ...
+    </aside> -->
+    <aside aria-label="Menu de navegação" class="menu">
+        <img src="../assets/User.png" alt="Foto do usuário" fetchpriority="high"/>
         <header>
             <p>Ola!</p>
             <strong>Alanzoka</strong>
         </header>
-        <ul>
-            <li><a href="inicio.html">Início</a></li>
-            <li><a href="meusCursos.html">Meus Cursos</a></li>
-            <li><a href="comunidade.html">Comunidade</a></li>
-            <li><a href="perfil.html">Perfil</a></li>
-            <li><a href="ajuda.html">Ajuda</a></li>
-        </ul>
+        <div class="acitive-indicator">
+
+        </div>
+        <nav>
+
+            <ul>
+                <li>
+                    <!-- <img src="../assets/LogoModoEscuro.png" alt="Logo"> -->
+                    <a href="inicio.html" class="active" aria-current="page">Início</a>
+                </li>
+                <li>
+                    <!-- <img src="../assets/LogoModoEscuro.png" alt="Logo"> -->
+                    <a href="cursos.html">Cursos</a>
+                </li>
+                <li>
+                    <!-- <img src="../assets/LogoModoEscuro.png" alt="Logo"> -->
+                    <a href="meusCursos.html">Meus Cursos</a>
+                </li>
+                <li>
+                    <!-- <img src="../assets/LogoModoEscuro.png" alt="Logo"> -->
+                    <a href="comunidade.html">Comunidade</a>
+                </li>
+                <li>
+                    <!-- <img src="../assets/LogoModoEscuro.png" alt="Logo"> -->
+                    <a href="perfil.html">Perfil</a>
+                </li>
+                <li>
+                    <!-- <img src="../assets/LogoModoEscuro.png" alt="Logo"> -->
+                    <a href="ajuda.html">Ajuda</a>
+                </li>
+            </ul>
+        </nav>
+
     </aside>
     <main id="main-content">
 
@@ -38,23 +79,68 @@
             <button type="submit">Pesquisar</button>
         </form>
 
-        <section aria-hidden="true" id="banner" >
-            <img src="../assets/Banner1.png"
+        <section aria-hidden="true" id="banner">
+            <img src="../assets/banners/banner 3.png"
                 alt="Banner da extensão de acessibilidade do figma, o stark, que serve para visualizar com outros olhos o seu design" />
         </section>
-        <section class="cards" aria-label="Cursos em destaque" aria-labelledby="cards-title">
-            <p></p>
-        </section>
-        <section>
+        <div class="cards-container">
+            <section class="cards" aria-label="Cursos em andamento" aria-labelledby="cards-title">
+                <h1>Cursos em andamento</h1>
+                <p>67</p>
+            </section>
+            <section class="cards" aria-label="Cursos em concluidos" aria-labelledby="cards-title">
+                <h1>Cursos em concluidos</h1>
+                <p>67</p>
+            </section>
+            <section class="cards" aria-label="Horas estudadas" aria-labelledby="cards-title">
+                <h1>Horas estudadas</h1>
+                <p>67</p>
+            </section>
+        </div>
 
-        </section>
-        <section>
 
-        </section>
+        <h1 class="section-title">Continue de onde parou</h1>
+
+        <a href="videoAula.html" class="course-card" aria-labelledby="course-title-12"
+            aria-describedby="course-desc-12 course-progress-12">
+            <img src="../assets/FundoPadrão.png" alt="Imagem do curso de HTML e CSS" class="course-image" />
+            <div class="course-info">
+                <h2 id="course-title-12">Curso de HTML e CSS</h2>
+                <progress id="course-progress-12" value="50" max="100">50%</progress>
+                <div class="course-desc">
+                    <p id="course-desc-12">Mobile</p>
+                    <p id="course-autor-12">David Lucas Reche Garcia Bento</p>
+                </div>
+            </div>
+        </a>
+
+        <a href="videoAula.html" class="course-card" aria-labelledby="course-title-12"
+            aria-describedby="course-desc-12 course-progress-12">
+            <img src="../assets/FundoPadrão.png" alt="Imagem do curso de HTML e CSS" class="course-image" />
+            <div class="course-info">
+                <h2 id="course-title-12">Curso de HTML e CSS</h2>
+                <progress id="course-progress-12" value="50" max="100">50%</progress>
+                <div class="course-desc">
+                    <p id="course-desc-12">Mobile</p>
+                    <p id="course-autor-12">David Lucas Reche Garcia Bento</p>
+                </div>
+            </div>
+        </a>
+
+        <a href="videoAula.html" class="course-card" aria-labelledby="course-title-12"
+            aria-describedby="course-desc-12 course-progress-12">
+            <img src="../assets/FundoPadrão.png" alt="Imagem do curso de HTML e CSS" class="course-image" />
+            <div class="course-info">
+                <h2 id="course-title-12">Curso de HTML e CSS</h2>
+                <progress id="course-progress-12" value="90" max="100">90%</progress>
+                <div class="course-desc">
+                    <p id="course-desc-12">Mobile</p>
+                    <p id="course-autor-12">David Lucas Reche Garcia Bento</p>
+                </div>
+            </div>
+        </a>
+
     </main>
-    <Footer>
-
-    </Footer>
 </body>
 
 </html>

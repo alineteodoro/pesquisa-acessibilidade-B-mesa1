@@ -17,49 +17,62 @@
 <body>
     <!-- a main contém o conteúdo principal da página -->
     <main class="auth">
+        <div class="forms">
+            <!-- a primeira section contém o painel de login -->
+            <section id="loginPanel" class="card" aria-labelledby="login-title">
+                <form class="login-form">
+                    <h1 class="form-title">Bem-vindo de volta !!</h1>
+                    <p class="form-desc">Insira seu email e senha para ter acesso a todos os seus cursos
+                    </p>
 
-        <!-- a primeira section contém o painel de login -->
-        <section id="loginPanel" class="card" aria-labelledby="login-title">
-            <form class="login-form">
-                <h1 class="form-title">Bem-vindo de volta !!</h1>
-                <p class="form-desc">Insira seu email e senha para ter acesso a todos os seus cursos
-                </p>
+                    <label for="username">Email</label>
+                    <input id="username" type="email" placeholder="EX: exemplo@dominio.com" required
+                        class="input-field">
 
-                <label for="username">email</label>
-                <input id="username" type="email" placeholder="EX: exemplo@dominio.com" required class="input-field">
+                    <label for="password">Senha</label>
+                    <input id="password" type="password" placeholder="SenhaSegura123" required class="input-field">
 
-                <label for="password">Senha</label>
-                <input id="password" type="password" placeholder="Senha" required class="input-field">
+                    <button type="submit" class="btn">Login</button>
+                </form>
+            </section>
 
-                <button type="submit" class="btn">Login</button>
-            </form>
-        </section>
+            <!-- a segunda section contém o painel de registro -->
+            <!-- A tag hidden esconde o painel de registro -->
+            <section id="registerPanel" class="card" aria-labelledby="register-title" inert>
 
-        <!-- a segunda section contém o painel de registro -->
-        <!-- A tag hidden esconde o painel de registro -->
-        <section id="registerPanel" class="card" aria-labelledby="register-title" hidden>
+                <form class="register-form">
+                    <h1 id="registerTitle" class="form-title">Cadastre-se !!</h1>
+                    <p id="registerDesc" class="form-desc">Insira seu email e senha para ter acesso a todos os seus
+                        cursos</p>
+                    <label for="username">Nome de Usuário</label>
+                    <input id="username" type="text" placeholder="Nome de usuário" required class="input-field">
 
-            <form class="register-form">
-                <h1 id="registerTitle" class="form-title">Cadastre-se !!</h1>
-                <p id="registerDesc" class="form-desc">Insira seu email e senha para ter acesso a todos os seus
-                    cursos</p>
-                <label for="username">Nome de Usuário</label>
-                <input id="username" type="text" placeholder="Nome de usuário" required class="input-field">
+                    <label for="email">Email</label>
+                    <input id="email" type="email" placeholder="Ex: exemplo@dominio.com" required class="input-field">
 
-                <label for="email">Email</label>
-                <input id="email" type="email" placeholder="Ex: exemplo@dominio.com" required class="input-field">
+                    <label for="birthdate">Data de nascimento</label>
+                    <input id="birthdate" type="date" required class="input-field">
 
-                <label for="password">Senha</label>
-                <input id="password" type="password" placeholder="Senha" required class="input-field">
+                    <div class="password-group">
+                        <div class="field">
+                            <label for="register-password">Senha</label>
+                            <input id="register-password" type="password" placeholder="Senha" required
+                                class="input-field">
+                        </div>
+                        <div class="field">
+                            <label for="confirm-password">Confirmar Senha</label>
+                            <input id="confirm-password" type="password" placeholder="Confirme a senha" required
+                                class="input-field">
+                        </div>
+                    </div>
+                    <button type="submit" class="btn">Cadastrar</button>
+                </form>
 
-                <label for="confirmPassword">Confirme a Senha</label>
-                <input id="confirmPassword" type="password" placeholder="Confirme a senha" required class="input-field">
+            </section>
+        </div>
 
-                <button type="submit" class="btn">Cadastrar</button>
-            </form>
 
-        </section>
-        <!-- o Aside contém informações adicionais e o painel que irá alternar ed local -->
+        <!-- o Aside contém informações adicionais e o painel que irá alternar de local, de cadastro para login e vice-versa -->
         <aside id="bluePanel">
 
             <img src="../assets/LogoModoClaro.png" alt="Logo da plataforma de curso digital CAD" id="bluePanelLogo">
