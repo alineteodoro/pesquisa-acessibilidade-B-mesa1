@@ -1,0 +1,391 @@
+:root {
+    --azul-escuro: #102030;
+    --azul-medio: #0245A8;
+    --azul-claro: #1E88EE;
+    --branco-azulado: #F6F7FF;
+    --branco: #FFFFFF;
+    --cinza: #324154;
+    --cinza-claro: #4b5d73;
+}
+
+/* ==========================Overlay========================== */
+/* .accessibility-menu::backdrop{
+    background:rgba(0,0,0,.45);
+    backdrop-filter:blur(2px);
+} */
+body {
+    overflow-x: hidden;
+}
+
+.selected {
+    background-color: var(--azul-claro);
+}
+
+/* ==========================Painel========================== */
+
+.accessibility-menu {
+    border: none;
+    border-radius: 2rem;
+    padding: 0;
+    margin: 0;
+    width: 100%;
+    max-width: 380px;
+    height: calc(100vh - 2rem);
+    position: fixed;
+    left: auto;
+    right: 1rem;
+    top: 1rem;
+    background: #102030;
+    color: var(--branco);
+    flex-direction: column;
+    box-shadow: -10px 0 40px rgba(0, 0, 0, .35);
+}
+
+.accessibility-menu.open {
+    transform: translateX(0);
+}
+
+/* ==========================Cabeçalho========================== */
+
+.accessibility-header {
+    display: flex;
+    justify-content: space-between;
+    padding: 1.4rem;
+    align-items: center;
+    border-bottom: 1px solid var(--branco-azulado);
+    position: sticky;
+    top: 0;
+    gap: 1rem;
+    background: var(--azul-escuro);
+    z-index: 5;
+}
+
+.accessibility-header h2 {
+    margin: 0;
+    font-size: 1.2rem;
+    font-weight: 600;
+}
+
+.close-accessibility {
+    width: 42px;
+    height: 42px;
+    border: none;
+    border-radius: 12px;
+    background: #29384b;
+    color: var(--branco);
+    cursor: pointer;
+    transition: .4s;
+}
+
+.close-accessibility:hover {
+    background: var(--azul-medio);
+}
+
+fieldset {
+    border: none;
+}
+
+.icon-section {
+    width: 2rem;
+}
+
+/* ==========================Conteúdo========================== */
+.accessibility-content {
+    display: flex;
+    flex-direction: column;
+    gap: 18px;
+    padding: 1.4rem;
+    overflow-y: auto;
+    flex: 1;
+
+}
+
+/* ==========================Estilizar a Scrollbar Interna========================== */
+.accessibility-menu::-webkit-scrollbar {
+    width: 10px;
+}
+
+.accessibility-menu::-webkit-scrollbar-track {
+    background: transparent;
+    margin-block: 6rem;
+}
+
+
+/* ==========================Card========================== */
+
+.accessibility-card {
+    background: #263445;
+    border-radius: 16px;
+    padding: 1rem;
+    border: 1px solid rgba(255, 255, 255, .07);
+}
+
+.accessibility-card h3 {
+    display: flex;
+    align-items: center;
+    gap: .8rem;
+    font-size: 1rem;
+    font-weight: 600;
+}
+
+.accessibility-card h1 {
+    margin: 0;
+}
+
+/* ==========================Texto========================== */
+.control-group {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+}
+
+.font-controls {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 2rem;
+}
+
+.font-controls button {
+    width: 48px;
+    height: 42px;
+    border-radius: 10px;
+    border: 1px solid var(--branco-azulado);
+    background: var(--cinza);
+    color: var(--branco);
+    cursor: pointer;
+    font-size: 1.4rem;
+    transition: .5s;
+
+}
+
+.font-controls button:hover {
+    background-color: var(--azul-medio);
+}
+
+.font-controls output {
+    font-weight: 600;
+    font-size: 1.2rem;
+}
+
+/* ==========================Botões grandes========================== */
+
+.segmented {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: .7rem;
+}
+
+.segmented button {
+    border: none;
+    border-radius: 10px;
+    background: transparent;
+    border: 1px solid var(--cinza-claro);
+    color: var(--branco);
+    cursor: pointer;
+    transition: .2s;
+    font-weight: 600;
+    font-size: 1rem;
+    padding: .6rem;
+}
+
+.segmented button:hover {
+    background: var(--azul-medio);
+}
+
+.segmented button.selected {
+    background: var(--azul-claro);
+    border: none;
+    color: var(--branco);
+}
+
+/* ==========================Grid Daltonismo========================== */
+
+.grid-buttons {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: .7rem;
+}
+
+.grid-buttons button {
+    padding: .5rem;
+    border: 1px solid var(--cinza-claro);
+    border-radius: 10px;
+    background: transparent;
+    color: inherit;
+    font: inherit;
+    cursor: pointer;
+    transition:
+        background .25s,
+        color .25s;
+}
+
+.grid-buttons button:hover {
+    background: var(--azul-medio);
+}
+
+.grid-buttons button.selected {
+    background: var(--azul-claro);
+    border: none;
+    color: var(--branco);
+}
+
+/* ==========================Inputs de cor========================== */
+
+.color-picker {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-bottom: 15px;
+}
+
+.color-picker label {
+    font-weight: 600;
+    display: flex;
+    align-items: center;
+    gap: 3rem;
+}
+
+.color-picker input[type=color] {
+    width: 90px;
+    height: 40px;
+    border: none;
+    border-radius: 100rem;
+    cursor: pointer;
+    background: none;
+}
+
+/* ==========================Switch Toggle========================== */
+
+.switch-group {
+    display: flex;
+    flex-direction: column;
+    gap: 1.2rem;
+    margin-top: 1rem;
+}
+
+.switch-item {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    cursor: pointer;
+    font-weight: 600;
+    color: #ffffff;
+}
+
+/* Fundo da cápsula desligada (OFF) */
+.switch-item input[type="checkbox"] {
+    appearance: none;
+    -webkit-appearance: none;
+    width: 56px;
+    height: 30px;
+    background-color: var(--branco);
+    border-radius: 50px;
+    position: relative;
+    cursor: pointer;
+    outline: none;
+    flex-shrink: 0;
+    transition: background-color 0.3s ease;
+}
+
+/* Bolinha cinza interna (OFF) */
+.switch-item input[type="checkbox"]::before {
+    content: "";
+    position: absolute;
+    width: 22px;
+    height: 22px;
+    border-radius: 50%;
+    background-color: var(--azul-claro);
+    top: 4px;
+    left: 4px;
+    transition: transform 0.3s ease, background-color 0.3s ease;
+}
+
+/* Estado ativo/ligado (ON) */
+.switch-item input[type="checkbox"]:checked {
+    background-color: var(--azul-claro);
+}
+
+.switch-item input[type="checkbox"]:checked::before {
+    transform: translateX(26px);
+    background-color: var(--branco);
+}
+
+
+
+
+
+/* ==========================
+   Scroll
+========================== */
+
+.accessibility-menu::-webkit-scrollbar {
+    width: 8px;
+}
+
+.accessibility-menu::-webkit-scrollbar-thumb {
+    background: var(--cinza-claro);
+    border-radius: 50px;
+}
+
+.accessibility-button {
+    position: fixed;
+    right: 24px;
+    bottom: 24px;
+    width: 64px;
+    height: 64px;
+    border: none;
+    border-radius: 50%;
+    background: var(--azul-medio);
+    color: var(--branco);
+    font-size: 2rem;
+    font-weight: 600;
+    cursor: pointer;
+    z-index: 9999;
+    box-shadow: 0 10px 20px rgba(0, 0, 0, .25);
+    transition: .25s;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.accessibility-button img{
+    width: 70%;
+    
+}
+.accessibility-button:hover {
+    transform: scale(1.08);
+    background: var(--azul-claro);
+}
+
+.image-title-section {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+}
+
+/* Restaurar Padrões */
+
+.accessibility-footer {
+    width: 100%;
+    border-radius: 2rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+#resetAccessibility {
+    width: 90%;
+    border-radius: 2rem;
+    margin-bottom: 1.5rem;
+    padding: 1rem;
+    background-color: var(--azul-medio);
+    border:none;
+    font-size: 1rem;
+    font-size: 600;
+    color: var(--branco);
+}
+
+#resetAccessibility:hover{
+    background-color: var(--azul-claro);
+    cursor: pointer;
+}

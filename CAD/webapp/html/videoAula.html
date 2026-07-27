@@ -5,7 +5,8 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="../css/videoAula.css">
-    <link rel="stylesheet" href="../css/menuGlobal.css">
+    <link rel="stylesheet" href="../css/Global.css">
+    <link rel="stylesheet" href="../css/menuAcessibilidade.css">
     <link rel="shortcut icon" type="image/x-icon" href="../assets/LogoModoEscuro.png">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -57,9 +58,364 @@
         </nav>
 
     </aside>
-    <main>
+    <main id="main-content" tabindex="-1">
+        <form class="search-form" role="search" aria-label="Pesquisar cursos">
+            <label class="sr-only" for="search-input">Pesquisar cursos</label>
+            <img src="../assets/icons/search 2.svg" class="search-icon" aria-hidden="true"
+                alt="Icone de lupa do campo de busca">
+            <input id="search-input" class="search-input" type="search" name="q" placeholder="Busque por cursos"
+                autocomplete="off" enterkeyhint="search">
+            <button class="sr-only" type="submit">Pesquisar</button>
+        </form>
+        <div class="video-layout-grid">
+            <div class="primary-content">
 
+                <section class="video-player-wrapper" aria-label="Reprodutor de vídeo da aula">
+                    <div class="custom-video-container">
+                        <video controls poster="../assets/FundoPadrao.png"
+                            aria-label="Vídeo da aula sobre ContentDescription em apps mobile">
+                            <source src="../assets/videos/aula.mp4" type="video/mp4">
+                            Seu navegador não suporta a reprodução de vídeos HTML5.
+                        </video>
+
+                    </div>
+                </section>
+
+                <article class="course-header-info">
+                    <h1 class="main-course-title">Acessibilidade mobile: Implementação de ContentDescription</h1>
+
+                    <div class="instructor-bar">
+                        <div class="instructor-profile">
+                            <img src="../assets/User.png"
+                                alt="Foto de perfil da instrutora Aline Teodoro de Carvalho e Silva"
+                                class="instructor-avatar">
+                            <span class="instructor-name">Aline Teodoro de Carvalho e Silva</span>
+                        </div>
+
+                        <div class="rating-badge"
+                            aria-label="Classificação 4.5 de 5 estrelas baseada em 676.767 avaliações">
+                            <span aria-hidden="true">★ 4.5</span>
+                            <span class="rating-count">676767 avaliações</span>
+                        </div>
+                    </div>
+
+                    <div class="tabs-container">
+                        <div role="tablist" aria-label="Informações da aula">
+                            <button role="tab" aria-selected="true" aria-controls="panel-sobre" id="tab-sobre">
+                                Sobre
+                            </button>
+                            <button role="tab" aria-selected="false" aria-controls="panel-avaliacoes"
+                                id="tab-avaliacoes">
+                                Avaliações e comentários
+                            </button>
+                        </div>
+
+                        <div id="panel-sobre" role="tabpanel" aria-labelledby="tab-sobre" tabindex="0"
+                            class="tab-content">
+                            <p>Este curso explica como aplicar diretrizes de acessibilidade em apps mobile: tamanhos de
+                                toque, contraste, leitores de tela e navegação por teclado externo, com exemplos reais
+                                de correção de código.</p>
+                            <p>Este curso explica como aplicar diretrizes de acessibilidade em apps mobile: tamanhos de
+                                toque, contraste, leitores de tela e navegação por teclado externo, com exemplos reais
+                                de correção de código.</p>
+                            <p>Este curso explica como aplicar diretrizes de acessibilidade em apps mobile: tamanhos de
+                                toque, contraste, leitores de tela e navegação por teclado externo, com exemplos reais
+                                de correção de código.</p>
+
+                            <div class="comment-section">
+                                <form class="comment-form">
+                                    <div class="field-group">
+                                        <label for="comment-input">Enviar avaliação</label>
+                                        <textarea id="comment-input" rows="4"
+                                            placeholder="Deixa um comentário sobre esta aula"></textarea>
+                                    </div>
+                                    <button type="submit" class="submit-button">Enviar avaliação</button>
+                                </form>
+                            </div>
+                        </div>
+
+                        <div id="panel-avaliacoes" role="tabpanel" aria-labelledby="tab-avaliacoes" tabindex="0"
+                            class="tab-content" hidden>
+                            <ul class="comments-list">
+
+                                <li class="comment-item">
+                                    <img src="../assets/User.png" alt="Foto de Aline Silva" class="comment-avatar">
+                                    <div class="comment-body">
+                                        <div class="comment-header">
+                                            <span class="comment-author">Aline Silva</span>
+                                            <span class="comment-rating" aria-label="Avaliação 4.5 de 5 estrelas">
+                                                <span aria-hidden="true">★</span> 4.5
+                                            </span>
+                                        </div>
+                                        <p class="comment-text">
+                                            Este vídeo foi feito por um sigma muito farmador de aura, a pessoa mais
+                                            braba de todos os tempos. O verdadeiro Dragão Guerreiro!!
+                                        </p>
+                                    </div>
+                                </li>
+
+                                <li class="comment-item">
+                                    <img src="../assets/User.png" alt="Foto de Aline Silva" class="comment-avatar">
+                                    <div class="comment-body">
+                                        <div class="comment-header">
+                                            <span class="comment-author">Aline Silva</span>
+                                            <span class="comment-rating" aria-label="Avaliação 4.5 de 5 estrelas">
+                                                <span aria-hidden="true">★</span> 4.5
+                                            </span>
+                                        </div>
+                                        <p class="comment-text">
+                                            Este vídeo foi feito por um sigma muito farmador de aura, a pessoa mais
+                                            braba de todos os tempos. O verdadeiro Dragão Guerreiro!!
+                                        </p>
+                                    </div>
+                                </li>
+
+                                <li class="comment-item">
+                                    <img src="../assets/User.png" alt="Foto de Aline Silva" class="comment-avatar">
+                                    <div class="comment-body">
+                                        <div class="comment-header">
+                                            <span class="comment-author">Aline Silva</span>
+                                            <span class="comment-rating" aria-label="Avaliação 4.5 de 5 estrelas">
+                                                <span aria-hidden="true">★</span> 4.5
+                                            </span>
+                                        </div>
+                                        <p class="comment-text">
+                                            Este vídeo foi feito por um sigma muito farmador de aura, a pessoa mais
+                                            braba de todos os tempos. O verdadeiro Dragão Guerreiro!!
+                                        </p>
+                                    </div>
+                                </li>
+
+                            </ul>
+                        </div>
+                    </div>
+
+                </article>
+            </div>
+
+            <aside class="related-sidebar" aria-labelledby="related-courses-title">
+                <h2 id="related-courses-title" class="related-title">Cursos relacionados</h2>
+
+                <ul class="related-list">
+                    <li>
+                        <a href="#" class="related-card">
+                            <img src="../assets/User.png" alt="Imagem do curso xxxx" class="related-thumb" aria-hidden="true">
+                            <div class="related-details">
+                                <h3>Acessibilidade mobile: Implementação ...</h3>
+                                <p class="course-category">Mobile</p>
+                            </div>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="#" class="related-card">
+                            <img src="../assets/User.png" alt="Imagem do curso xxxx" class="related-thumb" aria-hidden="true">
+                            <div class="related-details">
+                                <h3>Acessibilidade mobile: Implementação ...</h3>
+                                <p class="course-category">Mobile</p>
+                            </div>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="#" class="related-card">
+                            <img src="../assets/User.png" alt="Imagem do curso xxxx" class="related-thumb" aria-hidden="true">
+                            <div class="related-details">
+                                <h3>Acessibilidade mobile: Implementação ...</h3>
+                                <p class="course-category">Mobile</p>
+                            </div>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="#" class="related-card">
+                            <img src="../assets/User.png" alt="Imagem do curso xxxx" class="related-thumb" aria-hidden="true">
+                            <div class="related-details">
+                                <h3>Acessibilidade mobile: Implementação ...</h3>
+                                <p class="course-category">Mobile</p>
+                            </div>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="#" class="related-card">
+                            <img src="../assets/User.png" alt="Imagem do curso xxxx" class="related-thumb" aria-hidden="true">
+                            <div class="related-details">
+                                <h3>Acessibilidade mobile: Implementação ...</h3>
+                                <p class="course-category">Mobile</p>
+                            </div>
+                        </a>
+                    </li>
+                </ul>
+            </aside>
+
+        </div>
     </main>
+    <button commandfor="accessibilityMenu" command="show-modal" id="accessibilityButton" class="accessibility-button"
+        aria-label="Abrir menu de acessibilidade" aria-controls="accessibilityMenu" aria-expanded="false">
+        <img src="../assets/icons/marketing-agent.png" alt="Icone para o menu de acessibilidade">
+    </button>
+
+    <!-- menu -->
+    <dialog id="accessibilityMenu" class="accessibility-menu" aria-labelledby="accessibility-title">
+
+        <header class="accessibility-header">
+            <h2 id="accessibility-title">Menu de acessibilidade</h2>
+
+            <button type="button" commandfor="accessibilityMenu" command="close" class="close-accessibility">
+                X
+            </button>
+
+        </header>
+
+        <div class="accessibility-content">
+
+            <!-- TEXTO -->
+            <section class="accessibility-card" aria-labelledby="text-title">
+                <div class="image-title-section">
+                    <h1>A</h1>
+                    <h3 class="menu-title-section">Texto</h3>
+                </div>
+                <div class="control-group">
+                    <label for="font-size-slider">Tamanho da fonte</label>
+                    <div class="font-controls">
+                        <button id="font-decrease" aria-label="Diminuir tamanho da fonte">A-</button>
+                        <output id="font-value">100%</output>
+                        <button id="font-increase" aria-label="Aumentar tamanho da fonte">A+</button>
+                    </div>
+                </div>
+            </section>
+
+            <!-- TEMA -->
+            <section class="accessibility-card" aria-labelledby="theme-title">
+                <div class="image-title-section">
+                    <img src="../assets/icons/moon.png"
+                        alt="icone de uma paleta de cores, seção de tema de mudança de tema" class="icon-section">
+                    <h3 class="menu-title-section">Tema</h3>
+                </div>
+                <fieldset class="segmented">
+                    <button>Claro</button>
+                    <button class="selected">Escuro</button>
+                </fieldset>
+            </section>
+
+            <!-- CONTRASTE -->
+            <section class="accessibility-card" aria-labelledby="contrast-title">
+                <div class="image-title-section">
+                    <img src="../assets/icons/contrast.png" alt="Icone de contraste, seção de troca de contraste"
+                        class="icon-section">
+                    <h3 class="menu-title-section">Contraste</h3>
+                </div>
+                <fieldset class="segmented">
+                    <button class="selected">Padrão</button>
+                    <button>Alto contraste</button>
+                </fieldset>
+            </section>
+
+            <!-- DALTONISMO -->
+            <section class="accessibility-card" aria-labelledby="color-title">
+                <div class="image-title-section">
+                    <img src="../assets/icons/negative-balance (1) 1.png"
+                        alt="icone de mudança nas paletas de cores, seção de mode de cores" class="icon-section">
+                    <h3 class="menu-title-section">Modo de cores</h3>
+                </div>
+                <div class="grid-buttons">
+                    <button class="selected">Normal</button>
+                    <button>Deuteranopia</button>
+                    <button>Protanopia</button>
+                    <button>Tritanopia</button>
+                </div>
+            </section>
+
+            <!-- CORES -->
+            <section class="accessibility-card" aria-labelledby="custom-color-title">
+                <div class="image-title-section">
+                    <img src="../assets/icons/eye-drops 1.png" alt=" icone de Conta gotas, Seção de personalizar cores"
+                        class="icon-section">
+                    <h3 class="menu-title-section">Personalizar cores</h3>
+                </div>
+                <div class="color-picker">
+                    <label>Cor principal
+                        <input type="color" id="primaryColor">
+                    </label>
+                    <label>Cor de fundo
+                        <input type="color" id="backgroundColor">
+                    </label>
+                </div>
+            </section>
+
+            <!-- LEITURA -->
+
+            <section class="accessibility-card" aria-labelledby="reading-title">
+                <div class="image-title-section">
+                    <img src="../assets/icons/open-book (1).png" alt=" Icone de livro, Seção de leitura"
+                        aria-hidden="true" class="icon-section">
+                    <h3 id="reading-title" class="menu-title-section">Leitura</h3>
+                </div>
+                <div class="switch-group">
+                    <label class="switch-item">
+                        <input type="checkbox" id="readingMode">
+                        <span>Modo leitura</span>
+                    </label>
+
+                    <label class="switch-item">
+                        <input type="checkbox" id="hideImages">
+                        <span>Esconder imagens</span>
+                    </label>
+
+                    <label class="switch-item">
+                        <input type="checkbox" id="largeCursor">
+                        <span>Cursor grande</span>
+                    </label>
+                </div>
+            </section>
+
+            <!-- VOZ -->
+            <section class="accessibility-card" aria-labelledby="voice-title">
+                <div class="image-title-section">
+                    <img src="../assets/icons/volume-up.png" alt="icone de som, seção de voz " class="icon-section">
+                    <h3 class="menu-title-section">Voz</h3>
+                </div>
+                <div class="switch-group">
+                    <label class="switch-item">
+                        <input type="checkbox" id="screenReader">
+                        <span>Narrar interface</span>
+                    </label>
+                    <label class="switch-item">
+                        <input type="checkbox" id="autoReadLinks">
+                        <span>Ler links automaticamente</span>
+                    </label>
+                </div>
+            </section>
+
+            <!-- ANIMAÇÕES -->
+            <section class="accessibility-card" aria-labelledby="motion-title">
+                <div class="image-title-section">
+                    <img src="../assets/icons/arrows.png"
+                        alt="icone de setas se movimentando, seção de movimento na página" class="icon-section">
+                    <h3 class="menu-title-section">Movimento</h3>
+                </div>
+                <label class="switch-item">
+                    <input type="checkbox" id="reduceMotion">
+                    Reduzir animações
+                </label>
+            </section>
+
+            <!-- FOCO -->
+            <section class="accessibility-card" aria-labelledby="focus-title">
+                <div class="image-title-section">
+                    <img src="../assets/icons/gps-navigation.png" alt="icone de seta, seção de navegação na página"
+                        class="icon-section">
+                    <h3 class="menu-title-section">Navegação</h3>
+                </div>
+                <label class="switch-item">
+                    <input type="checkbox" id="highlightFocus">
+                    Destacar foco do teclado
+                </label>
+            </section>
+        </div>
+
+        <footer class="accessibility-footer" aria-labelledby="resetAccessibility">
+            <button id="resetAccessibility">Restaurar padrões</button>
+        </footer>
+
+    </dialog>
 </body>
 
 </html>

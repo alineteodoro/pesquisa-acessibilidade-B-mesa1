@@ -5,7 +5,8 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="../css/inicio.css">
-    <link rel="stylesheet" href="../css/menuGlobal.css">
+    <link rel="stylesheet" href="../css/Global.css">
+    <link rel="stylesheet" href="../css/menuAcessibilidade.css">
     <link rel="shortcut icon" type="image/x-icon" href="../assets/LogoModoEscuro.png">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -19,29 +20,14 @@
     <a class="skip-link" href="#main-content">
         Pular para o conteúdo principal?
     </a>
-    <!-- <button id="accessibilityButton"
-            aria-label="Abrir menu de acessibilidade"
-            aria-controls="accessibilityMenu"
-            aria-expanded="false">
-
-    </button>
-
-    <aside id="accessibilityMenu"
-           aria-labelledby="accessibilityTitle"
-           hidden>
-
-        ...
-    </aside> -->
     <aside aria-label="Menu de navegação" class="menu">
-        <img src="../assets/User.png" alt="Foto do usuário" fetchpriority="high"/>
+        <img src="../assets/User.png" alt="Foto do usuário" fetchpriority="high" />
         <header>
             <p>Ola!</p>
             <strong>Alanzoka</strong>
         </header>
-        <div class="acitive-indicator">
-
-        </div>
         <nav>
+            <div class="active-indicator"></div>
 
             <ul>
                 <li>
@@ -73,16 +59,31 @@
 
     </aside>
     <main id="main-content">
+        <!-- Input  -->
 
-        <form>
-            <input type="search" id="search-input" placeholder="Busque por cursos">
-            <button type="submit">Pesquisar</button>
+        <form class="search-form" role="search" aria-label="Pesquisar cursos">
+
+            <label class="sr-only" for="search-input">Pesquisar cursos</label>
+
+            <img src="../assets/icons/search 2.svg" class="search-icon" aria-hidden="true"
+                alt="Icone de lupa do campo de busca">
+
+            <input id="search-input" class="search-input" type="search" name="q" placeholder="Busque por cursos"
+                autocomplete="off" enterkeyhint="search">
+
+            <button class="sr-only" type="submit">Pesquisar</button>
+
         </form>
+
+        <!--banner  -->
 
         <section aria-hidden="true" id="banner">
             <img src="../assets/banners/banner 3.png"
                 alt="Banner da extensão de acessibilidade do figma, o stark, que serve para visualizar com outros olhos o seu design" />
         </section>
+
+        <!-- Cards -->
+
         <div class="cards-container">
             <section class="cards" aria-label="Cursos em andamento" aria-labelledby="cards-title">
                 <h1>Cursos em andamento</h1>
@@ -98,8 +99,9 @@
             </section>
         </div>
 
-
         <h1 class="section-title">Continue de onde parou</h1>
+
+        <!--Video aulas  -->
 
         <a href="videoAula.html" class="course-card" aria-labelledby="course-title-12"
             aria-describedby="course-desc-12 course-progress-12">
@@ -141,6 +143,175 @@
         </a>
 
     </main>
+    <button commandfor="accessibilityMenu" command="show-modal" id="accessibilityButton" class="accessibility-button"
+        aria-label="Abrir menu de acessibilidade" aria-controls="accessibilityMenu" aria-expanded="false">
+        <img src="../assets/icons/marketing-agent.png" alt="Icone para o menu de acessibilidade">
+    </button>
+
+    <!-- menu -->
+    <dialog id="accessibilityMenu" class="accessibility-menu" aria-labelledby="accessibility-title">
+
+        <header class="accessibility-header">
+            <h2 id="accessibility-title">Menu de acessibilidade</h2>
+
+            <button type="button" commandfor="accessibilityMenu" command="close" class="close-accessibility">
+                X
+            </button>
+
+        </header>
+
+        <div class="accessibility-content">
+
+            <!-- TEXTO -->
+            <section class="accessibility-card" aria-labelledby="text-title">
+                <div class="image-title-section">
+                    <h1>A</h1>
+                    <h3 class="menu-title-section">Texto</h3>
+                </div>
+                <div class="control-group">
+                    <label for="font-size-slider">Tamanho da fonte</label>
+                    <div class="font-controls">
+                        <button id="font-decrease" aria-label="Diminuir tamanho da fonte">A-</button>
+                        <output id="font-value">100%</output>
+                        <button id="font-increase" aria-label="Aumentar tamanho da fonte">A+</button>
+                    </div>
+                </div>
+            </section>
+
+            <!-- TEMA -->
+            <section class="accessibility-card" aria-labelledby="theme-title">
+                <div class="image-title-section">
+                    <img src="../assets/icons/moon.png"
+                        alt="icone de uma paleta de cores, seção de tema de mudança de tema" class="icon-section">
+                    <h3 class="menu-title-section">Tema</h3>
+                </div>
+                <fieldset class="segmented">
+                    <button>Claro</button>
+                    <button class="selected">Escuro</button>
+                </fieldset>
+            </section>
+
+            <!-- CONTRASTE -->
+            <section class="accessibility-card" aria-labelledby="contrast-title">
+                <div class="image-title-section">
+                    <img src="../assets/icons/contrast.png"
+                        alt="Icone de contraste, seção de troca de contraste" class="icon-section">
+                    <h3 class="menu-title-section">Contraste</h3>
+                </div>
+                <fieldset class="segmented">
+                    <button class="selected">Padrão</button>
+                    <button>Alto contraste</button>
+                </fieldset>
+            </section>
+
+            <!-- DALTONISMO -->
+            <section class="accessibility-card" aria-labelledby="color-title">
+                <div class="image-title-section">
+                    <img src="../assets/icons/negative-balance (1) 1.png"
+                        alt="icone de mudança nas paletas de cores, seção de mode de cores" class="icon-section">
+                    <h3 class="menu-title-section">Modo de cores</h3>
+                </div>
+                <div class="grid-buttons">
+                    <button class="selected">Normal</button>
+                    <button>Deuteranopia</button>
+                    <button>Protanopia</button>
+                    <button>Tritanopia</button>
+                </div>
+            </section>
+
+            <!-- CORES -->
+            <section class="accessibility-card" aria-labelledby="custom-color-title">
+                <div class="image-title-section">
+                    <img src="../assets/icons/eye-drops 1.png" alt=" icone de Conta gotas, Seção de personalizar cores"
+                        class="icon-section">
+                    <h3 class="menu-title-section">Personalizar cores</h3>
+                </div>
+                <div class="color-picker">
+                    <label>Cor principal
+                        <input type="color" id="primaryColor">
+                    </label>
+                    <label>Cor de fundo
+                        <input type="color" id="backgroundColor">
+                    </label>
+                </div>
+            </section>
+
+            <!-- LEITURA -->
+
+            <section class="accessibility-card" aria-labelledby="reading-title">
+                <div class="image-title-section">
+                    <img src="../assets/icons/open-book (1).png" alt=" Icone de livro, Seção de leitura" aria-hidden="true" class="icon-section">
+                    <h3 id="reading-title" class="menu-title-section">Leitura</h3>
+                </div>
+                <div class="switch-group">
+                    <label class="switch-item">
+                        <input type="checkbox" id="readingMode">
+                        <span>Modo leitura</span>
+                    </label>
+
+                    <label class="switch-item">
+                        <input type="checkbox" id="hideImages">
+                        <span>Esconder imagens</span>
+                    </label>
+
+                    <label class="switch-item">
+                        <input type="checkbox" id="largeCursor">
+                        <span>Cursor grande</span>
+                    </label>
+                </div>
+            </section>
+
+            <!-- VOZ -->
+            <section class="accessibility-card" aria-labelledby="voice-title">
+                <div class="image-title-section">
+                    <img src="../assets/icons/volume-up.png" alt="icone de som, seção de voz "
+                        class="icon-section">
+                    <h3 class="menu-title-section">Voz</h3>
+                </div>
+                <div class="switch-group">
+                    <label class="switch-item">
+                        <input type="checkbox" id="screenReader">
+                        <span>Narrar interface</span>
+                    </label>
+                    <label class="switch-item">
+                        <input type="checkbox" id="autoReadLinks">
+                        <span>Ler links automaticamente</span>
+                    </label>
+                </div>
+            </section>
+
+            <!-- ANIMAÇÕES -->
+            <section class="accessibility-card" aria-labelledby="motion-title">
+                <div class="image-title-section">
+                    <img src="../assets/icons/arrows.png" alt="icone de setas se movimentando, seção de movimento na página"
+                        class="icon-section">
+                    <h3 class="menu-title-section">Movimento</h3>
+                </div>
+                <label class="switch-item">
+                    <input type="checkbox" id="reduceMotion">
+                    Reduzir animações
+                </label>
+            </section>
+
+            <!-- FOCO -->
+            <section class="accessibility-card" aria-labelledby="focus-title">
+                <div class="image-title-section">
+                    <img src="../assets/icons/gps-navigation.png" alt="icone de seta, seção de navegação na página"
+                        class="icon-section">
+                    <h3 class="menu-title-section">Navegação</h3>
+                </div>
+                <label class="switch-item">
+                    <input type="checkbox" id="highlightFocus">
+                    Destacar foco do teclado
+                </label>
+            </section>
+        </div>
+
+        <footer class="accessibility-footer" aria-labelledby="resetAccessibility">
+            <button id="resetAccessibility">Restaurar padrões</button>
+        </footer>
+
+    </dialog>
 </body>
 
 </html>
