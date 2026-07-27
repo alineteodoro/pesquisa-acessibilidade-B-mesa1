@@ -63,21 +63,18 @@
 
     </main>
     <button commandfor="accessibilityMenu" command="show-modal" id="accessibilityButton" class="accessibility-button"
-        aria-label="Abrir menu de acessibilidade" aria-controls="accessibilityMenu" aria-expanded="false">
-
-        A
+        aria-label="Abrir menu de acessibilidade" aria-controls="accessibilityMenu" aria-expanded="false">A
     </button>
 
-    <!-- menu -->
+     <!-- menu -->
     <dialog id="accessibilityMenu" class="accessibility-menu" aria-labelledby="accessibility-title">
 
         <header class="accessibility-header">
-            <div>
-                <h2 id="accessibility-title">Menu de acessibilidade</h2>
-                <p>
-                    Personalize a plataforma conforme suas necessidades.
-                </p>
-            </div>
+            <h2 id="accessibility-title">Menu de acessibilidade</h2>
+
+            <button type="button" commandfor="accessibilityMenu" command="close" class="close-accessibility">
+                X
+            </button>
 
         </header>
 
@@ -85,7 +82,10 @@
 
             <!-- TEXTO -->
             <section class="accessibility-card" aria-labelledby="text-title">
-                <h3 id="text-title">Texto</h3>
+                <div class="image-title-section">
+                    <h1>A</h1>
+                    <h3 class="menu-title-section">Texto</h3>
+                </div>
                 <div class="control-group">
                     <label for="font-size-slider">Tamanho da fonte</label>
                     <div class="font-controls">
@@ -98,29 +98,37 @@
 
             <!-- TEMA -->
             <section class="accessibility-card" aria-labelledby="theme-title">
-                <h3 id="theme-title">Tema</h3>
-                <div class="segmented">
-                    <button class="selected">Claro</button>
-                    <button>Escuro</button>
+                <div class="image-title-section">
+                    <img src="../assets/icons/moon.png"
+                        alt="Imagem de uma paleta de cores, para indicar ao usuário que esta na " class="icon-section">
+                    <h3 class="menu-title-section">Tema</h3>
                 </div>
+                <fieldset class="segmented">
+                    <button>Claro</button>
+                    <button class="selected">Escuro</button>
+                </fieldset>
             </section>
 
             <!-- CONTRASTE -->
             <section class="accessibility-card" aria-labelledby="contrast-title">
-                <h3 id="contrast-title">
-                    Contraste
-                </h3>
-                <div class="segmented-column">
-                    <button>Padrão</button>
-                    <button>Alto contraste</button>
+                <div class="image-title-section">
+                    <img src="../assets/icons/negative-balance (1) 1.png"
+                        alt="Icone do modo escuro, referência a mudança " class="icon-section">
+                    <h3 class="menu-title-section">Contraste</h3>
                 </div>
+                <fieldset class="segmented">
+                    <button class="selected">Padrão</button>
+                    <button>Alto contraste</button>
+                </fieldset>
             </section>
 
             <!-- DALTONISMO -->
             <section class="accessibility-card" aria-labelledby="color-title">
-                <h3 id="color-title">
-                    Modo de cores
-                </h3>
+                <div class="image-title-section">
+                    <img src="../assets/icons/negative-balance (1) 1.png"
+                        alt="Icone do modo escuro, referência a mudança " class="icon-section">
+                    <h3 class="menu-title-section">Modo de cores</h3>
+                </div>
                 <div class="grid-buttons">
                     <button>Normal</button>
                     <button>Deuteranopia</button>
@@ -131,7 +139,11 @@
 
             <!-- CORES -->
             <section class="accessibility-card" aria-labelledby="custom-color-title">
-                <h3 id="custom-color-title">Personalizar cores</h3>
+                <div class="image-title-section">
+                    <img src="../assets/icons/eye-drops 1.png" alt="Icone do modo escuro, referência a mudança "
+                        class="icon-section">
+                    <h3 class="menu-title-section">Personalizar cores</h3>
+                </div>
                 <div class="color-picker">
                     <label>Cor principal
                         <input type="color" id="primaryColor">
@@ -145,7 +157,11 @@
             <!-- LEITURA -->
 
             <section class="accessibility-card" aria-labelledby="reading-title">
-                <h3 id="reading-title">Leitura</h3>
+                <div class="image-title-section">
+                    <img src="../assets/icons/negative-balance (1) 1.png"
+                        alt="Icone do modo escuro, referência a mudança " class="icon-section">
+                    <h3 class="menu-title-section">Leitura</h3>
+                </div>
                 <div class="switch-group">
                     <label>
                         <input type="checkbox" id="readingMode">
@@ -164,7 +180,11 @@
 
             <!-- VOZ -->
             <section class="accessibility-card" aria-labelledby="voice-title">
-                <h3 id="voice-title">Voz</h3>
+                <div class="image-title-section">
+                    <img src="../assets/icons/volume-up.png" alt="Icone do modo escuro, referência a mudança "
+                        class="icon-section">
+                    <h3 class="menu-title-section">Voz</h3>
+                </div>
                 <div class="switch-group">
                     <label>
                         <input type="checkbox" id="screenReader">
@@ -179,7 +199,11 @@
 
             <!-- ANIMAÇÕES -->
             <section class="accessibility-card" aria-labelledby="motion-title">
-                <h3 id="motion-title">Movimento</h3>
+                <div class="image-title-section">
+                    <img src="../assets/icons/volume-up.png" alt="Icone do modo escuro, referência a mudança "
+                        class="icon-section">
+                    <h3 class="menu-title-section">Movimento</h3>
+                </div> 
                 <label>
                     <input type="checkbox" id="reduceMotion">
                     Reduzir animações
@@ -188,7 +212,11 @@
 
             <!-- FOCO -->
             <section class="accessibility-card" aria-labelledby="focus-title">
-                <h3 id="focus-title">Navegação</h3>
+                <div class="image-title-section">
+                    <img src="../assets/icons/volume-up.png" alt="Icone do modo escuro, referência a mudança "
+                        class="icon-section">
+                    <h3 class="menu-title-section">Navegação</h3>
+                </div> 
                 <label>
                     <input type="checkbox" id="highlightFocus">
                     Destacar foco do teclado
