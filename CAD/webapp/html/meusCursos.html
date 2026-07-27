@@ -59,15 +59,106 @@
 
     </aside>
     <main>
+        <!-- Input  -->
 
+        <form class="search-form" role="search" aria-label="Pesquisar cursos">
+
+            <label class="sr-only" for="search-input">Pesquisar cursos</label>
+
+            <img src="../assets/icons/search 2.svg" class="search-icon" aria-hidden="true"
+                alt="Icone de lupa do campo de busca">
+
+            <input id="search-input" class="search-input" type="search" name="q" placeholder="Busque por cursos"
+                autocomplete="off" enterkeyhint="search">
+
+            <button class="sr-only" type="submit">Pesquisar</button>
+
+        </form>
+
+        <div>
+            <div class="section-buttons">
+                <section class="selected">todos</section>
+                <section>concluida</section>
+                <section>em andamento</section>
+            </div>
+            <div class="section-buttons">
+                <section class="selected">Todos</section>
+                <section>Mobile</section>
+                <section>Web</section>
+                <section>Front-end</section>
+                <section>Banckend</section>
+                <section>Desing & UX</section>
+                <section>Ferramentas</section>
+            </div>
+        </div>
+
+        <a href="videoAula.html" class="course-card" aria-labelledby="course-title-12"
+            aria-describedby="course-desc-12 course-progress-12">
+            <img src="../assets/FundoPadrão.png" alt="Imagem do curso de HTML e CSS" class="course-image" />
+            <div class="course-info">
+                <h2 id="course-title-12">Curso de HTML e CSS</h2>
+                <progress id="course-progress-12" value="50" max="100">50%</progress>
+                <div class="course-desc">
+                    <p id="course-desc-12">Mobile</p>
+                    <p id="course-autor-12">David Lucas Reche Garcia Bento</p>
+                </div>
+            </div>
+        </a>
+        <a href="videoAula.html" class="course-card" aria-labelledby="course-title-12"
+            aria-describedby="course-desc-12 course-progress-12">
+            <img src="../assets/FundoPadrão.png" alt="Imagem do curso de HTML e CSS" class="course-image" />
+            <div class="course-info">
+                <h2 id="course-title-12">Curso de HTML e CSS</h2>
+                <progress id="course-progress-12" value="50" max="100">50%</progress>
+                <div class="course-desc">
+                    <p id="course-desc-12">Mobile</p>
+                    <p id="course-autor-12">David Lucas Reche Garcia Bento</p>
+                </div>
+            </div>
+        </a>
+        <a href="videoAula.html" class="course-card" aria-labelledby="course-title-12"
+            aria-describedby="course-desc-12 course-progress-12">
+            <img src="../assets/FundoPadrão.png" alt="Imagem do curso de HTML e CSS" class="course-image" />
+            <div class="course-info">
+                <h2 id="course-title-12">Curso de HTML e CSS</h2>
+                <progress id="course-progress-12" value="50" max="100">50%</progress>
+                <div class="course-desc">
+                    <p id="course-desc-12">Mobile</p>
+                    <p id="course-autor-12">David Lucas Reche Garcia Bento</p>
+                </div>
+            </div>
+        </a>
+        <a href="videoAula.html" class="course-card" aria-labelledby="course-title-12"
+            aria-describedby="course-desc-12 course-progress-12">
+            <img src="../assets/FundoPadrão.png" alt="Imagem do curso de HTML e CSS" class="course-image" />
+            <div class="course-info">
+                <h2 id="course-title-12">Curso de HTML e CSS</h2>
+                <progress id="course-progress-12" value="50" max="100">50%</progress>
+                <div class="course-desc">
+                    <p id="course-desc-12">Mobile</p>
+                    <p id="course-autor-12">David Lucas Reche Garcia Bento</p>
+                </div>
+            </div>
+        </a>
+        <a href="videoAula.html" class="course-card" aria-labelledby="course-title-12"
+            aria-describedby="course-desc-12 course-progress-12">
+            <img src="../assets/FundoPadrão.png" alt="Imagem do curso de HTML e CSS" class="course-image" />
+            <div class="course-info">
+                <h2 id="course-title-12">Curso de HTML e CSS</h2>
+                <progress id="course-progress-12" value="50" max="100">50%</progress>
+                <div class="course-desc">
+                    <p id="course-desc-12">Mobile</p>
+                    <p id="course-autor-12">David Lucas Reche Garcia Bento</p>
+                </div>
+            </div>
+        </a>
     </main>
     <button commandfor="accessibilityMenu" command="show-modal" id="accessibilityButton" class="accessibility-button"
         aria-label="Abrir menu de acessibilidade" aria-controls="accessibilityMenu" aria-expanded="false">
-
-        A
+        <img src="../assets/icons/marketing-agent.png" alt="Icone para o menu de acessibilidade">
     </button>
 
-     <!-- menu -->
+    <!-- menu -->
     <dialog id="accessibilityMenu" class="accessibility-menu" aria-labelledby="accessibility-title">
 
         <header class="accessibility-header">
@@ -101,7 +192,7 @@
             <section class="accessibility-card" aria-labelledby="theme-title">
                 <div class="image-title-section">
                     <img src="../assets/icons/moon.png"
-                        alt="Imagem de uma paleta de cores, para indicar ao usuário que esta na " class="icon-section">
+                        alt="icone de uma paleta de cores, seção de tema de mudança de tema" class="icon-section">
                     <h3 class="menu-title-section">Tema</h3>
                 </div>
                 <fieldset class="segmented">
@@ -113,8 +204,8 @@
             <!-- CONTRASTE -->
             <section class="accessibility-card" aria-labelledby="contrast-title">
                 <div class="image-title-section">
-                    <img src="../assets/icons/negative-balance (1) 1.png"
-                        alt="Icone do modo escuro, referência a mudança " class="icon-section">
+                    <img src="../assets/icons/contrast.png" alt="Icone de contraste, seção de troca de contraste"
+                        class="icon-section">
                     <h3 class="menu-title-section">Contraste</h3>
                 </div>
                 <fieldset class="segmented">
@@ -127,11 +218,11 @@
             <section class="accessibility-card" aria-labelledby="color-title">
                 <div class="image-title-section">
                     <img src="../assets/icons/negative-balance (1) 1.png"
-                        alt="Icone do modo escuro, referência a mudança " class="icon-section">
+                        alt="icone de mudança nas paletas de cores, seção de mode de cores" class="icon-section">
                     <h3 class="menu-title-section">Modo de cores</h3>
                 </div>
                 <div class="grid-buttons">
-                    <button>Normal</button>
+                    <button class="selected">Normal</button>
                     <button>Deuteranopia</button>
                     <button>Protanopia</button>
                     <button>Tritanopia</button>
@@ -141,7 +232,7 @@
             <!-- CORES -->
             <section class="accessibility-card" aria-labelledby="custom-color-title">
                 <div class="image-title-section">
-                    <img src="../assets/icons/eye-drops 1.png" alt="Icone do modo escuro, referência a mudança "
+                    <img src="../assets/icons/eye-drops 1.png" alt=" icone de Conta gotas, Seção de personalizar cores"
                         class="icon-section">
                     <h3 class="menu-title-section">Personalizar cores</h3>
                 </div>
@@ -159,20 +250,22 @@
 
             <section class="accessibility-card" aria-labelledby="reading-title">
                 <div class="image-title-section">
-                    <img src="../assets/icons/negative-balance (1) 1.png"
-                        alt="Icone do modo escuro, referência a mudança " class="icon-section">
-                    <h3 class="menu-title-section">Leitura</h3>
+                    <img src="../assets/icons/open-book (1).png" alt=" Icone de livro, Seção de leitura"
+                        aria-hidden="true" class="icon-section">
+                    <h3 id="reading-title" class="menu-title-section">Leitura</h3>
                 </div>
                 <div class="switch-group">
-                    <label>
+                    <label class="switch-item">
                         <input type="checkbox" id="readingMode">
                         <span>Modo leitura</span>
                     </label>
-                    <label>
+
+                    <label class="switch-item">
                         <input type="checkbox" id="hideImages">
-                        <span>Ocultar imagens</span>
+                        <span>Esconder imagens</span>
                     </label>
-                    <label>
+
+                    <label class="switch-item">
                         <input type="checkbox" id="largeCursor">
                         <span>Cursor grande</span>
                     </label>
@@ -182,16 +275,15 @@
             <!-- VOZ -->
             <section class="accessibility-card" aria-labelledby="voice-title">
                 <div class="image-title-section">
-                    <img src="../assets/icons/volume-up.png" alt="Icone do modo escuro, referência a mudança "
-                        class="icon-section">
+                    <img src="../assets/icons/volume-up.png" alt="icone de som, seção de voz " class="icon-section">
                     <h3 class="menu-title-section">Voz</h3>
                 </div>
                 <div class="switch-group">
-                    <label>
+                    <label class="switch-item">
                         <input type="checkbox" id="screenReader">
                         <span>Narrar interface</span>
                     </label>
-                    <label>
+                    <label class="switch-item">
                         <input type="checkbox" id="autoReadLinks">
                         <span>Ler links automaticamente</span>
                     </label>
@@ -201,11 +293,11 @@
             <!-- ANIMAÇÕES -->
             <section class="accessibility-card" aria-labelledby="motion-title">
                 <div class="image-title-section">
-                    <img src="../assets/icons/volume-up.png" alt="Icone do modo escuro, referência a mudança "
-                        class="icon-section">
+                    <img src="../assets/icons/arrows.png"
+                        alt="icone de setas se movimentando, seção de movimento na página" class="icon-section">
                     <h3 class="menu-title-section">Movimento</h3>
-                </div> 
-                <label>
+                </div>
+                <label class="switch-item">
                     <input type="checkbox" id="reduceMotion">
                     Reduzir animações
                 </label>
@@ -214,18 +306,18 @@
             <!-- FOCO -->
             <section class="accessibility-card" aria-labelledby="focus-title">
                 <div class="image-title-section">
-                    <img src="../assets/icons/volume-up.png" alt="Icone do modo escuro, referência a mudança "
+                    <img src="../assets/icons/gps-navigation.png" alt="icone de seta, seção de navegação na página"
                         class="icon-section">
                     <h3 class="menu-title-section">Navegação</h3>
-                </div> 
-                <label>
+                </div>
+                <label class="switch-item">
                     <input type="checkbox" id="highlightFocus">
                     Destacar foco do teclado
                 </label>
             </section>
         </div>
 
-        <footer class="accessibility-footer">
+        <footer class="accessibility-footer" aria-labelledby="resetAccessibility">
             <button id="resetAccessibility">Restaurar padrões</button>
         </footer>
 

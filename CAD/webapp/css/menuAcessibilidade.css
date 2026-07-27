@@ -336,7 +336,7 @@ fieldset {
     height: 64px;
     border: none;
     border-radius: 50%;
-    background: #0245A8;
+    background: var(--azul-medio);
     color: var(--branco);
     font-size: 2rem;
     font-weight: 600;

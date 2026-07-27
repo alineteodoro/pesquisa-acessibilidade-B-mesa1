@@ -19,6 +19,7 @@ body {
 
 main {
     padding: 2rem;
+    margin-left: 13.5rem;
 }
 
 /* Link para pular para o conteúdo principal */
@@ -73,7 +74,7 @@ nav {
     padding: 1rem;
     gap: 1rem;
     font-weight: 600;
-    position:fixed ;
+    position: fixed;
 }
 
 /* Imagem do usuário no menu */
