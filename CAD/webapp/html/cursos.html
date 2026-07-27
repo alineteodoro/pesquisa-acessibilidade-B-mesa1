@@ -60,7 +60,29 @@
 
     </aside>
     <main>
+        <!-- Input  -->
 
+        <form class="search-form" role="search" aria-label="Pesquisar cursos">
+
+            <label class="sr-only" for="search-input">Pesquisar cursos</label>
+
+            <img src="../assets/icons/search 2.svg" class="search-icon" aria-hidden="true"
+                alt="Icone de lupa do campo de busca">
+
+            <input id="search-input" class="search-input" type="search" name="q" placeholder="Busque por cursos"
+                autocomplete="off" enterkeyhint="search">
+
+            <button class="sr-only" type="submit">Pesquisar</button>
+
+        </form>
+
+        <section aria-hidden="true" id="banner">
+            <img src="../assets/banners/banner 3.png"
+                alt="Banner da extensão de acessibilidade do figma, o stark, que serve para visualizar com outros olhos o seu design" />
+        </section>
+
+
+        
     </main>
     <button commandfor="accessibilityMenu" command="show-modal" id="accessibilityButton" class="accessibility-button"
         aria-label="Abrir menu de acessibilidade" aria-controls="accessibilityMenu" aria-expanded="false">
@@ -113,8 +135,8 @@
             <!-- CONTRASTE -->
             <section class="accessibility-card" aria-labelledby="contrast-title">
                 <div class="image-title-section">
-                    <img src="../assets/icons/contrast.png"
-                        alt="Icone de contraste, seção de troca de contraste" class="icon-section">
+                    <img src="../assets/icons/contrast.png" alt="Icone de contraste, seção de troca de contraste"
+                        class="icon-section">
                     <h3 class="menu-title-section">Contraste</h3>
                 </div>
                 <fieldset class="segmented">
@@ -159,7 +181,8 @@
 
             <section class="accessibility-card" aria-labelledby="reading-title">
                 <div class="image-title-section">
-                    <img src="../assets/icons/open-book (1).png" alt=" Icone de livro, Seção de leitura" aria-hidden="true" class="icon-section">
+                    <img src="../assets/icons/open-book (1).png" alt=" Icone de livro, Seção de leitura"
+                        aria-hidden="true" class="icon-section">
                     <h3 id="reading-title" class="menu-title-section">Leitura</h3>
                 </div>
                 <div class="switch-group">
@@ -183,8 +206,7 @@
             <!-- VOZ -->
             <section class="accessibility-card" aria-labelledby="voice-title">
                 <div class="image-title-section">
-                    <img src="../assets/icons/volume-up.png" alt="icone de som, seção de voz "
-                        class="icon-section">
+                    <img src="../assets/icons/volume-up.png" alt="icone de som, seção de voz " class="icon-section">
                     <h3 class="menu-title-section">Voz</h3>
                 </div>
                 <div class="switch-group">
@@ -202,8 +224,8 @@
             <!-- ANIMAÇÕES -->
             <section class="accessibility-card" aria-labelledby="motion-title">
                 <div class="image-title-section">
-                    <img src="../assets/icons/arrows.png" alt="icone de setas se movimentando, seção de movimento na página"
-                        class="icon-section">
+                    <img src="../assets/icons/arrows.png"
+                        alt="icone de setas se movimentando, seção de movimento na página" class="icon-section">
                     <h3 class="menu-title-section">Movimento</h3>
                 </div>
                 <label class="switch-item">

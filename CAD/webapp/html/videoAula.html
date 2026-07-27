@@ -58,8 +58,194 @@
         </nav>
 
     </aside>
-    <main>
+    <main id="main-content" tabindex="-1">
+        <form class="search-form" role="search" aria-label="Pesquisar cursos">
+            <label class="sr-only" for="search-input">Pesquisar cursos</label>
+            <img src="../assets/icons/search 2.svg" class="search-icon" aria-hidden="true"
+                alt="Icone de lupa do campo de busca">
+            <input id="search-input" class="search-input" type="search" name="q" placeholder="Busque por cursos"
+                autocomplete="off" enterkeyhint="search">
+            <button class="sr-only" type="submit">Pesquisar</button>
+        </form>
+        <div class="video-layout-grid">
+            <div class="primary-content">
 
+                <section class="video-player-wrapper" aria-label="Reprodutor de vídeo da aula">
+                    <div class="custom-video-container">
+                        <video controls poster="../assets/FundoPadrao.png"
+                            aria-label="Vídeo da aula sobre ContentDescription em apps mobile">
+                            <source src="../assets/videos/aula.mp4" type="video/mp4">
+                            Seu navegador não suporta a reprodução de vídeos HTML5.
+                        </video>
+
+                    </div>
+                </section>
+
+                <article class="course-header-info">
+                    <h1 class="main-course-title">Acessibilidade mobile: Implementação de ContentDescription</h1>
+
+                    <div class="instructor-bar">
+                        <div class="instructor-profile">
+                            <img src="../assets/User.png"
+                                alt="Foto de perfil da instrutora Aline Teodoro de Carvalho e Silva"
+                                class="instructor-avatar">
+                            <span class="instructor-name">Aline Teodoro de Carvalho e Silva</span>
+                        </div>
+
+                        <div class="rating-badge"
+                            aria-label="Classificação 4.5 de 5 estrelas baseada em 676.767 avaliações">
+                            <span aria-hidden="true">★ 4.5</span>
+                            <span class="rating-count">676767 avaliações</span>
+                        </div>
+                    </div>
+
+                    <div class="tabs-container">
+                        <div role="tablist" aria-label="Informações da aula">
+                            <button role="tab" aria-selected="true" aria-controls="panel-sobre" id="tab-sobre">
+                                Sobre
+                            </button>
+                            <button role="tab" aria-selected="false" aria-controls="panel-avaliacoes"
+                                id="tab-avaliacoes">
+                                Avaliações e comentários
+                            </button>
+                        </div>
+
+                        <div id="panel-sobre" role="tabpanel" aria-labelledby="tab-sobre" tabindex="0"
+                            class="tab-content">
+                            <p>Este curso explica como aplicar diretrizes de acessibilidade em apps mobile: tamanhos de
+                                toque, contraste, leitores de tela e navegação por teclado externo, com exemplos reais
+                                de correção de código.</p>
+                            <p>Este curso explica como aplicar diretrizes de acessibilidade em apps mobile: tamanhos de
+                                toque, contraste, leitores de tela e navegação por teclado externo, com exemplos reais
+                                de correção de código.</p>
+                            <p>Este curso explica como aplicar diretrizes de acessibilidade em apps mobile: tamanhos de
+                                toque, contraste, leitores de tela e navegação por teclado externo, com exemplos reais
+                                de correção de código.</p>
+
+                            <div class="comment-section">
+                                <form class="comment-form">
+                                    <div class="field-group">
+                                        <label for="comment-input">Enviar avaliação</label>
+                                        <textarea id="comment-input" rows="4"
+                                            placeholder="Deixa um comentário sobre esta aula"></textarea>
+                                    </div>
+                                    <button type="submit" class="submit-button">Enviar avaliação</button>
+                                </form>
+                            </div>
+                        </div>
+
+                        <div id="panel-avaliacoes" role="tabpanel" aria-labelledby="tab-avaliacoes" tabindex="0"
+                            class="tab-content" hidden>
+                            <ul class="comments-list">
+
+                                <li class="comment-item">
+                                    <img src="../assets/User.png" alt="Foto de Aline Silva" class="comment-avatar">
+                                    <div class="comment-body">
+                                        <div class="comment-header">
+                                            <span class="comment-author">Aline Silva</span>
+                                            <span class="comment-rating" aria-label="Avaliação 4.5 de 5 estrelas">
+                                                <span aria-hidden="true">★</span> 4.5
+                                            </span>
+                                        </div>
+                                        <p class="comment-text">
+                                            Este vídeo foi feito por um sigma muito farmador de aura, a pessoa mais
+                                            braba de todos os tempos. O verdadeiro Dragão Guerreiro!!
+                                        </p>
+                                    </div>
+                                </li>
+
+                                <li class="comment-item">
+                                    <img src="../assets/User.png" alt="Foto de Aline Silva" class="comment-avatar">
+                                    <div class="comment-body">
+                                        <div class="comment-header">
+                                            <span class="comment-author">Aline Silva</span>
+                                            <span class="comment-rating" aria-label="Avaliação 4.5 de 5 estrelas">
+                                                <span aria-hidden="true">★</span> 4.5
+                                            </span>
+                                        </div>
+                                        <p class="comment-text">
+                                            Este vídeo foi feito por um sigma muito farmador de aura, a pessoa mais
+                                            braba de todos os tempos. O verdadeiro Dragão Guerreiro!!
+                                        </p>
+                                    </div>
+                                </li>
+
+                                <li class="comment-item">
+                                    <img src="../assets/User.png" alt="Foto de Aline Silva" class="comment-avatar">
+                                    <div class="comment-body">
+                                        <div class="comment-header">
+                                            <span class="comment-author">Aline Silva</span>
+                                            <span class="comment-rating" aria-label="Avaliação 4.5 de 5 estrelas">
+                                                <span aria-hidden="true">★</span> 4.5
+                                            </span>
+                                        </div>
+                                        <p class="comment-text">
+                                            Este vídeo foi feito por um sigma muito farmador de aura, a pessoa mais
+                                            braba de todos os tempos. O verdadeiro Dragão Guerreiro!!
+                                        </p>
+                                    </div>
+                                </li>
+
+                            </ul>
+                        </div>
+                    </div>
+
+                </article>
+            </div>
+
+            <aside class="related-sidebar" aria-labelledby="related-courses-title">
+                <h2 id="related-courses-title" class="related-title">Cursos relacionados</h2>
+
+                <ul class="related-list">
+                    <li>
+                        <a href="#" class="related-card">
+                            <img src="../assets/User.png" alt="Imagem do curso xxxx" class="related-thumb" aria-hidden="true">
+                            <div class="related-details">
+                                <h3>Acessibilidade mobile: Implementação ...</h3>
+                                <p class="course-category">Mobile</p>
+                            </div>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="#" class="related-card">
+                            <img src="../assets/User.png" alt="Imagem do curso xxxx" class="related-thumb" aria-hidden="true">
+                            <div class="related-details">
+                                <h3>Acessibilidade mobile: Implementação ...</h3>
+                                <p class="course-category">Mobile</p>
+                            </div>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="#" class="related-card">
+                            <img src="../assets/User.png" alt="Imagem do curso xxxx" class="related-thumb" aria-hidden="true">
+                            <div class="related-details">
+                                <h3>Acessibilidade mobile: Implementação ...</h3>
+                                <p class="course-category">Mobile</p>
+                            </div>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="#" class="related-card">
+                            <img src="../assets/User.png" alt="Imagem do curso xxxx" class="related-thumb" aria-hidden="true">
+                            <div class="related-details">
+                                <h3>Acessibilidade mobile: Implementação ...</h3>
+                                <p class="course-category">Mobile</p>
+                            </div>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="#" class="related-card">
+                            <img src="../assets/User.png" alt="Imagem do curso xxxx" class="related-thumb" aria-hidden="true">
+                            <div class="related-details">
+                                <h3>Acessibilidade mobile: Implementação ...</h3>
+                                <p class="course-category">Mobile</p>
+                            </div>
+                        </a>
+                    </li>
+                </ul>
+            </aside>
+
+        </div>
     </main>
     <button commandfor="accessibilityMenu" command="show-modal" id="accessibilityButton" class="accessibility-button"
         aria-label="Abrir menu de acessibilidade" aria-controls="accessibilityMenu" aria-expanded="false">

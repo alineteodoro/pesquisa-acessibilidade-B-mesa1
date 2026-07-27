@@ -1,0 +1,43 @@
+:root {
+    --azul-escuro: #102030;
+    --azul-medio: #0245A8;
+    --azul-claro: #1E88EE;
+    --branco-azulado: #F6F7FF;
+    --branco: #FFFFFF;
+    --cinza: #324154;
+    --cinza-claro: #4b5d73;
+}
+
+.filters{
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+    width: 100%;
+}
+legend{
+    font-weight: 600;
+    font-size: 1.2rem;
+    color: var(--azul-medio);
+}
+.filter-group{
+    display: flex;
+    align-items: center;
+    gap: 2rem;
+    padding: 0rem 0rem 2rem 0rem;
+    margin: 0;
+}
+.filter-group button{
+    background-color: var(--branco);
+    border-radius: 1rem;
+    padding: .5rem 1rem .5rem 1rem;
+    font-size: .8rem;
+    font-weight: 600;
+    color: var();
+    border: 0.1px solid var(--branco-azulado);
+    box-shadow: -4px 5px 10px rgba(0,0,0,0.4);
+} 
+
+.filter-group button.selected{
+    background-color: var(--azul-claro);
+    color: var(--branco);
+}
