@@ -33,10 +33,14 @@ legend{
     font-size: .8rem;
     font-weight: 600;
     color: var();
-    border: 0.1px solid var(--branco-azulado);
+    border:none;
     box-shadow: -4px 5px 10px rgba(0,0,0,0.4);
 } 
-
+.filter-group button:hover{
+    cursor: pointer;
+    transform: scale(1.1);
+    transition: .3s;
+}
 .filter-group button.selected{
     background-color: var(--azul-claro);
     color: var(--branco);
