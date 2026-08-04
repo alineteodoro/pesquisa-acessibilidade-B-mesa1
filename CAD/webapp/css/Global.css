@@ -46,11 +46,14 @@ main {
     height: 56px;
     border-radius: 16px;
     background-color: var(--azul-medio);
-    transition:
-
-        transform .35s ease;
+    transition: none;
     z-index: -9999;
+}
 
+.active-indicator.animate {
+    transition:
+        top .35s ease,
+        height .35s ease;
 }
 
 /* Classe nav */
