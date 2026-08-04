@@ -223,7 +223,7 @@ body {
   justify-content: center;
   color: var(--azul-escuro);
   cursor: pointer;
-  transition: background-color 0.2s ease, transform 0.15s ease;
+  transition: background-color 0.2s ease, transform 0.15s ease, box-shadow 0.2s ease;
 }
 
 .btn-vote:hover {
@@ -232,8 +232,29 @@ body {
 }
 
 .btn-vote[aria-pressed="true"] {
-  background-color: var(--azul-claro);
+  background-color: var(--azul-medio);
   color: var(--branco);
+  box-shadow: 0 0 0 4px rgba(2, 69, 168, 0.15);
+  animation: vote-active 0.25s ease;
+}
+
+.btn-vote[aria-pressed="true"] svg {
+  fill: currentColor;
+}
+
+@keyframes vote-active {
+  0% {
+    transform: scale(1);
+    box-shadow: 0 0 0 0 rgba(2, 69, 168, 0.25);
+  }
+  50% {
+    transform: scale(1.08);
+    box-shadow: 0 0 0 6px rgba(2, 69, 168, 0.12);
+  }
+  100% {
+    transform: scale(1);
+    box-shadow: 0 0 0 4px rgba(2, 69, 168, 0.15);
+  }
 }
 
 /* ==========================================================================

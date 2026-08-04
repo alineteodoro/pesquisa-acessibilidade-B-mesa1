@@ -276,6 +276,32 @@ legend {
   transform: scale(1.05);
 }
 
+.btn-vote[aria-pressed="true"] {
+  background-color: var(--azul-medio);
+  color: var(--branco);
+  box-shadow: 0 0 0 4px rgba(2, 69, 168, 0.15);
+  animation: vote-active 0.25s ease;
+}
+
+.btn-vote[aria-pressed="true"] svg {
+  fill: currentColor;
+}
+
+@keyframes vote-active {
+  0% {
+    transform: scale(1);
+    box-shadow: 0 0 0 0 rgba(2, 69, 168, 0.25);
+  }
+  50% {
+    transform: scale(1.08);
+    box-shadow: 0 0 0 6px rgba(2, 69, 168, 0.12);
+  }
+  100% {
+    transform: scale(1);
+    box-shadow: 0 0 0 4px rgba(2, 69, 168, 0.15);
+  }
+}
+
 /* ==================================Responsividade========================== ====================== */
 @media (max-width: 900px) {
   .cards-grid {
