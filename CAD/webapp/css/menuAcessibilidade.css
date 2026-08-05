@@ -273,7 +273,6 @@ fieldset {
     color: #ffffff;
 }
 
-/* Fundo da cápsula desligada (OFF) */
 .switch-item input[type="checkbox"] {
     appearance: none;
     -webkit-appearance: none;

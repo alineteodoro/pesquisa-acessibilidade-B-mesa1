@@ -1,6 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
-
+<html lang="pt-BR">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -13,7 +12,7 @@
     <link
         href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap"
         rel="stylesheet">
-    <title>CAD | Perfil</title>
+    <title>Perfil</title>
 </head>
 
 <body>
@@ -59,16 +58,161 @@
 
     </aside>
 
-    <main>
-        <div>
-            <div class="avatar-wrap">
-                <img class="avatar" id="avatar-img" src="foto-atual.jpg" alt="Foto de perfil" />
-
-                <label for="avatar-input" class="avatar-edit" aria-label="Alterar foto de perfil">✎</label>
+    <main id="main-content" class="auth" tabindex="-1">
+        <header class="perfil-header">
+            <div class="avatar-wrapper">
+                <img src="../assets/User.png" alt="Foto de perfil de Alanzoka gamer" class="avatar-img">
+                <label for="avatar-input" class="btn-editar-foto" aria-label="Alterar foto de perfil">✎</label>
                 <input type="file" id="avatar-input" accept="image/png, image/jpeg, image/webp" hidden />
             </div>
-        </div>
+            <div class="user-info">
+                <h1 class="user-name">Alanzoka gamer</h1>
+                <p class="user-email">Alanzoka_gamer@gmail.com</p>
+                <p class="user-date">
+                    <span class="sr-only">Data de cadastro: </span>22/10/2009
+                </p>
+            </div>
+        </header>
 
+        <div class="perfil-grid">
+
+            <section class="perfil-card" aria-labelledby="heading-pessoais">
+                <h2 id="heading-pessoais" class="card-title">Informações pessoais</h2>
+                <form class="card-form" id="form-pessoais">
+                    <div class="field-group">
+                        <label for="nome-completo">Nome completo</label>
+                        <input type="text" id="nome-completo" name="nome-completo" value="Alanzoka gamer"
+                            autocomplete="name" required>
+                    </div>
+
+                    <div class="field-group">
+                        <label for="email-pessoal">Email</label>
+                        <input type="email" id="email-pessoal" name="email-pessoal" value="Alanzoka_gamer@gmail.com"
+                            autocomplete="email" required>
+                    </div>
+                    <!-- 
+                    <div class="field-group">
+                        <label for="idioma-pessoal">Idioma</label>
+                        <select id="idioma-pessoal" name="idioma-pessoal">
+                            <option value="pt-BR" selected>Fut (Brasil)</option>
+                            <option value="en-US">English (US)</option>
+                            <option value="es-ES">Español</option>
+                        </select>
+                    </div> -->
+                    <button type="submit" class="btn-secundario align-self-end">salvar</button>
+
+                </form>
+            </section>
+
+            <section class="perfil-card" aria-labelledby="heading-seguranca">
+                <h2 id="heading-seguranca" class="card-title">Segurança</h2>
+                <form class="card-form" id="form-seguranca">
+                    <div class="field-group">
+                        <label for="senha-atual">Senha atual</label>
+                        <input type="password" id="senha-atual" name="senha-atual" value="1234567890123456"
+                            autocomplete="current-password" required>
+                    </div>
+                    <div class="field-group">
+                        <label for="nova-senha">Nova Senha</label>
+                        <input type="password" id="nova-senha" name="nova-senha" value="1234567890123456"
+                            autocomplete="current-password" required>
+                    </div>
+
+                    <button type="submit" class="btn-secundario align-self-end">Atualizar senha</button>
+                </form>
+            </section>
+
+            <section class="perfil-card" aria-labelledby="heading-acessibilidade">
+                <h2 id="heading-acessibilidade" class="card-title">Preferências de acessibilidade</h2>
+                <div class="switches-list">
+
+                    <div class="switch-row">
+                        <div class="switch-text">
+                            <label id="lbl-legenda-1" for="legenda-auto-1" class="switch-label">Legendas
+                                automáticas</label>
+                            <p id="desc-legenda-1" class="switch-desc">Ative a legenda em todos os vídeos por padrão</p>
+                        </div>
+                        <label class="toggle-switch">
+                            <input type="checkbox" id="legenda-auto-1" aria-labelledby="lbl-legenda-1"
+                                aria-describedby="desc-legenda-1">
+                            <span class="slider" aria-hidden="true"></span>
+                        </label>
+                    </div>
+
+                    <div class="switch-row">
+                        <div class="switch-text">
+                            <label id="lbl-legenda-2" for="legenda-auto-2" class="switch-label">Legendas
+                                automáticas</label>
+                            <p id="desc-legenda-2" class="switch-desc">Ative a legenda em todos os vídeos por padrão</p>
+                        </div>
+                        <label class="toggle-switch">
+                            <input type="checkbox" id="legenda-auto-2" aria-labelledby="lbl-legenda-2"
+                                aria-describedby="desc-legenda-2">
+                            <span class="slider" aria-hidden="true"></span>
+                        </label>
+                    </div>
+
+                    <div class="switch-row">
+                        <div class="switch-text">
+                            <label id="lbl-destaque" for="destaque-foco" class="switch-label">Navegação por teclado com
+                                destaque</label>
+                            <p id="desc-destaque" class="switch-desc">Aumenta o contorno de foco ao usar Tab</p>
+                        </div>
+                        <label class="toggle-switch">
+                            <input type="checkbox" id="destaque-foco" aria-labelledby="lbl-destaque"
+                                aria-describedby="desc-destaque">
+                            <span class="slider" aria-hidden="true"></span>
+                        </label>
+                    </div>
+
+                </div>
+            </section>
+
+            <section class="perfil-card" aria-labelledby="heading-nascimento">
+                <h2 id="heading-nascimento" class="card-title">Data de Nascimento</h2>
+                <form class="card-form" id="form-nascimento">
+                    <div class="field-group">
+                        <label for="data-nascimento">Data de nascimento</label>
+                        <input type="text" id="data-nascimento" name="data-nascimento" value="22/10/2209">
+                    </div>
+
+                    <div class="field-group">
+                        <label for="email-nascimento">E-mail</label>
+                        <input type="email" id="email-nascimento" name="email-nascimento"
+                            value="VaiCorinthians@gmail.com">
+                    </div>
+
+                    <div class="field-group">
+                        <label for="idioma-nascimento">Idioma</label>
+                        <select id="idioma-nascimento" name="idioma-nascimento">
+                            <option value="pt-BR" selected>Fut (Brasil)</option>
+                            <option value="en-US">English (US)</option>
+                        </select>
+                    </div>
+                </form>
+            </section>
+
+            <section class="perfil-card card-full-width" aria-labelledby="heading-acoes">
+                <h2 id="heading-acoes" class="sr-only">Ações da conta</h2>
+
+                <div class="account-action-item">
+                    <div class="action-text">
+                        <h3>Excluir minha conta</h3>
+                        <p>Remova sua conta, progresso e comentários permanentemente</p>
+                    </div>
+                    <button type="button" class="btn-perigo-outline">Excluir conta</button>
+                </div>
+
+                <div class="account-action-item">
+                    <div class="action-text">
+                        <h3>Sair da minha conta</h3>
+                        <p>Saia da sua conta e logue com outra</p>
+                    </div>
+                    <button type="button" class="btn-perigo-outline">Sair da conta</button>
+                </div>
+            </section>
+
+        </div>
     </main>
     <button commandfor="accessibilityMenu" command="show-modal" id="accessibilityButton" class="accessibility-button"
         aria-label="Abrir menu de acessibilidade" aria-controls="accessibilityMenu" aria-expanded="false">
