@@ -11,10 +11,25 @@ document.addEventListener("DOMContentLoaded", () => {
     const updateIndicator = (link = activeLink) => {
         const navRect = nav.getBoundingClientRect()
         const linkRect = link.getBoundingClientRect()
-        const top = linkRect.top - navRect.top
+        const communityLink = nav.querySelector("a[href$='comunidade.html']")
+        const communityRect = communityLink ? communityLink.getBoundingClientRect() : linkRect
 
-        indicator.style.top = `${top}px`
-        indicator.style.height = `${linkRect.height}px`
+        const topPx = linkRect.top - navRect.top
+        const sidePaddingPx = 8
+        const desiredWidthPx = Math.max(linkRect.width, communityRect.width) + sidePaddingPx * 2
+        const maxWidthPx = Math.max(0, navRect.width - sidePaddingPx * 2)
+        const widthPx = Math.min(desiredWidthPx, maxWidthPx)
+
+        const rootFontPx = parseFloat(getComputedStyle(document.documentElement).fontSize) || 16
+        const topRem = (topPx / rootFontPx).toFixed(3)
+        const leftRem = (sidePaddingPx / rootFontPx).toFixed(3)
+        const widthRem = (widthPx / rootFontPx).toFixed(3)
+        const heightRem = (linkRect.height / rootFontPx).toFixed(3)
+
+        indicator.style.top = `${topRem}rem`
+        indicator.style.left = `${leftRem}rem`
+        indicator.style.width = `${widthRem}rem`
+        indicator.style.height = `${heightRem}rem`
     }
 
     const setActiveLink = (link) => {

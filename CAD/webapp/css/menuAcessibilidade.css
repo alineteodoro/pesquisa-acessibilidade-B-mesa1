@@ -399,3 +399,20 @@ fieldset {
     background-color: var(--azul-claro);
     cursor: pointer;
 }
+
+#accessibilityMenu {
+    --azul-escuro: #102030;
+    --azul-medio: #0245A8;
+    --azul-claro: #1E88EE;
+    --azul-fundo-card: #93C5FD;
+    --fundo-pagina: #F4F7FF;
+    --branco: #FFFFFF;
+    --cinza-sub: #4B5563;
+    --cinza-bg-btn: #E5E7EB;
+    --foco-visivel: #0245A8;
+    --branco-azulado: #F6F7FF;
+    --cinza: #C7CFDA;
+    --cinza-claro: #858C9A;
+    --cinza-borda: #E5E7EB;
+    --laranja: #FF6D00;
+}
