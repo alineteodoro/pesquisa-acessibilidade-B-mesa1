@@ -25,6 +25,7 @@ const DEFAULT_BORDER_GRAY = '#E5E7EB';      // --cinza-borda
 const DEFAULT_ORANGE = '#FF6D00';           // --laranja
 
 const DEFAULT_FONT_PERCENT = 100;
+const ACTIVE_INDICATOR_BASE_SIZE = 1;
 
 const fontDecreaseBtn = document.getElementById('font-decrease');
 const fontIncreaseBtn = document.getElementById('font-increase');
@@ -363,13 +364,67 @@ function prepareTextScaling() {
 
 function applyTextScale(percent) {
     const scale = percent / 100;
+
     scalableTextElements.forEach(el => {
         const originalSize = parseFloat(el.dataset.originalFontSize);
+
         if (!originalSize || Number.isNaN(originalSize)) {
             return;
         }
+
         el.style.fontSize = `${(originalSize * scale).toFixed(2)}px`;
     });
+
+    requestAnimationFrame(() => {
+        updateActiveIndicator();
+    });
+}
+
+function applyActiveIndicatorScale(percent) {
+    const scale = percent / 100;
+
+    document.documentElement.style.setProperty(
+        '--active-indicator-scale',
+        scale
+    );
+}
+
+function updateActiveIndicator() {
+    const activeIndicator = document.querySelector('.active-indicator');
+    const activeItem = document.querySelector('.active');
+
+    if (!activeIndicator || !activeItem) {
+        return;
+    }
+
+    const parent = activeIndicator.offsetParent;
+
+    if (!parent) {
+        return;
+    }
+
+    const itemRect = activeItem.getBoundingClientRect();
+    const parentRect = parent.getBoundingClientRect();
+
+    const top = itemRect.top - parentRect.top;
+    const height = itemRect.height;
+
+    activeIndicator.style.top = `${top}px`;
+    activeIndicator.style.height = `${height}px`;
+}
+
+function observeActiveIndicator() {
+    const activeItem = document.querySelector('.active');
+
+    if (!activeItem) {
+        return;
+    }
+
+    const observer = new ResizeObserver(() => {
+        updateActiveIndicator();
+    });
+
+    observer.observe(activeItem);
 }
 
 function updateFontSize(percent) {
@@ -480,6 +535,7 @@ if (resetAccessibilityBtn) {
 
 loadSavedFontSize();
 prepareTextScaling();
+observeActiveIndicator();
 applyTextScale(currentFontPercent);
 if (fontValueOutput) {
     fontValueOutput.textContent = `${currentFontPercent}%`;
