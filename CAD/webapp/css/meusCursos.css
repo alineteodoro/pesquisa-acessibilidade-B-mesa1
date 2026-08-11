@@ -27,6 +27,7 @@ legend{
     margin: 0;
 }
 .filter-group button{
+    margin-top: 10px;
     background-color: var(--branco);
     border-radius: 1rem;
     padding: .5rem 1rem .5rem 1rem;
@@ -35,6 +36,7 @@ legend{
     color: var();
     border:none;
     box-shadow: -4px 5px 10px rgba(0,0,0,0.4);
+    font-family: 'Poppins', sans-serif;
 } 
 .filter-group button:hover{
     cursor: pointer;
