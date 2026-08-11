@@ -19,8 +19,10 @@ export class PostgresConfigService implements TypeOrmOptionsFactory {
             password: this.configService.get<string>('POSTGRES_PASSWORD'),
             database: this.configService.get<string>('POSTGRES_DB'),
             autoLoadEntities: true,
-            synchronize: true,
-            ssl: this.configService.get<boolean>('POSTGRES_SSL') ? { rejectUnauthorized: false }: false,
+            // Alterações de schema devem ser feitas por migrations. `synchronize`
+            // pode apagar colunas existentes e não deve ser usado com dados reais.
+            synchronize: this.configService.get<string>('DB_SYNCHRONIZE') === 'true',
+            ssl: this.configService.get<string>('POSTGRES_SSL') === 'true' ? { rejectUnauthorized: false }: false,
         };
         
     }

@@ -10,6 +10,7 @@ import { ContaDetailOutputDto } from "./dto/io/conta-detail-output.dto";
 import { AtualizarContaRequestDto } from "./dto/requests/atualizar-conta-request.dto";
 import { DeletarContaParamsDto } from "./dto/params/deletar-conta-params.dto";
 import { FindContaQueryDto } from "./dto/query-params/find-conta-query.dto";
+import { Public } from '../../security/public.decorator';
 
 @ApiTags("Auth")
 @Controller("api/auth")
@@ -37,6 +38,7 @@ export class AuthController {
         return await this.repo.buscarPorId(params.id);
     }
 
+    @Public()
     @Post("criarConta")
     @ApiOperation({ summary: "Criar conta" })
     @ApiBody({ type: CriarContaRequestDto })
@@ -45,6 +47,7 @@ export class AuthController {
         return await this.repo.criarConta(params);
     }
 
+    @Public()
     @Post("logarConta")
     @ApiOperation({ summary: "Login da conta" })
     @ApiBody({ type: LogarContaRequestDto })
