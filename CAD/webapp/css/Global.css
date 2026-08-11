@@ -261,3 +261,15 @@ a {
     padding: 1rem;
     width: 100%;
 }
+
+*:focus-visible {
+    outline: 3px solid #1E88EE !important;
+    outline-offset: 3px;
+}
+
+.high-contrast { --azul-escuro: #000000; --azul-medio: #0033cc; --azul-claro: #005fcc; --branco-azulado: #ffffff; }
+.reduce-motion *, .reduce-motion *::before, .reduce-motion *::after { animation: none !important; transition: none !important; scroll-behavior: auto !important; }
+
+@media (prefers-reduced-motion: reduce) {
+    *, *::before, *::after { animation-duration: 0.01ms !important; animation-iteration-count: 1 !important; scroll-behavior: auto !important; transition-duration: 0.01ms !important; }
+}
