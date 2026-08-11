@@ -20,7 +20,7 @@
         <div class="forms">
             <!-- a primeira section contém o painel de login -->
             <section id="loginPanel" class="card" aria-labelledby="login-title" >
-                <form class="login-form">
+                <form class="login-form" id="login-form">
                     <h1 class="form-title">Bem-vindo de volta !!</h1>
                     <p class="form-desc">Insira seu email e senha para ter acesso a todos os seus cursos
                     </p>
@@ -29,8 +29,8 @@
                     <input id="login-email" type="email" placeholder="EX: exemplo@dominio.com" required
                         class="input-field">
 
-                    <label for="password">Senha</label>
-                    <input id="password" type="password" placeholder="SenhaSegura123" required class="input-field">
+                    <label for="login-password">Senha</label>
+                    <input id="login-password" type="password" placeholder="SenhaSegura123" required minlength="8" class="input-field">
 
                     <button type="submit" class="btn" aria-label="Realizar login">Login</button>
                 </form>
@@ -38,17 +38,17 @@
 
             <!-- a segunda section contém o painel de registro -->
             <!-- A tag hidden esconde o painel de registro -->
-            <section id="registerPanel" class="card" aria-labelledby="register-title" inert>
+            <section id="registerPanel" class="card" aria-labelledby="register-title" inert hidden>
 
-                <form class="register-form">
+                <form class="register-form" id="register-form">
                     <h1 id="registerTitle" class="form-title">Cadastre-se !!</h1>
                     <p id="registerDesc" class="form-desc">Insira seu email e senha para ter acesso a todos os seus
                         cursos</p>
-                    <label for="register-name">Nome de Usuário</label>
+                    <label for="username">Nome de Usuário</label>
                     <input id="register-name" type="text" placeholder="Nome de usuário" required class="input-field">
 
                     <label for="email">Email</label>
-                    <input id="email" type="email" placeholder="Ex: exemplo@dominio.com" required class="input-field">
+                    <input id="register-email" type="email" placeholder="Ex: exemplo@dominio.com" required class="input-field">
 
                     <label for="birthdate">Data de nascimento</label>
                     <input id="birthdate" type="date" required class="input-field">
@@ -56,12 +56,12 @@
                     <div class="password-group">
                         <div class="field">
                             <label for="register-password">Senha</label>
-                            <input id="register-password" type="password" placeholder="Senha" required
+                            <input id="register-password" type="password" placeholder="Senha" required minlength="8"
                                 class="input-field">
                         </div>
                         <div class="field">
                             <label for="confirm-password">Confirmar Senha</label>
-                            <input id="confirm-password" type="password" placeholder="Confirme a senha" required
+                            <input id="confirm-password" type="password" placeholder="Confirme a senha" required minlength="8"
                                 class="input-field">
                         </div>
                     </div>
@@ -81,6 +81,7 @@
 
         </aside>
     </main>
+    <script src="../js/app.js" defer></script>
 </body>
 
 </html>
