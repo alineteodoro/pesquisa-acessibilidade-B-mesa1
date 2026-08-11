@@ -4,6 +4,8 @@ import { CriarAvaliacaoCursoRequestDto } from "./dto/requests/criar-avaliacao-cu
 import { AtualizarAvaliacaoCursoRequestDto } from "./dto/requests/atualizar-avaliacao-curso-request.dto";
 import { AvaliacaoCursoOutputDto } from "./dto/io/avaliacao-curso-output.dto";
 import { AvaliacaoCursoDetailOutputDto } from "./dto/io/avaliacao-curso-detail-output.dto";
+import { FindAvaliacaoCursoQueryDto } from "./dto/query-params/find-avaliacao-curso-query.dto";
+import { DeletarAvaliacaoCursoParamsDto } from "./dto/params/deletar-avaliacao-curso-params.dto";
 
 @Controller("api/avaliacao-curso")
 export class AvaliacaoCursoController {
@@ -19,7 +21,7 @@ export class AvaliacaoCursoController {
 
     @Get(":id")
     async buscarPorId(
-        @Param("id") id: string
+        @Param("id") id: FindAvaliacaoCursoQueryDto
     ): Promise<AvaliacaoCursoDetailOutputDto | null> {
         return await this.repo.buscarPorId(Number(id));
     }

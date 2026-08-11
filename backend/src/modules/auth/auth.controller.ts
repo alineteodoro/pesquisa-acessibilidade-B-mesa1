@@ -1,4 +1,4 @@
-import { Body, Controller, Delete, Get, Param, Post, Put, Query } from "@nestjs/common";
+import { Body, Controller, Delete, Get, Param, ParseIntPipe, Post, Put, Query } from "@nestjs/common";
 import { ApiBody, ApiOperation, ApiParam, ApiQuery, ApiResponse, ApiTags } from "@nestjs/swagger";
 import { AuthServices } from "./auth.services";
 import { CriarContaRequestDto } from "./dto/requests/criar-conta-request.dto";
@@ -33,8 +33,8 @@ export class AuthController {
     @ApiOperation({ summary: "Buscar conta por ID" })
     @ApiParam({ name: "id", type: Number, description: "ID da conta" })
     @ApiResponse({ status: 200, description: "Conta retornada com sucesso." })
-    async buscarPorId(@Param() params: DeletarContaParamsDto): Promise<ContaDetailOutputDto | null> {
-        return await this.repo.buscarPorId(params.id);
+    async buscarPorId(@Param("id") id: string): Promise<ContaDetailOutputDto | null> {
+        return await this.repo.buscarPorId(Number(id));
     }
 
     @Post("criarConta")

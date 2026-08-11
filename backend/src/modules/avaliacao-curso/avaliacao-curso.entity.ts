@@ -9,13 +9,16 @@ export class AvaliacaoCursoEntity {
     @Column({name:"id_matricula", type:"integer"})
     public id_matricula: number;
 
-    @Column({name:"nota", type:"integer"})
-    public nota: number;
-
     @Column({name:"comentario", type:"text"})
     public comentario: string;
 
     @Column({name:"dt_avaliacao", type:"timestamp"})
     public dt_avaliacao: Date;
+
+    @Column({name:"nota", type:"integer"})
+    public nota: number;
+
+    @Column({name:"estrelas", type:"smallint"})
+    public estrelas: number;
 
 }
