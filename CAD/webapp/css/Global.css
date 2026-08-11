@@ -40,6 +40,7 @@ main {
 /* Fundo indicador */
 
 .active-indicator {
+    --active-indicator-scale: 1;
     position: absolute;
     top: -1rem;
     width: calc(100% - 2rem);
@@ -53,7 +54,8 @@ main {
 .active-indicator.animate {
     transition:
         top .35s ease,
-        height .35s ease;
+        height .35s ease,
+        width 0.35s ease;
 }
 
 /* Classe nav */

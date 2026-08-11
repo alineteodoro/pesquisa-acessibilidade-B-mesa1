@@ -1,9 +1,11 @@
-﻿const MIN_FONT_PERCENT = 60;
+﻿const CURSOR_SCALE = 3;
+const MIN_FONT_PERCENT = 60;
 const MAX_FONT_PERCENT = 200;
 const STEP_PERCENT = 10;
 const STORAGE_KEY = 'cad-accessibility-font-percent';
 const PRIMARY_COLOR_KEY = 'cad-accessibility-primary-color';
 const BACKGROUND_COLOR_KEY = 'cad-accessibility-background-color';
+const CURSOR_STORAGE_KEY = 'cad-accessibility-large-cursor';
 
 // Cores originais do site, extraídas do :root em inicio.css.
 // São usadas como valores padrão ao restaurar as configurações de acessibilidade.
@@ -23,6 +25,7 @@ const DEFAULT_BORDER_GRAY = '#E5E7EB';      // --cinza-borda
 const DEFAULT_ORANGE = '#FF6D00';           // --laranja
 
 const DEFAULT_FONT_PERCENT = 100;
+const ACTIVE_INDICATOR_BASE_SIZE = 1;
 
 const fontDecreaseBtn = document.getElementById('font-decrease');
 const fontIncreaseBtn = document.getElementById('font-increase');
@@ -35,6 +38,7 @@ const primaryColorInput = document.getElementById('primaryColor');
 const backgroundColorInput = document.getElementById('backgroundColor');
 const resetAccessibilityBtn = document.getElementById('resetAccessibility');
 const accessibilityMenu = document.getElementById('accessibilityMenu');
+const largeCursorCheckbox = document.getElementById('largeCursor');
 
 const accessibilityMenuColors = {
     background: '#102030',
@@ -70,6 +74,72 @@ function applyPrimaryColor(color) {
 function applyBackgroundColor(color) {
     document.documentElement.style.setProperty('--branco-azulado', color);
     document.body.style.backgroundColor = color;
+}
+
+function createLargeCursor(scale) {
+    const baseSize = 32;
+    const size = Math.round(baseSize * scale);
+
+    const svg = `
+        <svg
+            xmlns="http://www.w3.org/2000/svg"
+            width="${size}"
+            height="${size}"
+            viewBox="0 0 32 32"
+        >
+            <path
+                d="M3 2L27 17L17 19L22 29L17 31L12 21L5 27Z"
+                fill="white"
+                stroke="black"
+                stroke-width="2"
+                stroke-linejoin="round"
+            />
+        </svg>
+    `;
+
+    return `url("data:image/svg+xml,${encodeURIComponent(svg)}") 2 2, auto`;
+}
+
+function updateCursorSize(save = true) {
+    if (!largeCursorCheckbox) {
+        return;
+    }
+
+    if (largeCursorCheckbox.checked) {
+        const cursor = createLargeCursor(CURSOR_SCALE);
+
+        document.documentElement.style.setProperty(
+            '--accessibility-cursor',
+            cursor
+        );
+
+        document.documentElement.classList.add('large-cursor');
+    } else {
+        document.documentElement.classList.remove('large-cursor');
+    }
+
+    if (save) {
+        localStorage.setItem(
+            CURSOR_STORAGE_KEY,
+            largeCursorCheckbox.checked ? 'true' : 'false'
+        );
+    }
+}
+
+function loadSavedCursorSize() {
+    if (!largeCursorCheckbox) {
+        return;
+    }
+
+    const savedCursor = localStorage.getItem(CURSOR_STORAGE_KEY);
+
+    if (savedCursor === 'true') {
+        largeCursorCheckbox.checked = true;
+    } else {
+        largeCursorCheckbox.checked = false;
+    }
+
+    updateCursorSize(false);
 }
 
 // --- Contraste automático das cores do projeto ---
@@ -294,13 +364,67 @@ function prepareTextScaling() {
 
 function applyTextScale(percent) {
     const scale = percent / 100;
+
     scalableTextElements.forEach(el => {
         const originalSize = parseFloat(el.dataset.originalFontSize);
+
         if (!originalSize || Number.isNaN(originalSize)) {
             return;
         }
+
         el.style.fontSize = `${(originalSize * scale).toFixed(2)}px`;
     });
+
+    requestAnimationFrame(() => {
+        updateActiveIndicator();
+    });
+}
+
+function applyActiveIndicatorScale(percent) {
+    const scale = percent / 100;
+
+    document.documentElement.style.setProperty(
+        '--active-indicator-scale',
+        scale
+    );
+}
+
+function updateActiveIndicator() {
+    const activeIndicator = document.querySelector('.active-indicator');
+    const activeItem = document.querySelector('.active');
+
+    if (!activeIndicator || !activeItem) {
+        return;
+    }
+
+    const parent = activeIndicator.offsetParent;
+
+    if (!parent) {
+        return;
+    }
+
+    const itemRect = activeItem.getBoundingClientRect();
+    const parentRect = parent.getBoundingClientRect();
+
+    const top = itemRect.top - parentRect.top;
+    const height = itemRect.height;
+
+    activeIndicator.style.top = `${top}px`;
+    activeIndicator.style.height = `${height}px`;
+}
+
+function observeActiveIndicator() {
+    const activeItem = document.querySelector('.active');
+
+    if (!activeItem) {
+        return;
+    }
+
+    const observer = new ResizeObserver(() => {
+        updateActiveIndicator();
+    });
+
+    observer.observe(activeItem);
 }
 
 function updateFontSize(percent) {
@@ -337,6 +461,11 @@ function resetToDefaults() {
     }
     applyWrap();
     applyMenuWidth();
+
+    if (largeCursorCheckbox) {
+        largeCursorCheckbox.checked = false;
+        updateCursorSize();
+    }
 
     // Cores (valores originais do :root de inicio.css)
     applyPrimaryColor(DEFAULT_PRIMARY_COLOR);
@@ -378,6 +507,10 @@ if (fontIncreaseBtn) {
     fontIncreaseBtn.addEventListener('click', () => changeFontSize(STEP_PERCENT));
 }
 
+if (largeCursorCheckbox) {
+    largeCursorCheckbox.addEventListener('change', updateCursorSize);
+}
+
 if (primaryColorInput) {
     primaryColorInput.addEventListener('input', (event) => {
         const color = event.target.value;
@@ -402,6 +535,7 @@ if (resetAccessibilityBtn) {
 
 loadSavedFontSize();
 prepareTextScaling();
+observeActiveIndicator();
 applyTextScale(currentFontPercent);
 if (fontValueOutput) {
     fontValueOutput.textContent = `${currentFontPercent}%`;
@@ -409,3 +543,4 @@ if (fontValueOutput) {
 applyWrap();
 applyMenuWidth();
 loadSavedColors();
+loadSavedCursorSize();
