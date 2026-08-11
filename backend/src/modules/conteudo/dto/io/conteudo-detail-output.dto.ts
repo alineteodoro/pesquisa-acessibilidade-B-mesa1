@@ -6,4 +6,5 @@ export interface ConteudoDetailOutputDto {
     texto: string;
     ordem: number;
     legenda: string;
+    duracao_video: number;
 }

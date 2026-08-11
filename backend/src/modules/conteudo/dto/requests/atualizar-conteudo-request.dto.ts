@@ -34,4 +34,10 @@ export class AtualizarConteudoRequestDto {
     @IsOptional()
     @IsString({ message: "A legenda deve ser uma string." })
     public legenda?: string;
+
+    @ApiPropertyOptional({ description: "Duração do vídeo em segundos", example: 120, type: "integer" })
+    @IsOptional()
+    @IsInt({ message: "A duração do vídeo deve ser um número inteiro." })
+    @IsPositive({ message: "A duração do vídeo deve ser maior que zero." })
+    public duracao_video?: number;
 }
