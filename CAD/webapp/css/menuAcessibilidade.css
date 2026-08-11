@@ -143,20 +143,21 @@ fieldset {
     display: flex;
     justify-content: center;
     align-items: center;
-    gap: 2rem;
+    gap: 1rem;
+    width: 100%;
 }
 
 .font-controls button {
-    width: 48px;
-    height: 42px;
-    border-radius: 10px;
-    border: 1px solid var(--branco-azulado);
+    min-width: 2.2em;
+    width: auto;
+    height: 2.2em;
+    border-radius: 0.7em;
+    border: 0.06em solid var(--branco-azulado);
     background: var(--cinza);
     color: var(--branco);
     cursor: pointer;
     font-size: 1.4rem;
     transition: .5s;
-
 }
 
 .font-controls button:hover {
@@ -228,6 +229,16 @@ fieldset {
     background: var(--azul-claro);
     border: none;
     color: var(--branco);
+}
+
+.accessibility-card.wrap-large .segmented,
+.accessibility-card.wrap-large .grid-buttons {
+    grid-template-columns: 1fr;
+}
+
+.accessibility-card.wrap-large .segmented button,
+.accessibility-card.wrap-large .grid-buttons button {
+    width: 100%;
 }
 
 /* ==========================Inputs de cor========================== */
@@ -387,4 +398,21 @@ fieldset {
 #resetAccessibility:hover{
     background-color: var(--azul-claro);
     cursor: pointer;
+}
+
+#accessibilityMenu {
+    --azul-escuro: #102030;
+    --azul-medio: #0245A8;
+    --azul-claro: #1E88EE;
+    --azul-fundo-card: #93C5FD;
+    --fundo-pagina: #F4F7FF;
+    --branco: #FFFFFF;
+    --cinza-sub: #4B5563;
+    --cinza-bg-btn: #E5E7EB;
+    --foco-visivel: #0245A8;
+    --branco-azulado: #F6F7FF;
+    --cinza: #C7CFDA;
+    --cinza-claro: #858C9A;
+    --cinza-borda: #E5E7EB;
+    --laranja: #FF6D00;
 }
