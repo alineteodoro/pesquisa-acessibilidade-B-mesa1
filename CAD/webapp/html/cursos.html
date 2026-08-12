@@ -13,8 +13,11 @@
     <link
         href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap"
         rel="stylesheet">
+    <script defer src="../js/cursos.js"></script>
     <script defer src="../js/menu.js"></script>
     <script defer src="../js/menuAcessibilidade.js"></script>
+    <script defer src="../js/buscarCursos.js"></script>
+    <script defer src="../js/filtrarCursos.js"></script>
     <title>Cursos</title>
 </head>
 
@@ -33,7 +36,7 @@
 
         <header inert>
             <p>Olá,</p>
-            <strong>Alanzoka!</strong>
+            <strong id="user-name">Carregando...</strong>
         </header>
         <nav>
 
@@ -119,111 +122,11 @@
         </section>
         <section class="courses-grid" aria-label="Lista de cursos">
 
-            <article class="course-cards">
-                <div class="card-thumb-wrapper">
-                    <img src="../assets/FundoPadrão.png" alt="" class="course-thumb" aria-hidden="true">
-                </div>
-
-                <div class="course-content">
-                    <h2 class="course-title">
-                        <a href="videoAula.html" class="card-link">
-                            Acessibilidade mobile XML/ JetPack Compose
-                        </a>
-                    </h2>
-
-                    <div class="progress-container">
-                        <label for="progress-1" class="sr-only">Progresso do curso: 65% concluído</label>
-                        <progress id="progress-1" max="100" value="65" class="course-progress-bar">65%</progress>
-                    </div>
-
-                    <footer class="course-footer">
-                        <div class="author-info">
-                            <img src="../assets/User.png" alt="Foto da instrutora Aline Teodoro" class="author-avatar">
-                            <span class="author-name">Aline Teodoro de Carvalho e Silva</span>
-                        </div>
-                    </footer>
-                </div>
-            </article>
-
-            <article class="course-cards">
-                <div class="card-thumb-wrapper">
-                    <img src="../assets/FundoPadrão.png" alt="" class="course-thumb" aria-hidden="true">
-                </div>
-
-                <div class="course-content">
-                    <h2 class="course-title">
-                        <a href="videoAula.html" class="card-link">
-                            Acessibilidade mobile XML/ JetPack Compose
-                        </a>
-                    </h2>
-
-                    <div class="progress-container">
-                        <label for="progress-2" class="sr-only">Progresso do curso: 40% concluído</label>
-                        <progress id="progress-2" max="100" value="40" class="course-progress-bar">40%</progress>
-                    </div>
-
-                    <footer class="course-footer">
-                        <div class="author-info">
-                            <img src="../assets/User.png" alt="Foto da instrutora Aline Teodoro" class="author-avatar">
-                            <span class="author-name">Aline Teodoro de Carvalho e Silva</span>
-                        </div>
-                    </footer>
-                </div>
-            </article>
-
-            <article class="course-cards">
-                <div class="card-thumb-wrapper">
-                    <img src="../assets/FundoPadrão.png" alt="" class="course-thumb" aria-hidden="true">
-                </div>
-
-                <div class="course-content">
-                    <h2 class="course-title">
-                        <a href="videoAula.html" class="card-link">
-                            Acessibilidade mobile XML/ JetPack Compose
-                        </a>
-                    </h2>
-
-                    <div class="progress-container">
-                        <label for="progress-3" class="sr-only">Progresso do curso: 85% concluído</label>
-                        <progress id="progress-3" max="100" value="85" class="course-progress-bar">85%</progress>
-                    </div>
-
-                    <footer class="course-footer">
-                        <div class="author-info">
-                            <img src="../assets/User.png" alt="Foto da instrutora Aline Teodoro" class="author-avatar">
-                            <span class="author-name">Aline Teodoro de Carvalho e Silva</span>
-                        </div>
-                    </footer>
-                </div>
-            </article>
-
-            <article class="course-cards">
-                <div class="card-thumb-wrapper">
-                    <img src="../assets/FundoPadrão.png" alt="" class="course-thumb" aria-hidden="true">
-                </div>
-
-                <div class="course-content">
-                    <h2 class="course-title">
-                        <a href="videoAula.html" class="card-link">
-                            Acessibilidade mobile XML/ JetPack Compose
-                        </a>
-                    </h2>
-
-                    <div class="progress-container">
-                        <label for="progress-4" class="sr-only">Progresso do curso: 100% concluído</label>
-                        <progress id="progress-4" max="100" value="100" class="course-progress-bar">100%</progress>
-                    </div>
-
-                    <footer class="course-footer">
-                        <div class="author-info">
-                            <img src="../assets/User.png" alt="Foto da instrutora Aline Teodoro" class="author-avatar">
-                            <span class="author-name">Aline Teodoro de Carvalho e Silva</span>
-                        </div>
-                    </footer>
-                </div>
-            </article>
+            
 
         </section>
+
+        <nav id="courses-pagination" class="pagination" aria-label="Paginação dos cursos"></nav>
 
     </main>
     <button commandfor="accessibilityMenu" command="show-modal" id="accessibilityButton" class="accessibility-button"

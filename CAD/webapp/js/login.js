@@ -79,7 +79,7 @@ if (loginForm) {
              * Guarda as informações necessárias para
              * identificar o usuário no restante do front.
              */
-            localStorage.setItem("usuarioId", data.id);
+            localStorage.setItem("usuarioId", data.id_usuario);
             localStorage.setItem(
                 "isInstrutor",
                 data.is_instrutor
