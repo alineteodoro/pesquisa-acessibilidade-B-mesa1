@@ -311,7 +311,6 @@ fieldset {
     transition: transform 0.3s ease, background-color 0.3s ease;
 }
 
-/* Estado ativo/ligado (ON) */
 .switch-item input[type="checkbox"]:checked {
     background-color: var(--azul-claro);
 }
@@ -320,10 +319,6 @@ fieldset {
     transform: translateX(26px);
     background-color: var(--branco);
 }
-
-
-
-
 
 /* ==========================
    Scroll
@@ -398,6 +393,39 @@ fieldset {
 #resetAccessibility:hover{
     background-color: var(--azul-claro);
     cursor: pointer;
+}
+
+/* ==========================================================================
+   Responsividade
+   ========================================================================== */
+@media (max-width: 480px) {
+    .accessibility-menu {
+        right: .5rem;
+        top: .5rem;
+        height: calc(100vh - 1rem);
+    }
+
+    .accessibility-header,
+    .accessibility-content {
+        padding: 1rem;
+    }
+
+    .segmented,
+    .grid-buttons {
+        grid-template-columns: 1fr;
+    }
+
+    .color-picker label {
+        gap: 1.5rem;
+    }
+
+    .accessibility-button {
+        width: 56px;
+        height: 56px;
+        right: 16px;
+        bottom: 16px;
+        font-size: 1.6rem;
+    }
 }
 
 #accessibilityMenu {

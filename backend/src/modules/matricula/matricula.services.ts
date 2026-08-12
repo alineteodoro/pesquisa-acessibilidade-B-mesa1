@@ -4,6 +4,7 @@ import { CriarMatriculaRequestDto } from "./dto/requests/criar-matricula-request
 import { AtualizarMatriculaRequestDto } from "./dto/requests/atualizar-matricula-request.dto";
 import { MatriculaOutputDto } from "./dto/io/matricula-output.dto";
 import { MatriculaDetailOutputDto } from "./dto/io/matricula-detail-output.dto";
+import { FindMatriculaQueryDto } from "./dto/query-params/find-matricula-query.dto";
 
 @Injectable()
 export class MatriculaServices {
@@ -20,8 +21,8 @@ export class MatriculaServices {
         return await this.repo.criarMatricula(params);
     }
 
-    async buscarTodos(): Promise<MatriculaDetailOutputDto[]> {
-        return await this.repo.buscarTodos();
+    async buscarTodos(query: FindMatriculaQueryDto): Promise<MatriculaDetailOutputDto[]> {
+        return await this.repo.buscarTodos(query);
     }
 
     async buscarPorId(id_matricula: number): Promise<MatriculaDetailOutputDto | null> {

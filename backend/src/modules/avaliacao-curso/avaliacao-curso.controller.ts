@@ -1,4 +1,4 @@
-import { Body, Controller, Delete, Get, Param, Post, Put } from "@nestjs/common";
+import { Body, Controller, Delete, Get, Param, Post, Put, Query } from "@nestjs/common";
 import { AvaliacaoCursoServices } from "./avaliacao-curso.services";
 import { CriarAvaliacaoCursoRequestDto } from "./dto/requests/criar-avaliacao-curso-request.dto";
 import { AtualizarAvaliacaoCursoRequestDto } from "./dto/requests/atualizar-avaliacao-curso-request.dto";
@@ -15,8 +15,8 @@ export class AvaliacaoCursoController {
     ){}
 
     @Get()
-    async buscarTodos(): Promise<AvaliacaoCursoDetailOutputDto[]> {
-        return await this.repo.buscarTodos();
+    async buscarTodos(@Query() query: FindAvaliacaoCursoQueryDto): Promise<AvaliacaoCursoDetailOutputDto[]> {
+        return await this.repo.buscarTodos(query);
     }
 
     @Get(":id")

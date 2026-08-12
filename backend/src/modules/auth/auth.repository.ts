@@ -26,11 +26,15 @@ export class AuthRepository {
         if (query.email) where.email = query.email;
         if (query.ativo !== undefined) where.ativo = query.ativo;
 
-        return await this.repo.find({ where });
+        return await this.repo.find({ where, select: { id_usuario: true, nome: true, email: true, dt_nascimento: true, ativo: true, is_instrutor: true } });
     }
 
     async buscarPorId(id: number): Promise<ContaDetailOutputDto | null> {
-        return await this.repo.findOneBy({ id_usuario: id });
+        return await this.repo.findOne({ where: { id_usuario: id }, select: { id_usuario: true, nome: true, email: true, dt_nascimento: true, ativo: true, is_instrutor: true } });
+    }
+
+    async buscarPorEmail(email: string): Promise<AuthEntity | null> {
+        return await this.repo.findOneBy({ email });
     }
 
     async criarConta(params: CriarContaInputDto): Promise<CriarContaOutputDto> {

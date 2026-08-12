@@ -13,6 +13,12 @@
     box-sizing: border-box;
 }
 
+html,
+body {
+    max-width: 100%;
+    overflow-x: hidden;
+}
+
 body {
     font-family: "Poppins", sans-serif;
     min-height: 100vh;
@@ -174,4 +180,61 @@ label {
 .password-group {
     display: flex;
     gap: 10px;
+}
+
+/*********************************** RESPONSIVIDADE ***********************************/
+
+@media (max-width: 900px) {
+    .auth {
+        width: 90%;
+        max-width: 500px;
+        height: auto;
+    }
+
+    .forms {
+        grid-template-columns: 1fr;
+    }
+
+    .card[inert] {
+        display: none;
+    }
+
+    #bluePanel,
+    .auth.register #bluePanel {
+        position: static;
+        left: auto;
+        right: auto;
+        width: 100%;
+        height: auto;
+        border-radius: 20px 20px 0 0;
+        padding: 2rem 1.5rem;
+    }
+}
+
+@media (max-width: 480px) {
+    body {
+        padding: 1rem;
+        align-items: flex-start;
+    }
+
+    .auth {
+        width: 100%;
+    }
+
+    .forms {
+        padding: 1.5rem 1.25rem;
+    }
+
+    .form-title {
+        font-size: 1.6rem;
+    }
+
+    .btn {
+        margin-top: 2rem;
+    }
+
+    .password-group {
+        flex-direction: column;
+        gap: 0;
+    }
 }

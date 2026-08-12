@@ -1,4 +1,5 @@
 const API_URL = "http://localhost:3001";
+const API_BASE_URL = API_URL;
 
 async function carregarUsuario() {
     const usuarioId = localStorage.getItem("usuarioId");
@@ -107,7 +108,9 @@ function obterIdUsuarioLogado() {
 
 async function carregarDadosDoCurso(idCurso) {
     try {
-        const resposta = await fetch(`${API_BASE_URL}/api/curso/${idCurso}`);
+        const resposta = await fetch(`${API_URL}/api/curso/${idCurso}`);
+        const response = await fetch(`${API_URL}/api/curso/instrutor/${idCurso}`);
+        const instrutor = await response.json();
 
         if (!resposta.ok) {
             throw new Error(`Erro ${resposta.status} ao buscar curso`);
@@ -122,7 +125,7 @@ async function carregarDadosDoCurso(idCurso) {
 
         preencherTitulo(curso.nome);
         preencherVideo(curso.videoUrl);
-        preencherInstrutor(curso.instrutorNome, curso.instrutorFoto);
+        preencherInstrutor(instrutor.nome);
         preencherResumoAvaliacao(curso.mediaEstrelas, curso.totalAvaliacoes);
         preencherDescricao(curso.descricao);
     } catch (erro) {
@@ -306,7 +309,9 @@ function configurarEnvioDeAvaliacao(idCurso) {
 
             const resposta = await fetch(`${API_BASE_URL}/api/avaliacao-curso`, {
                 method: "POST",
-                headers: { "Content-Type": "application/json" },
+                headers: {
+                    "Content-Type": "application/json"
+                },
                 body: JSON.stringify({
                     id_matricula: idMatricula,
                     comentario,

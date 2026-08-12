@@ -261,14 +261,14 @@ body {
    RESPONSIVIDADE (MEDIA QUERIES)
    ========================================================================== */
 
-/* Tablets e telas pequenas (muda para 1 coluna) */
+/* Tablets e telas pequenas */
 @media (max-width: 992px) {
   .cards-grid {
     grid-template-columns: 1fr;
   }
 }
 
-/* Celulares (ajusta espaçamentos e alinhamento do card) */
+/* Celulares */
 @media (max-width: 600px) {
   .comunidade-main {
     padding: 1.25rem 1rem;
@@ -276,15 +276,36 @@ body {
   }
 
   .votacao-card {
-    flex-direction: column;
-    align-items: flex-start;
-    gap: 0.85rem;
-    padding: 1rem;
+    padding: .75rem;
+    gap: .6rem;
+  }
+
+  .card-thumb {
+    width: 44px;
+    height: 44px;
+    border-radius: 10px;
+  }
+
+  .card-item-title {
+    font-size: .85rem;
+  }
+
+  .card-desc {
+    font-size: .72rem;
   }
 
   .card-actions {
-    width: 100%;
-    justify-content: flex-end;
+    gap: .35rem;
+  }
+
+  .btn-vote {
+    width: 34px;
+    height: 34px;
+  }
+
+  .btn-vote svg {
+    width: 16px;
+    height: 16px;
   }
 
   .section-title {

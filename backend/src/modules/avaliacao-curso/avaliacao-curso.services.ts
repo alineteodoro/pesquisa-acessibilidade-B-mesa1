@@ -4,6 +4,7 @@ import { CriarAvaliacaoCursoRequestDto } from "./dto/requests/criar-avaliacao-cu
 import { AtualizarAvaliacaoCursoRequestDto } from "./dto/requests/atualizar-avaliacao-curso-request.dto";
 import { AvaliacaoCursoOutputDto } from "./dto/io/avaliacao-curso-output.dto";
 import { AvaliacaoCursoDetailOutputDto } from "./dto/io/avaliacao-curso-detail-output.dto";
+import { FindAvaliacaoCursoQueryDto } from "./dto/query-params/find-avaliacao-curso-query.dto";
 
 @Injectable()
 export class AvaliacaoCursoServices {
@@ -20,8 +21,8 @@ export class AvaliacaoCursoServices {
         return await this.repo.criarAvaliacaoCurso(params);
     }
 
-    async buscarTodos(): Promise<AvaliacaoCursoDetailOutputDto[]> {
-        return await this.repo.buscarTodos();
+    async buscarTodos(query: FindAvaliacaoCursoQueryDto): Promise<AvaliacaoCursoDetailOutputDto[]> {
+        return await this.repo.buscarTodos(query);
     }
 
     async buscarPorId(id_avaliacao: number): Promise<AvaliacaoCursoDetailOutputDto | null> {

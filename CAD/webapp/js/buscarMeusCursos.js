@@ -1,5 +1,5 @@
 const API_MEUS_CURSOS =
-    "http://localhost:3001/api/matricula/usuario";
+    "http://localhost:3001/api/matricula";
 
 
 let meusCursos = [];
@@ -28,7 +28,7 @@ async function carregarMeusCursos() {
     try {
 
         const response = await fetch(
-            `${API_MEUS_CURSOS}/${usuarioId}`
+            `${API_MEUS_CURSOS}?id_aluno=${encodeURIComponent(usuarioId)}`
         );
 
 

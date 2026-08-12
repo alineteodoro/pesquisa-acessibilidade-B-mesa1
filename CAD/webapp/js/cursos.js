@@ -47,8 +47,8 @@ const API_CURSOS_URL = `${API_URL}/api/curso`;
 const CURSOS_POR_PAGINA = 16;
  
 // Chave usada no localStorage para guardar o id do usuário logado.
-// AJUSTE este valor para a chave real que vocês usam no login/sessão.
-const CHAVE_ID_USUARIO_LOCALSTORAGE = "id_usuario";
+// Deve ser a mesma chave salva no login.js.
+const CHAVE_ID_USUARIO_LOCALSTORAGE = "usuarioId";
  
 let todosCursos = [];
 let cursosFiltrados = [];

@@ -1,7 +1,6 @@
 import { Injectable } from "@nestjs/common";
 import { AuthRepository } from "./auth.repository";
 import { CriarContaInputDto } from "./dto/io/criar-conta-input.dto";
-import { HashService } from "src/utils/hash-service";
 import { CriarContaOutputDto } from "./dto/io/criar-conta-output.dto";
 import { LogarContaInputDto } from "./dto/io/logar-conta-input.dto";
 import { LogarContaOutputDto } from "./dto/io/logar-conta-output.dto";
@@ -9,15 +8,14 @@ import { ContaOutputDto } from "./dto/io/conta-output.dto";
 import { ContaDetailOutputDto } from "./dto/io/conta-detail-output.dto";
 import { AtualizarContaRequestDto } from "./dto/requests/atualizar-conta-request.dto";
 import { FindContaQueryDto } from "./dto/query-params/find-conta-query.dto";
+import * as bcrypt from 'bcryptjs';
 
 @Injectable()
 export class AuthServices {
 
     constructor(
-        private repo: AuthRepository
+        private repo: AuthRepository,
     ) {}
-
-    private hashService = new HashService();
 
     async buscarTodos(query: FindContaQueryDto): Promise<ContaDetailOutputDto[]> {
         return await this.repo.buscarTodos(query);
@@ -33,19 +31,27 @@ export class AuthServices {
             params.dt_nascimento = new Date(Date.UTC(year, month - 1, day + 1));
         }
 
-        params.senha_hash = this.hashService.hashar(params.senha_hash);
+        params.senha_hash = await bcrypt.hash(params.senha_hash, 12);
 
         return await this.repo.criarConta(params);
     }
 
     async logarConta(params: LogarContaInputDto): Promise<LogarContaOutputDto> {
-        params.senha_hash = this.hashService.hashar(params.senha_hash);
-        return await this.repo.logarConta(params);
+        const conta = await this.repo.buscarPorEmail(params.email);
+        if (!conta || !(await bcrypt.compare(params.senha_hash, conta.senha_hash))) {
+            return { success: false, message: 'Usuário ou senha inválidos.' };
+        }
+        return {
+            success: true,
+            message: 'Usuário logado com sucesso.',
+            is_instrutor: conta.is_instrutor,
+            usuario: { id_usuario: conta.id_usuario, nome: conta.nome, email: conta.email, is_instrutor: conta.is_instrutor },
+        };
     }
 
     async atualizarConta(id: number, params: AtualizarContaRequestDto): Promise<ContaOutputDto> {
         if (params.senha_hash) {
-            params.senha_hash = this.hashService.hashar(params.senha_hash);
+            params.senha_hash = await bcrypt.hash(params.senha_hash, 12);
         }
 
         if (params.dt_nascimento && typeof params.dt_nascimento === "string") {

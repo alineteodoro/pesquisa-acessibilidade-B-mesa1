@@ -399,6 +399,64 @@ button[role="tab"][data-animate="true"] {
 .submit-button:active {
     transform: scale(0.98);
 }
+ 
+.rating-container {
+    background-color: #1b263b;
+    padding: 30px;
+    border-radius: 12px;
+    text-align: center;
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.3);
+}
+ 
+.rating-container h2 {
+    font-size: 1.2rem;
+    margin-bottom: 20px;
+}
+ 
+/* Container das estrelas */
+.stars {
+    display: flex;
+    justify-content: center;
+    gap: 8px;
+    margin-bottom: 15px;
+}
+ 
+/* Botão da Estrela */
+.star-btn {
+    background: transparent;
+    border: none;
+    cursor: pointer;
+    padding: 5px;
+    outline: none;
+    transition: transform 0.2s ease;
+}
+ 
+.star-btn:hover,
+.star-btn:focus-visible {
+    transform: scale(1.2);
+}
+ 
+/* Estilo do SVG interno */
+.star-btn svg,
+.star-btn img {
+    width: 36px;
+    height: 36px;
+    fill: #4a5568; /* Cor padrão (desmarcada) */
+    transition: fill 0.2s ease, filter 0.2s ease;
+}
+ 
+/* Estado Preenchido (Ativo/Hover) */
+.star-btn.filled svg {
+    fill: #ffc107; /* Cor amarela dourada */
+    filter: drop-shadow(0 0 6px rgba(255, 193, 7, 0.6));
+}
+ 
+/* Texto do resultado */
+.rating-result {
+    font-size: 0.95rem;
+    color: #e0e1dd;
+    font-weight: 600;
+}
 
 /* ==========================================================================
    Sidebar: Cursos Relacionados
@@ -483,5 +541,32 @@ button[role="tab"][data-animate="true"] {
 
     .related-sidebar {
         margin-top: 2rem;
+    }
+}
+
+@media (max-width: 480px) {
+    div[role="tablist"] {
+        gap: 1rem;
+        overflow-x: auto;
+    }
+
+    button[role="tab"] {
+        font-size: 0.9rem;
+        white-space: nowrap;
+    }
+
+    .instructor-bar {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+
+    .related-card {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+
+    .related-thumb {
+        width: 100%;
+        height: 100px;
     }
 }

@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -15,14 +16,20 @@
     <script defer src="../js/videoAula.js"></script>
     <script defer src="../js/menu.js"></script>
     <script defer src="../js/menuAcessibilidade.js"></script>
-    <title>Videos</title>
+    <title>Vídeos</title>
 </head>
 
 <body>
     <a class="skip-link" href="#search-input">
         Pular para o conteúdo principal?
     </a>
-    <aside aria-label="Menu de navegação" class="menu">
+    <button type="button" id="menuToggle" class="menu-toggle" aria-label="Abrir menu de navegação"
+        aria-controls="siteMenu" aria-expanded="false">
+        <span class="menu-toggle-bar"></span>
+        <span class="menu-toggle-bar"></span>
+        <span class="menu-toggle-bar"></span>
+    </button>
+    <aside id="siteMenu" aria-label="Menu de navegação" class="menu">
         <img src="../assets/User.png" alt="Foto do usuário" />
 
         <header inert>
@@ -61,6 +68,7 @@
         </nav>
 
     </aside>
+    <div class="menu-scrim" id="menuScrim" hidden></div>
     <main id="main-content" tabindex="-1">
         <form class="search-form" role="search" aria-label="Pesquisar cursos">
             <label class="sr-only" for="search-input">Pesquisar cursos</label>
@@ -127,125 +135,161 @@
                             <div class="comment-section">
                                 <form class="comment-form">
                                     <div class="field-group">
-                                        <label for="comment-input">Enviar avaliação</label>
-                                        <textarea id="comment-input" rows="4"
-                                            placeholder="Deixa um comentário sobre esta aula"></textarea>
+                                        <div class="stars" id="star-rating" role="radiogroup"
+                                            aria-label="Avaliação de 1 a 5 estrelas">
+                                            <button type="button" class="star-btn" data-value="1"
+                                                aria-label="1 estrela">
+                                                COLE_O_SVG_AQUI
+                                            </button>
+
+                                            <button type="button" class="star-btn" data-value="2"
+                                                aria-label="2 estrelas">
+                                                COLE_O_SVG_AQUI
+                                            </button>
+
+                                            <button type="button" class="star-btn" data-value="3"
+                                                aria-label="3 estrelas">
+                                                COLE_O_SVG_AQUI
+                                            </button>
+
+                                            <button type="button" class="star-btn" data-value="4"
+                                                aria-label="4 estrelas">
+                                                COLE_O_SVG_AQUI
+                                            </button>
+
+                                            <button type="button" class="star-btn" data-value="5"
+                                                aria-label="5 estrelas">
+                                                <svg>
+                                                    <path
+                                                    d=""/>
+                                                </svg>
+                                            </button>
+                                        </div>
                                     </div>
-                                    <button type="submit" class="submit-button">Enviar avaliação</button>
-                                </form>
+                                    <label for="comment-input">Enviar avaliação</label>
+                                    <textarea id="comment-input" rows="4"
+                                        placeholder="Deixa um comentário sobre esta aula"></textarea>
                             </div>
-                        </div>
-
-                        <div id="panel-avaliacoes" role="tabpanel" aria-labelledby="tab-avaliacoes" tabindex="0"
-                            class="tab-content" hidden>
-                            <ul class="comments-list">
-
-                                <li class="comment-item">
-                                    <img src="../assets/User.png" alt="Foto de Aline Silva" class="comment-avatar">
-                                    <div class="comment-body">
-                                        <div class="comment-header">
-                                            <span class="comment-author">Aline Silva</span>
-                                            <span class="comment-rating" aria-label="Avaliação 4.5 de 5 estrelas">
-                                                <span aria-hidden="true">★</span> 4.5
-                                            </span>
-                                        </div>
-                                        <p class="comment-text">
-                                            Este vídeo foi feito por um sigma muito farmador de aura, a pessoa mais
-                                            braba de todos os tempos. O verdadeiro Dragão Guerreiro!!
-                                        </p>
-                                    </div>
-                                </li>
-
-                                <li class="comment-item">
-                                    <img src="../assets/User.png" alt="Foto de Aline Silva" class="comment-avatar">
-                                    <div class="comment-body">
-                                        <div class="comment-header">
-                                            <span class="comment-author">Aline Silva</span>
-                                            <span class="comment-rating" aria-label="Avaliação 4.5 de 5 estrelas">
-                                                <span aria-hidden="true">★</span> 4.5
-                                            </span>
-                                        </div>
-                                        <p class="comment-text">
-                                            Este vídeo foi feito por um sigma muito farmador de aura, a pessoa mais
-                                            braba de todos os tempos. O verdadeiro Dragão Guerreiro!!
-                                        </p>
-                                    </div>
-                                </li>
-
-                                <li class="comment-item">
-                                    <img src="../assets/User.png" alt="Foto de Aline Silva" class="comment-avatar">
-                                    <div class="comment-body">
-                                        <div class="comment-header">
-                                            <span class="comment-author">Aline Silva</span>
-                                            <span class="comment-rating" aria-label="Avaliação 4.5 de 5 estrelas">
-                                                <span aria-hidden="true">★</span> 4.5
-                                            </span>
-                                        </div>
-                                        <p class="comment-text">
-                                            Este vídeo foi feito por um sigma muito farmador de aura, a pessoa mais
-                                            braba de todos os tempos. O verdadeiro Dragão Guerreiro!!
-                                        </p>
-                                    </div>
-                                </li>
-
-                            </ul>
+                            <button type="submit" class="submit-button">Enviar avaliação</button>
+                            </form>
                         </div>
                     </div>
 
-                </article>
+                    <div id="panel-avaliacoes" role="tabpanel" aria-labelledby="tab-avaliacoes" tabindex="0"
+                        class="tab-content" hidden>
+                        <ul class="comments-list">
+
+                            <li class="comment-item">
+                                <img src="../assets/User.png" alt="Foto de Aline Silva" class="comment-avatar">
+                                <div class="comment-body">
+                                    <div class="comment-header">
+                                        <span class="comment-author">Aline Silva</span>
+                                        <span class="comment-rating" aria-label="Avaliação 4.5 de 5 estrelas">
+                                            <span aria-hidden="true">★</span> 4.5
+                                        </span>
+                                    </div>
+                                    <p class="comment-text">
+                                        Este vídeo foi feito por um sigma muito farmador de aura, a pessoa mais
+                                        braba de todos os tempos. O verdadeiro Dragão Guerreiro!!
+                                    </p>
+                                </div>
+                            </li>
+
+                            <li class="comment-item">
+                                <img src="../assets/User.png" alt="Foto de Aline Silva" class="comment-avatar">
+                                <div class="comment-body">
+                                    <div class="comment-header">
+                                        <span class="comment-author">Aline Silva</span>
+                                        <span class="comment-rating" aria-label="Avaliação 4.5 de 5 estrelas">
+                                            <span aria-hidden="true">★</span> 4.5
+                                        </span>
+                                    </div>
+                                    <p class="comment-text">
+                                        Este vídeo foi feito por um sigma muito farmador de aura, a pessoa mais
+                                        braba de todos os tempos. O verdadeiro Dragão Guerreiro!!
+                                    </p>
+                                </div>
+                            </li>
+
+                            <li class="comment-item">
+                                <img src="../assets/User.png" alt="Foto de Aline Silva" class="comment-avatar">
+                                <div class="comment-body">
+                                    <div class="comment-header">
+                                        <span class="comment-author">Aline Silva</span>
+                                        <span class="comment-rating" aria-label="Avaliação 4.5 de 5 estrelas">
+                                            <span aria-hidden="true">★</span> 4.5
+                                        </span>
+                                    </div>
+                                    <p class="comment-text">
+                                        Este vídeo foi feito por um sigma muito farmador de aura, a pessoa mais
+                                        braba de todos os tempos. O verdadeiro Dragão Guerreiro!!
+                                    </p>
+                                </div>
+                            </li>
+
+                        </ul>
+                    </div>
             </div>
 
-            <aside class="related-sidebar" aria-labelledby="related-courses-title">
-                <h2 id="related-courses-title" class="related-title">Cursos relacionados</h2>
+            </article>
+        </div>
 
-                <ul class="related-list">
-                    <li>
-                        <a href="#" class="related-card">
-                            <img src="../assets/User.png" alt="Imagem do curso xxxx" class="related-thumb" aria-hidden="true">
-                            <div class="related-details">
-                                <h3>Acessibilidade mobile: Implementação ...</h3>
-                                <p class="course-category">Mobile</p>
-                            </div>
-                        </a>
-                    </li>
-                    <li>
-                        <a href="#" class="related-card">
-                            <img src="../assets/User.png" alt="Imagem do curso xxxx" class="related-thumb" aria-hidden="true">
-                            <div class="related-details">
-                                <h3>Acessibilidade mobile: Implementação ...</h3>
-                                <p class="course-category">Mobile</p>
-                            </div>
-                        </a>
-                    </li>
-                    <li>
-                        <a href="#" class="related-card">
-                            <img src="../assets/User.png" alt="Imagem do curso xxxx" class="related-thumb" aria-hidden="true">
-                            <div class="related-details">
-                                <h3>Acessibilidade mobile: Implementação ...</h3>
-                                <p class="course-category">Mobile</p>
-                            </div>
-                        </a>
-                    </li>
-                    <li>
-                        <a href="#" class="related-card">
-                            <img src="../assets/User.png" alt="Imagem do curso xxxx" class="related-thumb" aria-hidden="true">
-                            <div class="related-details">
-                                <h3>Acessibilidade mobile: Implementação ...</h3>
-                                <p class="course-category">Mobile</p>
-                            </div>
-                        </a>
-                    </li>
-                    <li>
-                        <a href="#" class="related-card">
-                            <img src="../assets/User.png" alt="Imagem do curso xxxx" class="related-thumb" aria-hidden="true">
-                            <div class="related-details">
-                                <h3>Acessibilidade mobile: Implementação ...</h3>
-                                <p class="course-category">Mobile</p>
-                            </div>
-                        </a>
-                    </li>
-                </ul>
-            </aside>
+        <aside class="related-sidebar" aria-labelledby="related-courses-title">
+            <h2 id="related-courses-title" class="related-title">Cursos relacionados</h2>
+
+            <ul class="related-list">
+                <li>
+                    <a href="#" class="related-card">
+                        <img src="../assets/User.png" alt="Imagem do curso xxxx" class="related-thumb"
+                            aria-hidden="true">
+                        <div class="related-details">
+                            <h3>Acessibilidade mobile: Implementação ...</h3>
+                            <p class="course-category">Mobile</p>
+                        </div>
+                    </a>
+                </li>
+                <li>
+                    <a href="#" class="related-card">
+                        <img src="../assets/User.png" alt="Imagem do curso xxxx" class="related-thumb"
+                            aria-hidden="true">
+                        <div class="related-details">
+                            <h3>Acessibilidade mobile: Implementação ...</h3>
+                            <p class="course-category">Mobile</p>
+                        </div>
+                    </a>
+                </li>
+                <li>
+                    <a href="#" class="related-card">
+                        <img src="../assets/User.png" alt="Imagem do curso xxxx" class="related-thumb"
+                            aria-hidden="true">
+                        <div class="related-details">
+                            <h3>Acessibilidade mobile: Implementação ...</h3>
+                            <p class="course-category">Mobile</p>
+                        </div>
+                    </a>
+                </li>
+                <li>
+                    <a href="#" class="related-card">
+                        <img src="../assets/User.png" alt="Imagem do curso xxxx" class="related-thumb"
+                            aria-hidden="true">
+                        <div class="related-details">
+                            <h3>Acessibilidade mobile: Implementação ...</h3>
+                            <p class="course-category">Mobile</p>
+                        </div>
+                    </a>
+                </li>
+                <li>
+                    <a href="#" class="related-card">
+                        <img src="../assets/User.png" alt="Imagem do curso xxxx" class="related-thumb"
+                            aria-hidden="true">
+                        <div class="related-details">
+                            <h3>Acessibilidade mobile: Implementação ...</h3>
+                            <p class="course-category">Mobile</p>
+                        </div>
+                    </a>
+                </li>
+            </ul>
+        </aside>
 
         </div>
     </main>
@@ -418,6 +462,7 @@
         </footer>
 
     </dialog>
+    <script src="../js/app.js" defer></script>
 </body>
 
 </html>

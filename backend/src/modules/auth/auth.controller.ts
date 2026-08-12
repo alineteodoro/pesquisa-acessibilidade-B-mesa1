@@ -50,6 +50,7 @@ export class AuthController {
     @ApiBody({ type: LogarContaRequestDto })
     @ApiResponse({ status: 200, description: "Login realizado com sucesso." })
     async logarConta(@Body() params: LogarContaRequestDto): Promise<LogarContaOutputDto> {
+        console.log("LogarConta params:", params);
         return await this.repo.logarConta(params);
     }
 
