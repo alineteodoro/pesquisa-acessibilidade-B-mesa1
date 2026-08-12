@@ -6,6 +6,7 @@ import { CriarCursoRequestDto } from "./dto/requests/criar-curso-request.dto";
 import { AtualizarCursoRequestDto } from "./dto/requests/atualizar-curso-request.dto";
 import { CursoOutputDto } from "./dto/io/curso-output.dto";
 import { CursoDetailOutputDto } from "./dto/io/curso-detail-output.dto";
+import { CursoFindInstrutorOutputDto } from "./dto/io/curso-find-instrutor-output.dto";
 
 @Injectable()
 export class CursoRepository {
@@ -89,5 +90,19 @@ export class CursoRepository {
                 message: error?.message || "Erro interno ao excluir o curso."
             };
         }
+    }
+
+    async buscarInstrutorPorCurso(id_curso: number): Promise<CursoFindInstrutorOutputDto> {
+        const result = await this.repo.createQueryBuilder('c')
+            .select('u.nome', 'nome')
+            .innerJoin('usuario', 'u', 'u.id_usuario = c.id_usuario')
+            .where('c.id_curso = :id', { id: id_curso })
+            .getRawOne();
+
+        if (!result) {
+            return { nome: '' };
+        }
+
+        return { nome: result.nome };
     }
 }

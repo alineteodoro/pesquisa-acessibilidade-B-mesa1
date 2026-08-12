@@ -4,6 +4,7 @@ import { CriarCursoRequestDto } from "./dto/requests/criar-curso-request.dto";
 import { AtualizarCursoRequestDto } from "./dto/requests/atualizar-curso-request.dto";
 import { CursoOutputDto } from "./dto/io/curso-output.dto";
 import { CursoDetailOutputDto } from "./dto/io/curso-detail-output.dto";
+import { CursoFindInstrutorOutputDto } from "./dto/io/curso-find-instrutor-output.dto";
 
 @Injectable()
 export class CursoServices {
@@ -30,5 +31,9 @@ export class CursoServices {
 
     async deletarCurso(id_curso: number): Promise<CursoOutputDto> {
         return await this.repo.deletarCurso(id_curso);
+    }
+
+    async buscarInstrutorPorCurso(id_curso: number): Promise<CursoFindInstrutorOutputDto> {
+        return await this.repo.buscarInstrutorPorCurso(id_curso);
     }
 }
