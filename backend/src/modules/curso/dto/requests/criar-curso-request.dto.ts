@@ -8,6 +8,11 @@ export class CriarCursoRequestDto {
     @MaxLength(200, { message: "O nome deve ter no máximo 200 caracteres." })
     public nome: string;
 
+    @ApiProperty({ description: "ID do usuário", example: 1, type: "integer" })
+    @IsInt({ message: "O ID do usuário deve ser um número inteiro." })
+    @IsPositive({ message: "O ID do usuário deve ser maior que zero." })
+    public id_usuario: number;
+
     @ApiProperty({ description: "Descrição do curso", example: "Curso introdutório sobre acessibilidade digital", type: "string" })
     @IsString({ message: "A descrição deve ser uma string." })
     @IsNotEmpty({ message: "A descrição não pode estar vazia." })

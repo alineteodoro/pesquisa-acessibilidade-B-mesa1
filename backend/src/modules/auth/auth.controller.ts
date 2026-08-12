@@ -33,10 +33,7 @@ export class AuthController {
     @ApiOperation({ summary: "Buscar conta por ID" })
     @ApiParam({ name: "id", type: Number, description: "ID da conta" })
     @ApiResponse({ status: 200, description: "Conta retornada com sucesso." })
-    async buscarPorId(@Param("id", ParseIntPipe) id: number): Promise<ContaDetailOutputDto | null> {
-        console.log("ID recebido pelo controller:", id);
-        console.log("ID convertido:", Number(id));
-        
+    async buscarPorId(@Param("id") id: string): Promise<ContaDetailOutputDto | null> {
         return await this.repo.buscarPorId(Number(id));
     }
 

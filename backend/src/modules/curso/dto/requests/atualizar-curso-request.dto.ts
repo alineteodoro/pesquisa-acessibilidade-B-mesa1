@@ -13,6 +13,12 @@ export class AtualizarCursoRequestDto {
     @IsString({ message: "A descrição deve ser uma string." })
     public descricao?: string;
 
+    @ApiPropertyOptional({ description: "ID do usuário", example: 1, type: "integer" })
+    @IsOptional()
+    @IsInt({ message: "O ID do usuário deve ser um número inteiro." })
+    @IsPositive({ message: "O ID do usuário deve ser maior que zero." })
+    public id_usuario?: number;
+
     @ApiPropertyOptional({ description: "Duração do curso em horas", example: 40, type: "integer" })
     @IsOptional()
     @IsInt({ message: "A duração deve ser um número inteiro." })

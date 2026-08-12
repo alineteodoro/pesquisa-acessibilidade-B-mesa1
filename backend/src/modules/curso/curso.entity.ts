@@ -6,6 +6,9 @@ export class CursoEntity{
     @PrimaryGeneratedColumn({name:"id_curso", type:"integer"})
     public id_curso:number;
 
+    @Column({name:"id_usuario", type:"integer"})
+    public id_usuario:number;
+
     @Column({name:"nome", type:"varchar", length:200})
     public nome:string;
 
