@@ -1,4 +1,4 @@
-const API_URL = "http://localhost:3001/api/auth";
+const API_URL = "http://localhost:3001";
 
 async function carregarUsuario() {
     const usuarioId = localStorage.getItem("usuarioId");
@@ -17,7 +17,7 @@ async function carregarUsuario() {
     }
 
     try {
-        const url = `${API_URL}/${usuarioId}`;
+        const url = `${API_URL}/api/auth/${usuarioId}`;
 
         const response = await fetch(url);
 
@@ -43,8 +43,7 @@ async function carregarUsuario() {
     }
 }
 
-const API_BASE_URL = "http://localhost:3001"; // porta do back-end NestJS (ajuste se for outra)
-const API_CURSOS_URL = `${API_BASE_URL}/api/curso`;
+const API_CURSOS_URL = `${API_URL}/api/curso`;
 const CURSOS_POR_PAGINA = 16;
  
 // Chave usada no localStorage para guardar o id do usuário logado.
