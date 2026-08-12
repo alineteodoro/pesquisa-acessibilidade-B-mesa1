@@ -10,6 +10,8 @@ import { ConteudoModule } from './modules/conteudo/conteudo.module';
 import { CursoModule } from './modules/curso/curso.module';
 import { MatriculaModule } from './modules/matricula/matricula.module';
 import { ModuloModule } from './modules/modulo/modulo.module';
+import { APP_GUARD } from '@nestjs/core';
+import { JwtAuthGuard } from './security/jwt-auth.guard';
 
 @Module({
   imports: [
@@ -34,6 +36,7 @@ import { ModuloModule } from './modules/modulo/modulo.module';
     ProgressoModule,
 
   ],
+  providers: [{ provide: APP_GUARD, useClass: JwtAuthGuard }],
 })
 
 export class AppModule {}

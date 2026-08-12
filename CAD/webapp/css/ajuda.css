@@ -42,6 +42,8 @@ legend {
   color: var(--azul-escuro);
   border: none;
   box-shadow: -4px 5px 10px rgba(0, 0, 0, 0.4);
+  font-family: 'Poppins', sans-serif;
+  margin-top: 10px;
 }
 
 .filter-group button:hover{
@@ -146,21 +148,22 @@ legend {
 }
 
 .btn-primary {
-  background-color: var(--azul-claro);
+  background-color: var(--azul-medio);
   color: var(--branco);
   border: none;
   padding: 0.75rem 1.75rem;
-  border-radius: 12px;
+  border-radius: var(--borda-raio);
   font-weight: 600;
   font-size: 0.95rem;
   cursor: pointer;
   min-height: 44px;
   /* Tamanho mínimo de toque WCAG */
   transition: background-color 0.2s ease, transform 0.1s ease;
+  font-family: 'Poppins', sans-serif;
 }
 
 .btn-primary:hover {
-  background-color: var(--azul-medio);
+  background-color: var(--azul-claro);
 }
 
 /* ================================Filtros de Categoria (Pills)==================================== */
@@ -274,6 +277,32 @@ legend {
 .btn-vote:hover {
   background-color: #D1D5DB;
   transform: scale(1.05);
+}
+
+.btn-vote[aria-pressed="true"] {
+  background-color: var(--azul-medio);
+  color: var(--branco);
+  box-shadow: 0 0 0 4px rgba(2, 69, 168, 0.15);
+  animation: vote-active 0.25s ease;
+}
+
+.btn-vote[aria-pressed="true"] svg {
+  fill: currentColor;
+}
+
+@keyframes vote-active {
+  0% {
+    transform: scale(1);
+    box-shadow: 0 0 0 0 rgba(2, 69, 168, 0.25);
+  }
+  50% {
+    transform: scale(1.08);
+    box-shadow: 0 0 0 6px rgba(2, 69, 168, 0.12);
+  }
+  100% {
+    transform: scale(1);
+    box-shadow: 0 0 0 4px rgba(2, 69, 168, 0.15);
+  }
 }
 
 /* ==================================Responsividade========================== ====================== */

@@ -40,17 +40,22 @@ main {
 /* Fundo indicador */
 
 .active-indicator {
+    --active-indicator-scale: 1;
     position: absolute;
     top: -1rem;
     width: calc(100% - 2rem);
     height: 56px;
     border-radius: 16px;
     background-color: var(--azul-medio);
+    transition: none;
+    z-index: -9999;
+}
+
+.active-indicator.animate {
     transition:
         top .35s ease,
-        transform .35s ease;
-    z-index: -9999;
-
+        height .35s ease,
+        width 0.35s ease;
 }
 
 /* Classe nav */
@@ -75,6 +80,11 @@ nav {
     gap: 1rem;
     font-weight: 600;
     position: fixed;
+    transition: width .25s ease;
+}
+
+.menu.wide {
+    width: 13.5rem;
 }
 
 /* Imagem do usuário no menu */
@@ -112,12 +122,21 @@ ul {
 li {
     list-style: none;
 }
+/* Menu links: prevent wrapping and truncate if needed */
+.menu nav a {
+    display: block;
+    width: 100%;
+    text-decoration: none;
+    
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
 
 a {
     text-decoration: none;
     color: var(--azul-escuro);
 }
-
 
 /* Item do menu ativo */
 
@@ -260,4 +279,16 @@ a {
     justify-content: space-between;
     padding: 1rem;
     width: 100%;
+}
+
+*:focus-visible {
+    outline: 3px solid #1E88EE !important;
+    outline-offset: 3px;
+}
+
+.high-contrast { --azul-escuro: #000000; --azul-medio: #0033cc; --azul-claro: #005fcc; --branco-azulado: #ffffff; }
+.reduce-motion *, .reduce-motion *::before, .reduce-motion *::after { animation: none !important; transition: none !important; scroll-behavior: auto !important; }
+
+@media (prefers-reduced-motion: reduce) {
+    *, *::before, *::after { animation-duration: 0.01ms !important; animation-iteration-count: 1 !important; scroll-behavior: auto !important; transition-duration: 0.01ms !important; }
 }
