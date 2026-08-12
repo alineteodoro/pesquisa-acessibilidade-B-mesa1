@@ -73,7 +73,8 @@ export class AuthRepository {
             return {
                 success: true,
                 message: "Usuário logado com sucesso.",
-                is_instrutor: data[0].is_instrutor
+                is_instrutor: data[0].is_instrutor,
+                id_usuario: data[0].id_usuario
             };
         } catch (error: any) {
             return {
