@@ -444,3 +444,8 @@ fieldset {
     --cinza-borda: #E5E7EB;
     --laranja: #FF6D00;
 }
+
+html.large-cursor,
+html.large-cursor * {
+    cursor: var(--accessibility-cursor) !important;
+}

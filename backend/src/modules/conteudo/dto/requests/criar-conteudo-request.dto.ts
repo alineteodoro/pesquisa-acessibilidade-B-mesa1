@@ -32,4 +32,10 @@ export class CriarConteudoRequestDto {
     @IsString({ message: "A legenda deve ser uma string." })
     @IsNotEmpty({ message: "A legenda não pode estar vazia." })
     public legenda: string;
+
+    @ApiProperty({ description: "Duração do vídeo em segundos", example: 120, type: "integer" })
+    @IsInt({ message: "A duração do vídeo deve ser um número inteiro." })
+    @IsPositive({ message: "A duração do vídeo deve ser maior que zero." })
+    public duracao_video: number;
+
 }

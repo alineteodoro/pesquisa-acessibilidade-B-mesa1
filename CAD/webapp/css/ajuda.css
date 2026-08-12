@@ -147,21 +147,22 @@ legend {
 }
 
 .btn-primary {
-  background-color: var(--azul-claro);
+  background-color: var(--azul-medio);
   color: var(--branco);
   border: none;
   padding: 0.75rem 1.75rem;
-  border-radius: 12px;
+  border-radius: var(--borda-raio);
   font-weight: 600;
   font-size: 0.95rem;
   cursor: pointer;
   min-height: 44px;
   /* Tamanho mínimo de toque WCAG */
   transition: background-color 0.2s ease, transform 0.1s ease;
+  font-family: 'Poppins', sans-serif;
 }
 
 .btn-primary:hover {
-  background-color: var(--azul-medio);
+  background-color: var(--azul-claro);
 }
 
 /* ================================Filtros de Categoria (Pills)==================================== */

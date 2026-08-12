@@ -4,6 +4,7 @@ import { CriarCursoRequestDto } from "./dto/requests/criar-curso-request.dto";
 import { AtualizarCursoRequestDto } from "./dto/requests/atualizar-curso-request.dto";
 import { CursoOutputDto } from "./dto/io/curso-output.dto";
 import { CursoDetailOutputDto } from "./dto/io/curso-detail-output.dto";
+import { Public } from '../../security/public.decorator';
 
 @Controller("api/curso")
 export class CursoController {
@@ -12,11 +13,13 @@ export class CursoController {
         private repo: CursoServices
     ){}
 
+    @Public()
     @Get()
     async buscarTodos(): Promise<CursoDetailOutputDto[]> {
         return await this.repo.buscarTodos();
     }
 
+    @Public()
     @Get(":id")
     async buscarPorId(
         @Param("id") id: string

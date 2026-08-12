@@ -1,4 +1,4 @@
-import { Body, Controller, Delete, Get, Param, Post, Put, Query } from "@nestjs/common";
+import { Body, Controller, Delete, Get, Param, ParseIntPipe, Post, Put, Query } from "@nestjs/common";
 import { ApiBody, ApiOperation, ApiParam, ApiQuery, ApiResponse, ApiTags } from "@nestjs/swagger";
 import { AuthServices } from "./auth.services";
 import { CriarContaRequestDto } from "./dto/requests/criar-conta-request.dto";
@@ -10,6 +10,7 @@ import { ContaDetailOutputDto } from "./dto/io/conta-detail-output.dto";
 import { AtualizarContaRequestDto } from "./dto/requests/atualizar-conta-request.dto";
 import { DeletarContaParamsDto } from "./dto/params/deletar-conta-params.dto";
 import { FindContaQueryDto } from "./dto/query-params/find-conta-query.dto";
+import { Public } from '../../security/public.decorator';
 
 @ApiTags("Auth")
 @Controller("api/auth")
@@ -33,10 +34,11 @@ export class AuthController {
     @ApiOperation({ summary: "Buscar conta por ID" })
     @ApiParam({ name: "id", type: Number, description: "ID da conta" })
     @ApiResponse({ status: 200, description: "Conta retornada com sucesso." })
-    async buscarPorId(@Param() params: DeletarContaParamsDto): Promise<ContaDetailOutputDto | null> {
-        return await this.repo.buscarPorId(params.id);
+    async buscarPorId(@Param("id") id: string): Promise<ContaDetailOutputDto | null> {
+        return await this.repo.buscarPorId(Number(id));
     }
 
+    @Public()
     @Post("criarConta")
     @ApiOperation({ summary: "Criar conta" })
     @ApiBody({ type: CriarContaRequestDto })
@@ -45,6 +47,7 @@ export class AuthController {
         return await this.repo.criarConta(params);
     }
 
+    @Public()
     @Post("logarConta")
     @ApiOperation({ summary: "Login da conta" })
     @ApiBody({ type: LogarContaRequestDto })

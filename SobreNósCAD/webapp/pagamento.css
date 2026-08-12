@@ -1,0 +1,188 @@
+:root {
+    --color-background: #071018;
+    --color-background-secondary: #0d1d28;
+    --color-background-card: #132631;
+    --color-text: #ffffff;
+    --color-text-secondary: #d2d9de;
+    --color-primary: #1688d8;
+    --color-primary-light: #66c9ff;
+    --color-border: #1688d8;
+    --color-focus: #ffd000;
+    --color-header: #050b10;
+    --max-width: 1200px;
+    --radius: 16px;
+    --transition: 0.3s ease;
+}
+
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+    -webkit-appearance: none;
+}
+
+body {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Poppins', sans-serif;
+    background:
+        radial-gradient(
+            circle at 50% 30%,
+            #16384d 0%,
+            var(--color-background) 55%
+        );
+}
+
+/* * {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: Arial, Helvetica, sans-serif;
+} */
+
+main {
+    background-color: #67676730;
+    display: flex;
+    flex-direction: column;
+    position: relative;
+    align-items: stretch;
+    justify-content: center;
+    color: var(--color-text);
+    width: 100%;
+    max-width: 1150px;
+    padding: 55px 60px 45px;
+    margin: 40px auto;
+    border-radius: 28px;
+    box-sizing: border-box;
+}
+
+p {
+    margin-left: 0;
+}
+
+.title-container {
+    display: flex;
+    width: 100%;
+    text-align: left;
+    margin-bottom: 40px;
+}
+
+/* .title-container h1 {
+    text-align: left;
+    margin-bottom: 0;
+} */
+
+.logo {
+    width: 60px;
+    position: absolute;
+    top: 70px;
+    right: 60px;
+}
+
+.maincards {
+    display: grid;
+    grid-template-columns: 1.6fr 1fr;
+    gap: 32px;
+    width: 100%;
+}
+
+.purchase-info {
+    background-color: #111517;
+    font-size: 1.5rem;
+    margin-bottom: 20px;
+    border-radius: 24px;
+    padding: 25px;
+    min-height: 455px;
+    box-sizing: border-box;
+}
+
+.purchase-details {
+    background-color: #111517;
+    font-size: 1.5rem;
+    margin-bottom: 20px;
+    border-radius: 24px;
+    padding: 25px;
+    min-height: 455px;
+    box-sizing: border-box;
+}
+
+.boneco-image {
+    display: block;
+    width: 190px;
+    height: auto;
+    margin: 25px auto;
+    border-radius: var(--radius);
+}
+
+.title-container h1 {
+    text-align: left;
+    margin-bottom: 40px;
+}
+
+.boneco-title {
+    color: var(--color-text);
+    font-size: 1.5rem;
+    font-weight: bold;
+}
+
+.boneco-price {
+    color: var(--color-text);
+    font-size: 1.5rem;
+    font-weight: bold;
+    margin-top: 10px;
+}
+
+.btn-pay {
+    background-color: #21C25E;
+    color: #000000;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 30px;
+    cursor: pointer;
+    font-size: 1.5rem;
+    width: 200px;
+}
+
+span {
+    color: var(--color-primary-light);
+    /* font-weight: bold; */
+}
+
+#spanpayment {
+    font-weight: bold;
+}
+
+#spanpicpay {
+    color: #2fd06d;
+    font-weight: bold;
+}
+
+.btn-pay, #payment-secure {
+    display: block;
+    margin: 0 auto;
+    text-align: center;
+    margin-top: 20px;
+    font-family: 'Poppins', sans-serif;
+}
+
+.letrasmiudas {
+    font-size: medium;
+}
+
+.cancel-payment {
+    align-self: flex-start;
+    margin-top: 20px;
+    background-color: transparent;
+    color: var(--color-text);
+    border: none;
+    cursor: pointer;
+    text-decoration: none;
+    font-size: 1.2rem;
+    font-family: 'Poppins', sans-serif;
+}
+
+/* Responsividade */
+@media (max-width: 768px) {
+    .maincards {
+        grid-template-columns: 1fr;
+    }
+}

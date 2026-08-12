@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Comprar Boneco</title>
+    <link rel="stylesheet" href="compra.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+</head>
+
+<body>
+    <div class="page-container">
+        <nav aria-label="Navegação de retorno">
+            <a href="index.html" class="btn-back">← Voltar</a>
+        </nav>
+
+        <main class="product-layout">
+            
+            <article class="boneco-card" aria-label="Imagem e preço do produto">
+                <div class="image-wrapper">
+                    <img src="assets/david-funko.png" alt="Boneco David Funko-pop estilo miniatura de vinil com violão e camisa do Corinthians" class="boneco-image">
+                </div>
+                <p class="boneco-price" aria-label="Preço: 99 reais e 90 centavos">R$ 99,90</p>
+            </article>
+
+            <section class="product-info" aria-labelledby="product-title">
+                <header class="title-container">
+                    <h1 id="product-title" class="boneco-title">Boneco David Funko-pop</h1>
+                    <button type="button" id="btn-fav" aria-label="Adicionar aos favoritos" aria-pressed="false">☆</button>
+                </header>
+
+                <p class="boneco-description">
+                    Este é o boneco do David, um personagem icónico da cultura pop. Ele é feito de vinil de alta qualidade e possui detalhes incríveis que capturam a essência do personagem. Versão original, tamanho 67cm, recomendado para maiores de 14 anos, não recomendado para menores de 3 anos, inclui bola de futebol, carro, monitor e violão.
+                </p>
+
+                <fieldset class="categories-wrapper">
+                    <legend class="boneco-category">Categorias:</legend>
+                    <div class="boneco-categories">
+                        <button type="button" class="btn-category" aria-pressed="true">Original</button>
+                        <button type="button" class="btn-category" aria-pressed="false">Funko-pop</button>
+                        <button type="button" class="btn-category" aria-pressed="false">Madeira</button>
+                    </div>
+                </fieldset>
+
+                <div class="quantity-wrapper">
+                    <label for="input-number" class="quantity-label">Quantidade:</label>
+                    <div class="quantity-section" role="group" aria-label="Seleção de quantidade">
+                        <button class="btn-quantity" type="button" id="button-minus" aria-label="Diminuir quantidade">-</button>
+                        <input type="number" class="number-quantity" id="input-number" value="1" min="0" aria-live="polite">
+                        <button class="btn-quantity" type="button" id="button-plus" aria-label="Aumentar quantidade">+</button>
+                    </div>
+                </div>
+            </section>
+        </main>
+
+        <footer class="purchase-section" aria-label="Ações de compra do produto">
+            <!-- Ir à página de pagamento -->
+            <a href="#"><button type="button" class="btn-buy">Comprar</button></a>
+            <button type="button" class="btn-car">Adicionar ao carrinho</button>
+        </footer>
+    </div>
+
+    <!-- Script para quantidade -->
+    <script>
+        document.getElementById('button-minus').addEventListener('click', function () {
+            var input = document.getElementById('input-number');
+            var value = parseInt(input.value, 10);
+            if (value > parseInt(input.min, 10)) {
+                input.value = value - 1;
+            }
+        });
+
+        document.getElementById('button-plus').addEventListener('click', function () {
+            var input = document.getElementById('input-number');
+            input.value = parseInt(input.value, 10) + 1;
+        });
+
+        // Favorito
+        const btn = document.getElementById('btn-fav');
+        let isFav = false;
+
+        btn.addEventListener('click', () => {
+            isFav = !isFav;
+            btn.textContent = isFav ? '★' : '☆';
+            btn.setAttribute('aria-label', isFav ? 'Favorito' : 'Não favorito');
+            btn.style.color = isFav ? 'gold' : 'white';
+        });
+
+    </script>
+
+</body>
+</html>

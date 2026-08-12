@@ -68,6 +68,7 @@ legend {
 }
 
 .filter-group button {
+  margin-top: 10px;
   background-color: var(--branco);
   border-radius: 1rem;
   padding: .5rem 1rem .5rem 1rem;

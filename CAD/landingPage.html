@@ -1,18 +1,25 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="CAD - Acessibilidade digital não é opcional. Conheça nossos cursos, diferenciais e soluções acessíveis.">
+    <meta name="description"
+        content="CAD - Acessibilidade digital não é opcional. Conheça nossos cursos, diferenciais e soluções acessíveis.">
     <title>CAD</title>
     <link rel="stylesheet" href="landingpage.css">
     <link rel="stylesheet" href="webapp/css/menuAcessibilidade.css">
-        <link rel="shortcut icon" type="image/x-icon" href="webapp/assets/LogoModoEscuro.png">
+    <link rel="shortcut icon" type="image/x-icon" href="webapp/assets/LogoModoEscuro.png">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap"
+        rel="stylesheet">
 
 </head>
 
 <body>
-    <!-- <a class="skip-link" href="#conteudo">Ir para o conteúdo principal</a> -->
+    <a class="skip-link" href="#conteudo">Ir para o conteúdo principal</a>
 
     <header class="site-header">
         <div class="container header-content">
@@ -27,15 +34,6 @@
                     <li><a href="#motivos">Motivos</a></li>
                     <li><a href="#diferenciais">Diferenciais</a></li>
                     <li><a href="#sobre">Sobre nós</a></li>
-                    <li><button
-                        class="theme-toggle"
-                        id="theme-toggle"
-                        type="button"
-                        aria-label="Ativar modo escuro"
-                        aria-pressed="false">
-                        <span id="theme-icon" aria-hidden="true">🌙</span>
-                        </button>
-                    </li>
                 </ul>
             </nav>
 
@@ -47,8 +45,8 @@
 
         <section class="hero" id="inicio" aria-labelledby="titulo-principal">
             <div class="container hero-content" alt="Fundo azul do site">
-            <div class="hero-text">
-                <!-- <p class="eyebrow">Acessibilidade digital</p> -->
+                <div class="hero-text">
+                    <!-- <p class="eyebrow">Acessibilidade digital</p> -->
 
                     <h1 id="titulo-principal">
                         Acessibilidade digital
@@ -68,12 +66,13 @@
             </div>
         </section>
 
-        <button commandfor="accessibilityMenu" command="show-modal" id="accessibilityButton" class="accessibility-button"
-        aria-label="Abrir menu de acessibilidade" aria-controls="accessibilityMenu" aria-expanded="false">
+        <button commandfor="accessibilityMenu" command="show-modal" id="accessibilityButton"
+            class="accessibility-button" aria-label="Abrir menu de acessibilidade" aria-controls="accessibilityMenu"
+            aria-expanded="false">
             <img src="webapp/assets/icons/marketing-agent.png" alt="Icone para o menu de acessibilidade">
         </button>
 
-    <!-- Menu de acessibilidade-->
+        <!-- Menu de acessibilidade-->
         <dialog id="accessibilityMenu" class="accessibility-menu" aria-labelledby="accessibility-title">
 
             <header class="accessibility-header">
@@ -119,8 +118,8 @@
                 <!-- CONTRASTE -->
                 <section class="accessibility-card" aria-labelledby="contrast-title">
                     <div class="image-title-section">
-                        <img src="webapp/assets/icons/contrast.png" alt="Icone de contraste, seção de troca de contraste"
-                            class="icon-section">
+                        <img src="webapp/assets/icons/contrast.png"
+                            alt="Icone de contraste, seção de troca de contraste" class="icon-section">
                         <h3 class="menu-title-section">Contraste</h3>
                     </div>
                     <fieldset class="segmented">
@@ -147,8 +146,8 @@
                 <!-- CORES -->
                 <section class="accessibility-card" aria-labelledby="custom-color-title">
                     <div class="image-title-section">
-                        <img src="webapp/assets/icons/eye-drops 1.png" alt=" icone de Conta gotas, Seção de personalizar cores"
-                            class="icon-section">
+                        <img src="webapp/assets/icons/eye-drops 1.png"
+                            alt=" icone de Conta gotas, Seção de personalizar cores" class="icon-section">
                         <h3 class="menu-title-section">Personalizar cores</h3>
                     </div>
                     <div class="color-picker">
@@ -190,7 +189,8 @@
                 <!-- VOZ -->
                 <section class="accessibility-card" aria-labelledby="voice-title">
                     <div class="image-title-section">
-                        <img src="webapp/assets/icons/volume-up.png" alt="icone de som, seção de voz " class="icon-section">
+                        <img src="webapp/assets/icons/volume-up.png" alt="icone de som, seção de voz "
+                            class="icon-section">
                         <h3 class="menu-title-section">Voz</h3>
                     </div>
                     <div class="switch-group">
@@ -221,8 +221,8 @@
                 <!-- FOCO -->
                 <section class="accessibility-card" aria-labelledby="focus-title">
                     <div class="image-title-section">
-                        <img src="webapp/assets/icons/gps-navigation.png" alt="icone de seta, seção de navegação na página"
-                            class="icon-section">
+                        <img src="webapp/assets/icons/gps-navigation.png"
+                            alt="icone de seta, seção de navegação na página" class="icon-section">
                         <h3 class="menu-title-section">Navegação</h3>
                     </div>
                     <label class="switch-item">
@@ -238,188 +238,145 @@
 
         </dialog>
 
-        <section class="section" id="cursos" aria-labelledby="titulo-cursos">
-            <div class="container">
-                <div class="section-heading">
-                    <!-- <p class="eyebrow">Aprenda conosco</p> -->
+        <section class="secao-cursos" id="secao-cursos" aria-labelledby="titulo-cursos">
+            <div class="cursos-container">
 
-                    <h2 id="titulo-cursos">
-                        Tipos de cursos
-                    </h2>
-                </div>
+                <header class="cursos-cabecalho">
+                    <h2 id="titulo-cursos">Tipos de cursos</h2>
+                </header>
 
-                <div class="cards" id="cardscursos">
-                    <article class="card">
+                <div class="cursos-grid">
+
+                    <article class="cartao-curso">
                         <h3>Curso de CSS</h3>
                         <p>
-                            Aprenda a criar interfaces modernas e acessíveis
-                            utilizando boas práticas de CSS.
+                            Curso focado em criar interfaces modernas e acessíveis utilizando boas práticas de CSS.
                         </p>
                     </article>
 
-                    <article class="card">
+                    <article class="cartao-curso cartao-destaque">
                         <h3>Desenvolvimento Mobile</h3>
                         <p>
-                            Aprenda conceitos de desenvolvimento para
-                            dispositivos móveis e acessibilidade digital.
+                            Curso de Mobile importante para mexer em celulares, também vamos
+                            implementar acessibilidade para novos usuários.
                         </p>
                     </article>
 
-                    <article class="card">
+                    <article class="cartao-curso">
                         <h3>E muito mais!</h3>
                         <p>
-                            Conheça outros conteúdos e cursos voltados ao
-                            desenvolvimento de experiências digitais inclusivas apenas no CAD!
+                            Conheça outros conteúdos e cursos voltados ao desenvolvimento de experiências digitais
+                            inclusivas!
                         </p>
+                    </article>
+
+                </div>
+            </div>
+        </section>
+
+        <section class="secao-acessibilidade" id="secao-acessibilidade" aria-labelledby="titulo-acessibilidade">
+            <div class="acessibilidade-container">
+
+                <header class="acessibilidade-cabecalho">
+                    <h2 id="titulo-acessibilidade">A importância da acessibilidade digital</h2>
+                </header>
+
+                <div class="acessibilidade-conteudo">
+
+                    <article class="bloco-acessibilidade bloco-problemas">
+                        <div class="acessibilidade-texto">
+                            <h3>Problemas da falta de acessibilidade</h3>
+                            <p>
+                                Com falta de acessibilidade, a quantidade de pessoas que são
+                                deixadas é gigantesca, fazendo com que você perca seus clientes.
+                            </p>
+                            <p>
+                                Além do acesso dos deficientes em sites ser insignificante, a
+                                falta de acessibilidade pode ocasionar em multas e processos milionários.
+                            </p>
+                        </div>
+
+                        <div class="acessibilidade-imagem">
+                            <img src="lpassets/Group 37408.png" alt="Homem sorrindo enquanto usa o celular">
+                        </div>
+                    </article>
+
+                    <article class="bloco-acessibilidade bloco-por-que">
+                        <div class="acessibilidade-imagem">
+                            <img src="lpassets/Group 37407.png" alt="Crianças interagindo e brincando na sala">
+                        </div>
+
+                        <div class="acessibilidade-texto">
+                            <h3>Por que fazemos?</h3>
+                            <p>
+                                Leitores de tela conseguem mapear o site através dessas seções,
+                                criando um "índice invisível" para o usuário pular direto para a
+                                parte que lhe interessa.
+                            </p>
+                            <p>
+                                Leitores de tela conseguem mapear o site através dessas seções,
+                                criando um "índice invisível" para o usuário pular direto para a
+                                parte que lhe interessa.
+                            </p>
+                        </div>
+                    </article>
+
+                </div>
+            </div>
+        </section>
+        <section class="secao-diferenciais" id="secao-diferenciais" aria-labelledby="titulo-diferenciais">
+            <div class="diferenciais-container">
+                <header class="diferenciais-titulo">
+                    <h2 id="titulo-diferenciais">Nossos diferenciais</h2>
+                </header>
+                <div class="diferenciais-grid">
+                    <article class="cartao-diferencial">
+                        <div class="diferencial-cabecalho">
+                            <h3>Desenvolvimento</h3>
+                        </div>
+                        <div class="diferencial-corpo">
+                            <p>
+                                Criamos experiências digitais
+                                pensando desde o início na acessibilidade e na usabilidade.
+                            </p>
+                        </div>
+                    </article>
+                    <article class="cartao-diferencial">
+                        <div class="diferencial-cabecalho">
+                            <h3>Cores</h3>
+                        </div>
+                        <div class="diferencial-corpo">
+                            <p>
+                                Utilizamos contraste adequado e escolhas visuais
+                                facilitando a leitura e a compreensão do conteúdo.
+                            </p>
+                        </div>
+                    </article>
+                    <article class="cartao-diferencial">
+                        <div class="diferencial-cabecalho">
+                            <h3>Nossos valores</h3>
+                        </div>
+                        <div class="diferencial-corpo">
+                            <p>
+                                Inclusão, respeito, inovação e responsabilidade
+                                orientam nossas decisões e nosso trabalho.
+                            </p>
+                        </div>
                     </article>
                 </div>
             </div>
         </section>
 
-        <section class="section section-alt" id="motivos" aria-labelledby="titulo-motivos">
-            <div class="container">
-                <div class="section-heading">
-                    <!-- <p class="eyebrow">Por que isso importa?</p> -->
-
-                    <h2 id="titulo-motivos">
-                        A importância da acessibilidade digital
-                    </h2>
-                </div>
-
-                <div class="content-grid">
-                    <article>
-                        <img src="lpassets/Group 37408.png" alt="Pessoas com deficiência usando tecnologia">
-                        <h3>Problemas da falta de acessibilidade</h3>
-
-                        <p>
-                            A falta de acessibilidade digital pode impedir que
-                            muitas pessoas tenham acesso a serviços,
-                            informações e oportunidades disponíveis na internet.
-                        </p>
-
-                        <p>
-                            Além de limitar o acesso de pessoas com deficiência,
-                            empresas podem enfrentar consequências legais e
-                            financeiras quando não cumprem requisitos de
-                            acessibilidade aplicáveis.
-                        </p>
-                    </article>
-
-                    <article>
-                        <img src="lpassets/Group 37407.png" alt="Pessoas com deficiência usando tecnologia">
-                        <h3>Por que fazemos?</h3>
-
-                        <p>
-                            Acreditamos que todos devem poder navegar,
-                            compreender e interagir com experiências digitais
-                            de forma independente e segura.
-                        </p>
-
-                        <p>
-                            Nosso objetivo é contribuir para uma internet
-                            mais inclusiva, eliminando barreiras e promovendo
-                            experiências melhores para todas as pessoas.
-                        </p>
-                    </article>
-                </div>
+        <section class="sobrenos" id="sobrenos" aria-labelledby="Sobre Nós">
+            <img src="lpassets/tagsfundoclaro.png" class="tagsfundo1" alt="Fundo de tags 1">
+            <div class="sobrenos-conteudo">
+                <h1>Sobre Nós</h1>
+                <a href="#">Conheça o nosso time →</a>
             </div>
+            <img src="lpassets/tagsfundoclaro.png" class="tagsfundo2" alt="Fundo de tags 2">
         </section>
 
-        <section class="diferenciais" id="diferenciais" aria-labelledby="titulo-diferenciais">
-            <div class="containerdiffs" alt="Fundo azul do site">
-                <div class="section-heading">
-                    <!-- <p class="eyebrow">O que nos diferencia</p> -->
 
-                    <h2 id="titulo-diferenciais">
-                        Nossos diferenciais
-                    </h2>
-                </div>
-
-                <div class="cards" id="cardsdiffs">
-                    <!-- Mudar pela imagem e o fundo -->
-                    <article class="card">
-                        <div class="card-icon" aria-hidden="true">01</div>
-                        <h3>Desenvolvimento</h3>
-                        <p>
-                            Criamos experiências digitais pensando desde o
-                            início na acessibilidade e na usabilidade.
-                        </p>
-                    </article>
-
-                    <article class="card">
-                        <div class="card-icon" aria-hidden="true">02</div>
-                        <h3>Cores</h3>
-                        <p>
-                            Utilizamos contraste adequado e escolhas visuais
-                            que facilitam a leitura e a compreensão do conteúdo.
-                        </p>
-                    </article>
-
-                    <article class="card">
-                        <div class="card-icon" aria-hidden="true">03</div>
-                        <h3>Nossos valores</h3>
-                        <p>
-                            Inclusão, respeito, inovação e responsabilidade
-                            orientam nossas decisões e nosso trabalho.
-                        </p>
-                    </article>
-                </div>
-
-                <!-- <div class="accessibility-message">
-                    <h3>Experiência para todos</h3>
-
-                    <p>
-                        Veja o site do jeito que quiser ou da forma que for
-                        melhor para você. Nossa experiência foi pensada para
-                        oferecer diferentes formas de interação.
-                    </p>
-                </div> -->
-            </div>
-        </section>
-
-        <section class="section section-alt" id="sobre" aria-labelledby="titulo-sobre">
-            
-            <div class="container">
-                <img src="lpassets/tagsfundoclaro.png" alt="Tags de código de estilização do fundo do Sobre Nós" class="tagsfundo1">
-                <div class="content-grid">
-                    <div>
-                        <!-- <p class="eyebrow">Sobre nós</p> -->
-
-                        <h2 id="titulo-sobre">
-                            Sobre Nós
-                        </h2>
-
-                        <!-- <p>
-                            Somos uma equipe dedicada a promover acessibilidade
-                            e inclusão no ambiente digital.
-                        </p>
-
-                        <p>
-                            Trabalhamos para criar soluções que possam ser
-                            utilizadas pelo maior número possível de pessoas.
-                        </p> -->
-
-                        <a class="button button-primary" href="#equipe" id="botaosn">
-                            Conheça o nosso time
-                            <span aria-hidden="true">→</span>
-                        </a>
-                    </div>
-
-                    <!-- <div id="equipe">
-                        <h3>Nossa equipe</h3>
-
-                        <p>
-                            Profissionais unidos pelo propósito de tornar a
-                            tecnologia mais acessível e inclusiva.
-                        </p>
-                    </div>
-                </div> -->
-                <img src="lpassets/tagsfundoclaro.png" alt="Tags de código de estilização do fundo do Sobre Nós" class="tagsfundo2">
-            </div>
-            
-        </section>
-
-        
     </main>
 
     <footer class="site-footer" id="contato">
@@ -486,4 +443,5 @@
 
     <script src="script.js"></script>
 </body>
+
 </html>

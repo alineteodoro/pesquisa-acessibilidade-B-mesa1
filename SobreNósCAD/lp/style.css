@@ -14,10 +14,13 @@
     --transition: 0.3s ease;
 }
 
+/* #FFFFFF30 */
+
 * {
     box-sizing: border-box;
     margin: 0;
     padding: 0;
+    font-family: 'Poppins', sans-serif;
 }
 
 html {
@@ -107,31 +110,35 @@ a {
     position: sticky;
     top: 0;
     z-index: 1000;
-    background: var(--color-header);
+    background: #ffffff30;
     border-bottom: 1px solid var(--color-border);
     transition:
         background-color var(--transition),
         border-color var(--transition);
+    width: 80%;
+    display: flex;
+    margin: 0 auto;
+    border-radius: 50px;
+    margin-top: 50px;
+    
 }
 
 .header-content {
     display: flex;
     align-items: center;
-    gap: 32px;
+    gap: 48px;
     min-height: 72px;
 }
 
-.logo {
-    color: var(--color-primary-light);
-    font-size: 1.6rem;
-    font-weight: 900;
-    text-decoration: none;
+.logo-header {
+    margin-left: 100px;
+    width: 67px;
 }
 
 .main-navigation {
     display: flex;
-    gap: 24px;
-    margin-left: auto;
+    gap: 100px;
+    margin-left: 100px;
     list-style: none;
 }
 
@@ -143,34 +150,6 @@ a {
 
 .main-navigation a:hover {
     color: var(--color-primary-light);
-}
-
-
-.video-section {
-    position: relative;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    min-height: 420px;
-    background: #373737;
-}
-
-.video-button {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    width: 56px;
-    height: 56px;
-    padding: 0;
-    color: #ffffff;
-    background: #151515;
-    border: 0;
-    border-radius: 50%;
-    font-size: 1.4rem;
-}
-
-.video-button:hover {
-    transform: scale(1.08);
 }
 
 .developers-section {
@@ -322,8 +301,8 @@ a {
     min-width: 100px;
     margin: 30px auto 0;
     padding: 10px 20px;
-    color: #ffffff;
-    background: var(--color-primary);
+    color: #000000;
+    background: #21C25E;
     border: 0;
     border-radius: 30px;
     font-size: 0.85rem;
@@ -331,7 +310,8 @@ a {
 }
 
 .see-more:hover {
-    background: var(--color-primary-light);
+    background: #006651;
+    color: var(--color-text);
 }
 
 .collection-grid {
@@ -422,7 +402,7 @@ a {
     min-width: 220px;
     margin-top: 35px;
     padding: 12px 24px;
-    color: #ffffff;
+    color: #000000;
     background: var(--color-primary);
     border-radius: 30px;
     font-size: 0.85rem;
@@ -531,6 +511,8 @@ a {
 
     .collection-card {
         flex-basis: 120px;
+        background: #67676730;
+        width: 80%;
     }
 
     .collection-card img {

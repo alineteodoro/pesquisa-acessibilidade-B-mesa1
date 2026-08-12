@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Comprar boneco</title>
+    <link rel="stylesheet" href="pagamento.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap"
+        rel="stylesheet">
+</head>
+
+<body>
+    <!-- <a href="compra.html"><button class="btn-back">← Voltar</button></a> -->
+    <!-- Seção principal da compra do boneco -->
+    <main aria-label="Seção principal da compra do boneco">
+        <div class="title-container"><h1>Dados da Compra</h1></div>
+        <!-- A compra -->
+        <section class="maincards">
+            <section class="purchase-info" aria-label="Dados da compra">
+                <p>Você selecionou o boneco: <span>David Funko-Pop</span></p>
+                <img src="assets/david-funko.png" class="boneco-image" alt="Boneco David Funko-Pop">
+                <p>Você selecionou a categoria: <span>Funko-pop</span></p>
+            </section>
+            <!-- Detalhes da compra -->
+            <section class="purchase-details" aria-label="Detalhes da compra">
+                <!-- <p>Detalhes da compra</p> -->
+                <p>Boneco David Funko-Pop</p>
+                <p>Produtos: 1</p>
+                <p>Valor total: R$ 99,90</p>
+                <!-- Popup de forma de pagamento -->
+                <p class="letrasmiudas">Método de pagamento: <span id="spanpayment">Selecionar</span></p>
+                <!-- Abrir pop-up de carregamento da transação -->
+                <button class="btn-pay" type="button">Comprar</button>
+                <p class="letrasmiudas" id="payment-secure">Pagamento seguro pela <span id="spanpicpay">PicPay</span></p>
+            </section>
+        </section>
+        <!-- Logo CAD -->
+        <section class="logo-cad" aria-label="Logo da empresa">
+            <img src="assets/Logo final.png" class="logo" alt="Logo CAD">
+        </section>
+        <!-- Botão de cancelar pagamento -->
+        <a href="compra.html"><button class="cancel-payment">← Cancelar pagamento</button></a>
+    </main>
+
+    <script></script>
+</body>
+
+</html>
