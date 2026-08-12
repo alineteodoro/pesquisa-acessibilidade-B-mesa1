@@ -1,0 +1,153 @@
+:root {
+    --color-background: #000000;
+    --color-card-bg: #67676730;
+    --color-text: #ffffff;
+    --color-text-secondary: #c5d0d8;
+    --color-primary: #0066c0;
+    --color-accent-green: #21c25e;
+    --radius-card: 16px;
+    --radius-btn: 20px;
+    --transition: all 0.25s ease;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Poppins', sans-serif;
+}
+
+body {
+    background: radial-gradient(circle at 50% 30%, #16384d 0%, var(--color-background) 60%);
+    color: var(--color-text);
+    min-height: 100vh;
+    padding: 30px 20px;
+}
+
+.page-container {
+    max-width: 1100px;
+    margin: 0 auto;
+}
+
+.btn-back {
+    display: inline-block;
+    color: var(--color-text);
+    text-decoration: none;
+    font-size: 1.1rem;
+    font-weight: 500;
+    margin-bottom: 25px;
+}
+
+.header-section {
+    display: flex;
+    align-items: center;
+    gap: 40px;
+    margin-bottom: 35px;
+}
+
+h1 {
+    font-size: 1.8rem;
+    font-weight: 700;
+}
+
+.tab-buttons {
+    display: inline-flex;
+    background-color: var(--color-card-bg);
+    border: 2px solid #0058AA;
+    border-radius: 30px;
+    padding: 4px;
+}
+
+.tab-btn {
+    padding: 8px 24px;
+    border-radius: 20px;
+    font-size: 0.95rem;
+    font-weight: 600;
+    color: var(--color-text-secondary);
+    text-decoration: none;
+    transition: var(--transition);
+    user-select: none;
+}
+
+.tab-btn.see-pedidos.active {
+    background-color: var(--color-primary);
+    color: #ffffff;
+}
+
+.tab-btn.see-carrinhos.active {
+    background-color: #ffffff;
+    color: #000000;
+}
+
+.grid-bonecos {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+    gap: 25px;
+}
+
+.boneco {
+    background-color: var(--color-card-bg);
+    border-radius: var(--radius-card);
+    /* padding: 20px 15px; */
+    width: auto;
+    height: 350px;
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.25);
+}
+
+.btn-rm {
+    position: absolute;
+    top: 12px;
+    right: 10px;
+    background: transparent;
+    background-image: url(assets/Union.png);
+    border: none;
+    color: var(--color-text);
+    cursor: pointer;
+    width: 32px;
+    height: 32px;
+}
+
+img {
+    
+    border-radius: var(--radius-btn);
+    margin-bottom: 20px;
+}
+
+.image-wrapper {
+    width: 100%;
+    height: 160px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 70px;
+}
+
+.boneco img {
+    max-height: 100%;
+    max-width: 100%;
+    object-fit: contain;
+}
+
+.boneco h3 {
+    font-size: 0.95rem;
+    font-weight: 600;
+    margin-bottom: 12px;
+    color: var(--color-text);
+}
+
+.btn-buy {
+    height: 50px;
+    min-width: 220px;
+    border-radius: var(--radius-btn);
+    font-size: 1rem;
+    font-weight: 600;
+    cursor: pointer;
+    background: #21c25e;
+    color: #000000;
+    border: none;
+}
