@@ -15,11 +15,13 @@ body {
     margin: 0;
     padding: 0;
     display: grid;
+    grid-template-columns: minmax(0, 1fr);
 }
 
 main {
     padding: 2rem;
     margin-left: 13.5rem;
+    min-width: 0;
 }
 
 /* Link para pular para o conteúdo principal */
@@ -120,7 +122,7 @@ ul {
 li {
     list-style: none;
 }
-/* Menu links: prevent wrapping and truncate if needed */
+
 .menu nav a {
     display: block;
     width: 100%;
@@ -255,7 +257,6 @@ a {
 /* Estiliza a parte preenchida da barra */
 .course-card progress::-webkit-progress-value {
     background-color: var(--azul-medio);
-    /* Cor verde */
     border-radius: 5px;
 }
 
@@ -277,4 +278,180 @@ a {
     justify-content: space-between;
     padding: 1rem;
     width: 100%;
+}
+
+/* ==========================================================================
+   Responsividade
+   ========================================================================== */
+
+html,
+body {
+    max-width: 100%;
+    overflow-x: hidden;
+}
+
+/* Botão hamburguer*/
+.menu-toggle {
+    display: none;
+    position: fixed;
+    top: 1rem;
+    left: 1rem;
+    z-index: 110;
+    width: 44px;
+    height: 44px;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 5px;
+    border: none;
+    border-radius: 12px;
+    background-color: var(--branco);
+    box-shadow: 0 2px 10px rgba(0, 0, 0, .2);
+    cursor: pointer;
+}
+
+.menu-toggle-bar {
+    display: block;
+    width: 20px;
+    height: 2px;
+    border-radius: 2px;
+    background-color: var(--azul-escuro);
+    transition: transform .25s ease, opacity .25s ease;
+}
+
+.menu-toggle[aria-expanded="true"] .menu-toggle-bar:nth-child(1) {
+    transform: translateY(7px) rotate(45deg);
+}
+
+.menu-toggle[aria-expanded="true"] .menu-toggle-bar:nth-child(2) {
+    opacity: 0;
+}
+
+.menu-toggle[aria-expanded="true"] .menu-toggle-bar:nth-child(3) {
+    transform: translateY(-7px) rotate(-45deg);
+}
+
+.menu-scrim {
+    position: fixed;
+    inset: 0;
+    z-index: 100;
+    background: transparent;
+}
+
+.menu-scrim[hidden] {
+    display: none;
+}
+
+/* Tablets e celulares */
+@media (max-width: 900px) {
+    .menu-toggle {
+        display: flex;
+    }
+
+    .menu {
+        box-sizing: border-box;
+        width: min(75vw, 280px);
+        height: 100vh;
+        padding: 4.5rem 1rem 1rem;
+        border-radius: 0 20px 20px 0;
+        overflow-y: auto;
+        transform: translateX(-100%);
+        transition: transform .3s ease, width .25s ease;
+        z-index: 105;
+    }
+
+    .menu.wide {
+        width: min(85vw, 320px);
+    }
+
+    .menu.open {
+        transform: translateX(0);
+    }
+
+    main {
+        margin-left: 0;
+        padding: 4.5rem 1.25rem 1.25rem;
+        box-sizing: border-box;
+    }
+
+    .search-form {
+        box-sizing: border-box;
+        width: 45%;
+        min-width: 150px;
+        max-width: 50vw;
+        height: 2.1rem;
+        padding: 0 .8rem;
+    }
+
+    .search-icon {
+        width: 1.1rem;
+        height: 1.1rem;
+        margin-right: 8px;
+    }
+
+    .search-input {
+        font-size: .8rem;
+    }
+
+    .course-card {
+        padding: .6rem;
+        gap: .75rem;
+    }
+
+    .course-image {
+        width: 4.5rem;
+        height: 4.5rem;
+        flex-shrink: 0;
+    }
+
+    .course-info {
+        padding: 0;
+        gap: .3rem;
+    }
+
+    .course-info h2 {
+        font-size: .85rem;
+        line-height: 1.25;
+        margin: 0;
+    }
+
+    .course-desc {
+        flex-wrap: wrap;
+        gap: .2rem;
+    }
+
+    .course-desc p {
+        margin: 0;
+        font-size: .7rem;
+    }
+}
+
+/* Celulares */
+@media (max-width: 600px) {
+    .menu-toggle {
+        top: .75rem;
+        left: .75rem;
+    }
+
+    main {
+        padding: 4rem 1rem 1rem;
+    }
+
+    .menu header p,
+    .menu header strong {
+        font-size: .85rem;
+    }
+
+    .search-form {
+        padding: 0 .75rem;
+    }
+
+    .course-image {
+        width: 3.75rem;
+        height: 3.75rem;
+    }
+
+    .course-info h2 {
+        font-size: .8rem;
+    }
 }

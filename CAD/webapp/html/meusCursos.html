@@ -21,7 +21,13 @@
     <a class="skip-link" href="#search-input">
         Pular para o conteúdo principal?
     </a>
-    <aside aria-label="Menu de navegação" class="menu">
+    <button type="button" id="menuToggle" class="menu-toggle" aria-label="Abrir menu de navegação"
+        aria-controls="siteMenu" aria-expanded="false">
+        <span class="menu-toggle-bar"></span>
+        <span class="menu-toggle-bar"></span>
+        <span class="menu-toggle-bar"></span>
+    </button>
+    <aside id="siteMenu" aria-label="Menu de navegação" class="menu">
         <img src="../assets/User.png" alt="Foto do usuário" />
 
         <header inert>
@@ -59,6 +65,7 @@
         </nav>
 
     </aside>
+    <div class="menu-scrim" id="menuScrim" hidden></div>
     <main>
         <!-- Input  -->
 

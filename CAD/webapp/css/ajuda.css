@@ -27,8 +27,9 @@ legend {
 
 .filter-group {
   display: flex;
+  flex-wrap: wrap;
   align-items: center;
-  gap: 2rem;
+  gap: 1rem 2rem;
   padding: 0rem 0rem 2rem 0rem;
   margin-top: 2rem;
 }
@@ -41,7 +42,7 @@ legend {
   font-weight: 600;
   color: var(--azul-escuro);
   border: none;
-  box-shadow: -4px 5px 10px rgba(0, 0, 0, 0.4);
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.12);
 }
 
 .filter-group button:hover{
@@ -303,16 +304,114 @@ legend {
 }
 
 /* ==================================Responsividade========================== ====================== */
-@media (max-width: 900px) {
+@media (max-width: 992px) {
   .cards-grid {
     grid-template-columns: 1fr;
   }
+}
 
+@media (max-width: 900px) {
   .comunidade-main {
     padding: 1.5rem 1rem;
   }
 
   .sugestao-form .field-group {
     flex-direction: column;
+  }
+
+  .filters,
+  .filter-group {
+    min-width: 0;
+  }
+
+  .filter-group {
+    flex-wrap: nowrap;
+    overflow-x: auto;
+    overflow-y: hidden;
+    -webkit-overflow-scrolling: touch;
+    scrollbar-width: thin;
+    gap: .6rem;
+    padding-bottom: .75rem;
+  }
+
+  .filter-group legend,
+  .filter-group button {
+    flex-shrink: 0;
+  }
+}
+
+@media (max-width: 600px) {
+  .comunidade-main {
+    padding: 1.25rem 1rem;
+    gap: 1.5rem;
+  }
+
+  .comunidade-header .page-title {
+    font-size: 1.3rem;
+  }
+
+  /* Formulário de sugestão (comentário) acima dos filtros, compactado */
+  .sugestao-card {
+    padding: 1rem;
+  }
+
+  .sugestao-form {
+    gap: .85rem;
+  }
+
+  .sugestao-form .field-group {
+    padding: .6rem .85rem;
+  }
+
+  .sugestao-form label {
+    font-size: .85rem;
+  }
+
+  .sugestao-form input,
+  .sugestao-form textarea {
+    font-size: .85rem;
+  }
+
+  .btn-primary {
+    padding: .6rem 1.25rem;
+    font-size: .85rem;
+    min-height: 40px;
+  }
+
+  .votacao-card {
+    padding: .75rem;
+    gap: .6rem;
+  }
+
+  .card-thumb {
+    width: 44px;
+    height: 44px;
+    border-radius: 10px;
+  }
+
+  .card-item-title {
+    font-size: .85rem;
+  }
+
+  .card-desc {
+    font-size: .72rem;
+  }
+
+  .card-actions {
+    gap: .35rem;
+  }
+
+  .btn-vote {
+    width: 34px;
+    height: 34px;
+  }
+
+  .btn-vote svg {
+    width: 16px;
+    height: 16px;
+  }
+
+  .section-title {
+    font-size: 1.3rem;
   }
 }
