@@ -19,10 +19,10 @@ export class CriarContaRequestDto {
     @Length(8, 12, { message: "A senha deve ter entre 8-12 caracteres." })
     public senha_hash: string;
 
-    @ApiProperty({ description: "Data de nascimento no formato dd-mm-yyyy", example: "29-07-2009", type: "string" })
+    @ApiProperty({ description: "Data de nascimento no formato ISO ou dd-mm-yyyy", example: "2009-07-29", type: "string" })
     @IsString({ message: "A data de nascimento deve ser uma string." })
     @IsNotEmpty({ message: "A data de nascimento não pode estar vazia." })
-    @Matches(/^[0-9]{2}-[0-9]{2}-[0-9]{4}$/, { message: "A data de nascimento deve estar no formato dd-mm-yyyy." })
+    @Matches(/^(\d{4}-\d{2}-\d{2}|\d{2}-\d{2}-\d{4})$/, { message: "A data de nascimento deve estar no formato yyyy-mm-dd ou dd-mm-yyyy." })
     public dt_nascimento: string;
 
     @ApiPropertyOptional({ description: "Indica se a conta está ativa", example: true, type: "boolean" })

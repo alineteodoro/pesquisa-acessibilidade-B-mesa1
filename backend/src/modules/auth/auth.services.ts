@@ -27,12 +27,32 @@ export class AuthServices {
         return await this.repo.buscarPorId(id);
     }
 
-    async criarConta(params: CriarContaInputDto): Promise<CriarContaOutputDto> {
-        if (typeof params.dt_nascimento === "string") {
-            const [day, month, year] = params.dt_nascimento.split("-").map(Number);
-            params.dt_nascimento = new Date(Date.UTC(year, month - 1, day + 1));
+    private normalizarDataNascimento(value: Date | string): Date {
+        if (value instanceof Date) return value;
+
+        if (typeof value !== 'string') {
+            throw new Error('A data de nascimento é inválida.');
         }
 
+        const texto = value.trim();
+
+        const iso = /^\d{4}-\d{2}-\d{2}$/.exec(texto);
+        if (iso) {
+            const [year, month, day] = texto.split('-').map(Number);
+            return new Date(Date.UTC(year, month - 1, day));
+        }
+
+        const brasil = /^\d{2}-\d{2}-\d{4}$/.exec(texto);
+        if (brasil) {
+            const [day, month, year] = texto.split('-').map(Number);
+            return new Date(Date.UTC(year, month - 1, day));
+        }
+
+        throw new Error('A data de nascimento deve estar no formato yyyy-mm-dd ou dd-mm-yyyy.');
+    }
+
+    async criarConta(params: CriarContaInputDto): Promise<CriarContaOutputDto> {
+        params.dt_nascimento = this.normalizarDataNascimento(params.dt_nascimento);
         params.senha_hash = await bcrypt.hash(params.senha_hash, 12);
 
         return await this.repo.criarConta(params);
