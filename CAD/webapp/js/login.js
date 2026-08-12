@@ -70,9 +70,6 @@ if (loginForm) {
 
             const data = await response.json();
 
-            console.log("RESPOSTA DO LOGIN:", data);
-            console.log("ID RECEBIDO:", data.id_usuario);
-
             if (!response.ok || !data.success) {
                 alert(data.message || "Não foi possível realizar o login.");
                 return;
@@ -86,11 +83,6 @@ if (loginForm) {
             localStorage.setItem(
                 "isInstrutor",
                 data.is_instrutor
-            );
-
-            console.log(
-                "ID SALVO:",
-                localStorage.getItem("usuarioId")
             );
 
             alert("Login realizado com sucesso!");
