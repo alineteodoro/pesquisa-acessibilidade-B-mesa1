@@ -319,19 +319,14 @@ async function carregarDadosInicio() {
             buscarTodosCursos()
         ]);
 
-        console.log('Matrículas:', matriculas);
-        console.log('Cursos:', cursos);
-
         // Calcula estatísticas
         const estatisticas = calcularEstatisticas(matriculas, cursos);
-        console.log('Estatísticas:', estatisticas);
 
         // Atualiza os cards de estatísticas
         atualizarCardsEstatisticas(estatisticas);
 
         // Obtém cursos em andamento
         const cursosEmAndamento = obterCursosEmAndamento(matriculas, cursos);
-        console.log('Cursos em andamento:', cursosEmAndamento);
 
         // Atualiza a seção "Continue de onde parou"
         atualizarCursosEmAndamento(cursosEmAndamento);
