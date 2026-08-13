@@ -23,21 +23,21 @@
 
     <header class="site-header">
         <div class="container header-content">
-            <a class="logo" href="#inicio" aria-label="CAD - Página inicial">
+            <a class="logo" href="#" aria-label="CAD - Página inicial">
                 <img class="logo-img" src="lpassets/Logo final.png" alt="CAD - Logo oficial">
             </a>
             <!-- LOGO ACIMA -->
 
             <nav aria-label="Navegação principal">
                 <ul class="nav-list">
-                    <li><a href="#cursos">Cursos</a></li>
-                    <li><a href="#motivos">Motivos</a></li>
-                    <li><a href="#diferenciais">Diferenciais</a></li>
-                    <li><a href="#sobre">Sobre nós</a></li>
+                    <li><a href="#secao-cursos">Cursos</a></li>
+                    <li><a href="#secao-acessibilidade">Motivos</a></li>
+                    <li><a href="#secao-diferenciais">Diferenciais</a></li>
+                    <li><a href="#sobrenos">Sobre nós</a></li>
                 </ul>
             </nav>
 
-            <a class="button button-outline" href="#login">Entrar</a>
+            <a class="button button-outline" href="webapp/html/login.html">Entrar</a>
         </div>
     </header>
 
@@ -59,7 +59,7 @@
                         acessível e democrática.
                     </p> -->
 
-                    <a class="button button-primary" href="#sobre">
+                    <a class="button button-primary" href="webapp/html/login.html">
                         Conheça o CAD
                     </a>
                 </div>
@@ -72,7 +72,7 @@
             <img src="webapp/assets/icons/marketing-agent.png" alt="Icone para o menu de acessibilidade">
         </button>
 
-        <!-- Menu de acessibilidade-->
+        <!-- menu -->
         <dialog id="accessibilityMenu" class="accessibility-menu" aria-labelledby="accessibility-title">
 
             <header class="accessibility-header">
@@ -110,37 +110,22 @@
                         <h3 class="menu-title-section">Tema</h3>
                     </div>
                     <fieldset class="segmented">
-                        <button>Claro</button>
-                        <button class="selected">Escuro</button>
+                        <button class="selected">Claro</button>
+                        <button>Escuro</button>
                     </fieldset>
                 </section>
 
                 <!-- CONTRASTE -->
                 <section class="accessibility-card" aria-labelledby="contrast-title">
                     <div class="image-title-section">
-                        <img src="webapp/assets/icons/contrast.png"
-                            alt="Icone de contraste, seção de troca de contraste" class="icon-section">
+                        <img src="webapp/assets/icons/contrast.png" alt="Icone de contraste, seção de troca de contraste"
+                            class="icon-section">
                         <h3 class="menu-title-section">Contraste</h3>
                     </div>
                     <fieldset class="segmented">
                         <button class="selected">Padrão</button>
                         <button>Alto contraste</button>
                     </fieldset>
-                </section>
-
-                <!-- DALTONISMO -->
-                <section class="accessibility-card" aria-labelledby="color-title">
-                    <div class="image-title-section">
-                        <img src="webapp/assets/icons/negative-balance (1) 1.png"
-                            alt="icone de mudança nas paletas de cores, seção de mode de cores" class="icon-section">
-                        <h3 class="menu-title-section">Modo de cores</h3>
-                    </div>
-                    <div class="grid-buttons">
-                        <button class="selected">Normal</button>
-                        <button>Deuteranopia</button>
-                        <button>Protanopia</button>
-                        <button>Tritanopia</button>
-                    </div>
                 </section>
 
                 <!-- CORES -->
@@ -170,65 +155,10 @@
                     </div>
                     <div class="switch-group">
                         <label class="switch-item">
-                            <input type="checkbox" id="readingMode">
-                            <span>Modo leitura</span>
-                        </label>
-
-                        <label class="switch-item">
-                            <input type="checkbox" id="hideImages">
-                            <span>Esconder imagens</span>
-                        </label>
-
-                        <label class="switch-item">
                             <input type="checkbox" id="largeCursor">
                             <span>Cursor grande</span>
                         </label>
                     </div>
-                </section>
-
-                <!-- VOZ -->
-                <section class="accessibility-card" aria-labelledby="voice-title">
-                    <div class="image-title-section">
-                        <img src="webapp/assets/icons/volume-up.png" alt="icone de som, seção de voz "
-                            class="icon-section">
-                        <h3 class="menu-title-section">Voz</h3>
-                    </div>
-                    <div class="switch-group">
-                        <label class="switch-item">
-                            <input type="checkbox" id="screenReader">
-                            <span>Narrar interface</span>
-                        </label>
-                        <label class="switch-item">
-                            <input type="checkbox" id="autoReadLinks">
-                            <span>Ler links automaticamente</span>
-                        </label>
-                    </div>
-                </section>
-
-                <!-- ANIMAÇÕES -->
-                <section class="accessibility-card" aria-labelledby="motion-title">
-                    <div class="image-title-section">
-                        <img src="webapp/assets/icons/arrows.png"
-                            alt="icone de setas se movimentando, seção de movimento na página" class="icon-section">
-                        <h3 class="menu-title-section">Movimento</h3>
-                    </div>
-                    <label class="switch-item">
-                        <input type="checkbox" id="reduceMotion">
-                        Reduzir animações
-                    </label>
-                </section>
-
-                <!-- FOCO -->
-                <section class="accessibility-card" aria-labelledby="focus-title">
-                    <div class="image-title-section">
-                        <img src="webapp/assets/icons/gps-navigation.png"
-                            alt="icone de seta, seção de navegação na página" class="icon-section">
-                        <h3 class="menu-title-section">Navegação</h3>
-                    </div>
-                    <label class="switch-item">
-                        <input type="checkbox" id="highlightFocus">
-                        Destacar foco do teclado
-                    </label>
                 </section>
             </div>
 
@@ -237,6 +167,7 @@
             </footer>
 
         </dialog>
+
 
         <section class="secao-cursos" id="secao-cursos" aria-labelledby="titulo-cursos">
             <div class="cursos-container">
@@ -371,7 +302,7 @@
             <img src="lpassets/tagsfundoclaro.png" class="tagsfundo1" alt="Fundo de tags 1">
             <div class="sobrenos-conteudo">
                 <h1>Sobre Nós</h1>
-                <a href="#">Conheça o nosso time →</a>
+                <a href="webapp/html/sobrenos.html">Conheça o nosso time →</a>
             </div>
             <img src="lpassets/tagsfundoclaro.png" class="tagsfundo2" alt="Fundo de tags 2">
         </section>
@@ -441,7 +372,8 @@
         </div>
     </footer>
 
-    <script src="script.js"></script>
+    <script src="script.js" defer></script>
+    <script src="webapp/js/menuAcessibilidade.js" defer></script>
 </body>
 
 </html>

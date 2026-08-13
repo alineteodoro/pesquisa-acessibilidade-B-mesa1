@@ -28,3 +28,33 @@ JBS - https://www.jbs.com.br/
 Seara - https://www.seara.com.br/
 Swift - Loja Online Swift, compre agora e receba em casa
 Friboi - https://www.friboi.com.br/
+
+## Criação e Apresentação:
+# CAD — Curso Acessibilidade Digital
+
+Nosso projeto foi pensado para atender desenvolvedores que querem se tornar diferentes ao implementar algo tão necessário, mas tão incomum de encontrarmos, que é a acessibilidade. Visando isso, surgiu o **CAD: Curso Acessibilidade Digital** — uma plataforma completa:
+
+- **Comunidade**: espaço para compartilhar cada vez mais conhecimento sobre acessibilidade.
+- **Cursos**: página onde usuários e instrutores conseguem visualizar os cursos disponíveis.
+- **Meus Cursos**: cada usuário tem sua própria sessão com os cursos em andamento.
+- **Visualização da comunidade**: garante que a interação e a recomendação entre usuários sempre aconteçam.
+- **Perfil**: onde as informações pessoais podem ser alteradas.
+- **Feedbacks**: fundamental para entender quem está usando a plataforma e como melhorá-la.
+
+## Tecnologias utilizadas
+
+- **Back-end**: NestJS
+- **Front-end**: JavaScript, HTML e CSS
+- **Banco de dados**: PostgreSQL
+
+## Integrantes do grupo
+
+- Aline
+- Caio Mezini
+- David
+- David
+- Guilherme
+
+## Uso de IA
+
+O uso de IA foi principalmente para a revisão de tarefas, sempre prezando pelo melhor desempenho e sempre pensando na acessibilidade.

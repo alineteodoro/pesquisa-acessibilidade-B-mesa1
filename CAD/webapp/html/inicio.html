@@ -117,37 +117,31 @@
         
 
     </main>
-    <button commandfor="accessibilityMenu" command="show-modal" id="accessibilityButton" class="accessibility-button"
-        aria-label="Abrir menu de acessibilidade" aria-controls="accessibilityMenu" aria-expanded="false">
-        <img src="../assets/icons/marketing-agent.png" alt="Icone para o menu de acessibilidade">
-    </button>
+    <button commandfor="accessibilityMenu" command="show-modal" id="accessibilityButton"
+            class="accessibility-button" aria-label="Abrir menu de acessibilidade" aria-controls="accessibilityMenu"
+            aria-expanded="false">
+            <img src="../assets/icons/marketing-agent.png" alt="Icone para o menu de acessibilidade">
+        </button>
 
-    <!-- menu -->
-    <dialog id="accessibilityMenu" class="accessibility-menu" aria-labelledby="accessibility-title">
+        <!-- menu -->
+        <dialog id="accessibilityMenu" class="accessibility-menu" aria-labelledby="accessibility-title">
 
-        <header class="accessibility-header">
-            <h2 id="accessibility-title">Menu de acessibilidade</h2>
+            <header class="accessibility-header">
+                <h2 id="accessibility-title">Menu de acessibilidade</h2>
 
-            <button type="button" commandfor="accessibilityMenu" command="close" class="close-accessibility">
-                X
-            </button>
+                <button type="button" commandfor="accessibilityMenu" command="close" class="close-accessibility">
+                    X
+                </button>
 
-        </header>
+            </header>
 
-        <div class="accessibility-content">
+            <div class="accessibility-content">
 
-            <!-- TEXTO -->
-            <section class="accessibility-card" aria-labelledby="text-title">
-                <div class="image-title-section">
-                    <h1>A</h1>
-                    <h3 class="menu-title-section">Texto</h3>
-                </div>
-                <div class="control-group">
-                    <label for="font-size-slider">Tamanho da fonte</label>
-                    <div class="font-controls">
-                        <button id="font-decrease" aria-label="Diminuir tamanho da fonte">A-</button>
-                        <output id="font-value">100%</output>
-                        <button id="font-increase" aria-label="Aumentar tamanho da fonte">A+</button>
+                <!-- TEXTO -->
+                <section class="accessibility-card" aria-labelledby="text-title">
+                    <div class="image-title-section">
+                        <h1>A</h1>
+                        <h3 class="menu-title-section">Texto</h3>
                     </div>
                 </div>
             </section>
@@ -285,7 +279,10 @@
             <button id="resetAccessibility">Restaurar padrões</button>
         </footer>
 
-    </dialog>
+            <footer class="accessibility-footer" aria-labelledby="resetAccessibility">
+                <button id="resetAccessibility">Restaurar padrões</button>
+            </footer>
+        </dialog>
     <script src="../js/app.js" defer></script>
 </body>
 

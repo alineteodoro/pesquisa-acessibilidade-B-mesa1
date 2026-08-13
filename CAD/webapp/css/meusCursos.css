@@ -37,6 +37,7 @@ legend{
     color: var();
     border:none;
     box-shadow: 0 2px 6px rgba(0,0,0,0.12);
+    font-family: 'Poppins', sans-serif;
 } 
 .filter-group button:hover{
     cursor: pointer;
