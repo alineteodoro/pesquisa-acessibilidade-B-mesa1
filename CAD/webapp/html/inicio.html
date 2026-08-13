@@ -153,106 +153,105 @@
         </a>
 
     </main>
-    <button commandfor="accessibilityMenu" command="show-modal" id="accessibilityButton" class="accessibility-button"
-        aria-label="Abrir menu de acessibilidade" aria-controls="accessibilityMenu" aria-expanded="false">
-        <img src="../assets/icons/marketing-agent.png" alt="Icone para o menu de acessibilidade">
-    </button>
+    <button commandfor="accessibilityMenu" command="show-modal" id="accessibilityButton"
+            class="accessibility-button" aria-label="Abrir menu de acessibilidade" aria-controls="accessibilityMenu"
+            aria-expanded="false">
+            <img src="../assets/icons/marketing-agent.png" alt="Icone para o menu de acessibilidade">
+        </button>
 
-    <!-- menu -->
-    <dialog id="accessibilityMenu" class="accessibility-menu" aria-labelledby="accessibility-title">
+        <!-- menu -->
+        <dialog id="accessibilityMenu" class="accessibility-menu" aria-labelledby="accessibility-title">
 
-        <header class="accessibility-header">
-            <h2 id="accessibility-title">Menu de acessibilidade</h2>
+            <header class="accessibility-header">
+                <h2 id="accessibility-title">Menu de acessibilidade</h2>
 
-            <button type="button" commandfor="accessibilityMenu" command="close" class="close-accessibility">
-                X
-            </button>
+                <button type="button" commandfor="accessibilityMenu" command="close" class="close-accessibility">
+                    X
+                </button>
 
-        </header>
+            </header>
 
-        <div class="accessibility-content">
+            <div class="accessibility-content">
 
-            <!-- TEXTO -->
-            <section class="accessibility-card" aria-labelledby="text-title">
-                <div class="image-title-section">
-                    <h1>A</h1>
-                    <h3 class="menu-title-section">Texto</h3>
-                </div>
-                <div class="control-group">
-                    <label for="font-size-slider">Tamanho da fonte</label>
-                    <div class="font-controls">
-                        <button id="font-decrease" aria-label="Diminuir tamanho da fonte">A-</button>
-                        <output id="font-value">100%</output>
-                        <button id="font-increase" aria-label="Aumentar tamanho da fonte">A+</button>
+                <!-- TEXTO -->
+                <section class="accessibility-card" aria-labelledby="text-title">
+                    <div class="image-title-section">
+                        <h1>A</h1>
+                        <h3 class="menu-title-section">Texto</h3>
                     </div>
-                </div>
-            </section>
+                    <div class="control-group">
+                        <label for="font-size-slider">Tamanho da fonte</label>
+                        <div class="font-controls">
+                            <button id="font-decrease" aria-label="Diminuir tamanho da fonte">A-</button>
+                            <output id="font-value">100%</output>
+                            <button id="font-increase" aria-label="Aumentar tamanho da fonte">A+</button>
+                        </div>
+                    </div>
+                </section>
 
-            <!-- TEMA -->
-            <section class="accessibility-card" aria-labelledby="theme-title">
-                <div class="image-title-section">
-                    <img src="../assets/icons/moon.png"
-                        alt="icone de uma paleta de cores, seção de tema de mudança de tema" class="icon-section">
-                    <h3 class="menu-title-section">Tema</h3>
-                </div>
-                <fieldset class="segmented">
-                    <button>Claro</button>
-                    <button class="selected">Escuro</button>
-                </fieldset>
-            </section>
+                <!-- TEMA -->
+                <section class="accessibility-card" aria-labelledby="theme-title">
+                    <div class="image-title-section">
+                        <img src="../assets/icons/moon.png"
+                            alt="icone de uma paleta de cores, seção de tema de mudança de tema" class="icon-section">
+                        <h3 class="menu-title-section">Tema</h3>
+                    </div>
+                    <fieldset class="segmented">
+                        <button class="selected">Claro</button>
+                        <button>Escuro</button>
+                    </fieldset>
+                </section>
 
-            <!-- CONTRASTE -->
-            <section class="accessibility-card" aria-labelledby="contrast-title">
-                <div class="image-title-section">
-                    <img src="../assets/icons/contrast.png" alt="Icone de contraste, seção de troca de contraste"
-                        class="icon-section">
-                    <h3 class="menu-title-section">Contraste</h3>
-                </div>
-                <fieldset class="segmented">
-                    <button class="selected">Padrão</button>
-                    <button>Alto contraste</button>
-                </fieldset>
-            </section>
+                <!-- CONTRASTE -->
+                <section class="accessibility-card" aria-labelledby="contrast-title">
+                    <div class="image-title-section">
+                        <img src="../assets/icons/contrast.png" alt="Icone de contraste, seção de troca de contraste"
+                            class="icon-section">
+                        <h3 class="menu-title-section">Contraste</h3>
+                    </div>
+                    <fieldset class="segmented">
+                        <button class="selected">Padrão</button>
+                        <button>Alto contraste</button>
+                    </fieldset>
+                </section>
 
-            <!-- CORES -->
-            <section class="accessibility-card" aria-labelledby="custom-color-title">
-                <div class="image-title-section">
-                    <img src="../assets/icons/eye-drops 1.png" alt=" icone de Conta gotas, Seção de personalizar cores"
-                        class="icon-section">
-                    <h3 class="menu-title-section">Personalizar cores</h3>
-                </div>
-                <div class="color-picker">
-                    <label>Cor principal
-                        <input type="color" id="primaryColor">
-                    </label>
-                    <label>Cor de fundo
-                        <input type="color" id="backgroundColor">
-                    </label>
-                </div>
-            </section>
+                <!-- CORES -->
+                <section class="accessibility-card" aria-labelledby="custom-color-title">
+                    <div class="image-title-section">
+                        <img src="../assets/icons/eye-drops 1.png"
+                            alt=" icone de Conta gotas, Seção de personalizar cores" class="icon-section">
+                        <h3 class="menu-title-section">Personalizar cores</h3>
+                    </div>
+                    <div class="color-picker">
+                        <label>Cor principal
+                            <input type="color" id="primaryColor">
+                        </label>
+                        <label>Cor de fundo
+                            <input type="color" id="backgroundColor">
+                        </label>
+                    </div>
+                </section>
 
-            <!-- LEITURA -->
+                <!-- LEITURA -->
+                <section class="accessibility-card" aria-labelledby="reading-title">
+                    <div class="image-title-section">
+                        <img src="../assets/icons/open-book (1).png" alt=" Icone de livro, Seção de leitura"
+                            aria-hidden="true" class="icon-section">
+                        <h3 id="reading-title" class="menu-title-section">Leitura</h3>
+                    </div>
+                    <div class="switch-group">
+                        <label class="switch-item">
+                            <input type="checkbox" id="largeCursor">
+                            <span>Cursor grande</span>
+                        </label>
+                    </div>
+                </section>
+            </div>
 
-            <section class="accessibility-card" aria-labelledby="reading-title">
-                <div class="image-title-section">
-                    <img src="../assets/icons/open-book (1).png" alt=" Icone de livro, Seção de leitura"
-                        aria-hidden="true" class="icon-section">
-                    <h3 id="reading-title" class="menu-title-section">Leitura</h3>
-                </div>
-                <div class="switch-group">
-                    <label class="switch-item">
-                        <input type="checkbox" id="largeCursor">
-                        <span>Cursor grande</span>
-                    </label>
-                </div>
-            </section>
-        </div>
-
-        <footer class="accessibility-footer" aria-labelledby="resetAccessibility">
-            <button id="resetAccessibility">Restaurar padrões</button>
-        </footer>
-
-    </dialog>
+            <footer class="accessibility-footer" aria-labelledby="resetAccessibility">
+                <button id="resetAccessibility">Restaurar padrões</button>
+            </footer>
+        </dialog>
     <script src="../js/app.js" defer></script>
 </body>
 </html>
