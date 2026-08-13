@@ -9,12 +9,13 @@ async function bootstrap() {
   app.enableCors({
     origin: process.env.FRONTEND_ORIGIN?.split(',') || true,
     methods: ['GET', 'POST', 'PUT', 'DELETE'],
-    allowedHeaders: ['Content-Type', 'Authorization'],
+    allowedHeaders: ['Content-Type'],
   });
 
   app.useGlobalPipes(new ValidationPipe({
     whitelist: true,
     transform: true,
+    transformOptions: { enableImplicitConversion: true },
     forbidNonWhitelisted: false,
   }));
 
@@ -26,7 +27,7 @@ async function bootstrap() {
     .build();
 
   const document = SwaggerModule.createDocument(app, config);
-  
+
   SwaggerModule.setup('swagger', app, document);
 
   await app.listen(3001);

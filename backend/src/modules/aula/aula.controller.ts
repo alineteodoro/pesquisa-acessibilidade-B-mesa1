@@ -1,10 +1,12 @@
 import { Body, Controller, Delete, Get, Param, Post, Put } from "@nestjs/common";
+import { ApiTags } from "@nestjs/swagger";
 import { AulaServices } from "./aula.services";
 import { CriarAulaRequestDto } from "./dto/requests/criar-aula-request.dto";
 import { AtualizarAulaRequestDto } from "./dto/requests/atualizar-aula-request.dto";
 import { AulaOutputDto } from "./dto/io/aula-output.dto";
 import { AulaDetailOutputDto } from "./dto/io/aula-detail-output.dto";
 
+@ApiTags("Aula")
 @Controller("api/aula")
 export class AulaController {
 

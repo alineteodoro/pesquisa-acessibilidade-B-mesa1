@@ -1,4 +1,4 @@
-const API_URL = "http://localhost:3001/api/auth";
+const API_URL = "http://localhost:3001";
 
 async function carregarUsuario() {
     const usuarioId = localStorage.getItem("usuarioId");
@@ -17,7 +17,7 @@ async function carregarUsuario() {
     }
 
     try {
-        const url = `${API_URL}/${usuarioId}`;
+        const url = `${API_URL}/api/auth/${usuarioId}`;
 
         const response = await fetch(url);
 
@@ -43,13 +43,28 @@ async function carregarUsuario() {
     }
 }
 
-const API_BASE_URL = "http://localhost:3001"; // porta do back-end NestJS (ajuste se for outra)
-const API_CURSOS_URL = `${API_BASE_URL}/api/curso`;
+function obterTermoBuscaDaUrl() {
+    const params = new URLSearchParams(window.location.search);
+    return params.get('search') || '';
+}
+
+function preencherCampoBusca() {
+    const termoBusca = obterTermoBuscaDaUrl();
+    const searchInput = document.getElementById('search-input');
+    
+    if (searchInput && termoBusca) {
+        searchInput.value = termoBusca;
+    }
+    
+    return termoBusca;
+}
+
+const API_CURSOS_URL = `${API_URL}/api/curso`;
 const CURSOS_POR_PAGINA = 16;
  
 // Chave usada no localStorage para guardar o id do usuário logado.
-// AJUSTE este valor para a chave real que vocês usam no login/sessão.
-const CHAVE_ID_USUARIO_LOCALSTORAGE = "id_usuario";
+// Deve ser a mesma chave salva no login.js.
+const CHAVE_ID_USUARIO_LOCALSTORAGE = "usuarioId";
  
 let todosCursos = [];
 let cursosFiltrados = [];
@@ -74,6 +89,7 @@ function obterIdUsuarioLogado() {
 async function buscarTodosCursos() {
     try {
         const idUsuario = obterIdUsuarioLogado();
+        const termoBusca = obterTermoBuscaDaUrl();
         const url = idUsuario
             ? `${API_CURSOS_URL}?id_usuario=${encodeURIComponent(idUsuario)}`
             : API_CURSOS_URL;
@@ -85,6 +101,16 @@ async function buscarTodosCursos() {
         }
  
         todosCursos = await resposta.json();
+
+        if (termoBusca) {
+            const termoLower = termoBusca.toLowerCase().trim();
+            todosCursos = todosCursos.filter(curso => 
+                curso.nome?.toLowerCase().includes(termoLower) ||
+                curso.categoria?.toLowerCase().includes(termoLower) ||
+                curso.descricao?.toLowerCase().includes(termoLower)
+            );
+        }
+
         atualizarListagem();
     } catch (erro) {
         console.error("Falha ao carregar cursos:", erro);
@@ -309,8 +335,8 @@ function irParaPagina(numeroPagina) {
     cursosGrid?.scrollIntoView({ behavior: "smooth", block: "start" });
 }
 
-document.addEventListener("DOMContentLoaded", 
-    carregarUsuario);
-
-document.addEventListener("DOMContentLoaded", 
-    buscarTodosCursos);
+document.addEventListener("DOMContentLoaded", () => {
+    carregarUsuario();
+    preencherCampoBusca();
+    buscarTodosCursos();
+});

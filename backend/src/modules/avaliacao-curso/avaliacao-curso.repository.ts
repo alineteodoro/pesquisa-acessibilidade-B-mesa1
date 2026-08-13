@@ -6,6 +6,7 @@ import { CriarAvaliacaoCursoRequestDto } from "./dto/requests/criar-avaliacao-cu
 import { AtualizarAvaliacaoCursoRequestDto } from "./dto/requests/atualizar-avaliacao-curso-request.dto";
 import { AvaliacaoCursoOutputDto } from "./dto/io/avaliacao-curso-output.dto";
 import { AvaliacaoCursoDetailOutputDto } from "./dto/io/avaliacao-curso-detail-output.dto";
+import { FindAvaliacaoCursoQueryDto } from "./dto/query-params/find-avaliacao-curso-query.dto";
 
 @Injectable()
 export class AvaliacaoCursoRepository {
@@ -37,8 +38,19 @@ export class AvaliacaoCursoRepository {
         }
     }
 
-    async buscarTodos(): Promise<AvaliacaoCursoDetailOutputDto[]> {
-        return await this.repo.find();
+    async buscarTodos(query: FindAvaliacaoCursoQueryDto): Promise<AvaliacaoCursoDetailOutputDto[]> {
+        const qb = this.repo.createQueryBuilder('a');
+
+        if (query.id_curso !== undefined) {
+            qb.innerJoin('matricula', 'm', 'm.id_matricula = a.id_matricula')
+              .where('m.id_curso = :id_curso', { id_curso: query.id_curso });
+        }
+
+        if (query.id_matricula !== undefined) {
+            qb.andWhere('a.id_matricula = :id_matricula', { id_matricula: query.id_matricula });
+        }
+
+        return await qb.getMany();
     }
 
     async buscarPorId(id_avaliacao: number): Promise<AvaliacaoCursoDetailOutputDto | null> {

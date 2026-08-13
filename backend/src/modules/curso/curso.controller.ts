@@ -4,7 +4,7 @@ import { CriarCursoRequestDto } from "./dto/requests/criar-curso-request.dto";
 import { AtualizarCursoRequestDto } from "./dto/requests/atualizar-curso-request.dto";
 import { CursoOutputDto } from "./dto/io/curso-output.dto";
 import { CursoDetailOutputDto } from "./dto/io/curso-detail-output.dto";
-import { Public } from '../../security/public.decorator';
+import { CursoFindInstrutorOutputDto } from "./dto/io/curso-find-instrutor-output.dto";
 
 @Controller("api/curso")
 export class CursoController {
@@ -13,18 +13,23 @@ export class CursoController {
         private repo: CursoServices
     ){}
 
-    @Public()
     @Get()
     async buscarTodos(): Promise<CursoDetailOutputDto[]> {
         return await this.repo.buscarTodos();
     }
 
-    @Public()
     @Get(":id")
     async buscarPorId(
         @Param("id") id: string
     ): Promise<CursoDetailOutputDto | null> {
         return await this.repo.buscarPorId(Number(id));
+    }
+
+    @Get("instrutor/:id_curso")
+    async buscarInstrutorPorCurso(
+        @Param("id_curso") id_curso: string
+    ): Promise<CursoFindInstrutorOutputDto> {
+        return await this.repo.buscarInstrutorPorCurso(Number(id_curso));
     }
 
     @Post()

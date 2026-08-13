@@ -49,6 +49,81 @@ legend{
     color: var(--branco);
 }
 
+/* Mensagem quando não há cursos */
+.mensagem-vazia {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 4rem 2rem;
+    text-align: center;
+    background-color: var(--surface-color, #1a1a1a);
+    border-radius: 1rem;
+    margin: 2rem auto;
+    max-width: 500px;
+    border: 1px solid var(--border-color, #333);
+}
+
+.mensagem-icone {
+    width: 80px;
+    height: 80px;
+    margin-bottom: 1.5rem;
+    opacity: 0.6;
+}
+
+.mensagem-titulo {
+    font-size: 1.5rem;
+    font-weight: 600;
+    color: var(--text-color, #ffffff);
+    margin-bottom: 0.75rem;
+    font-family: 'Poppins', sans-serif;
+}
+
+.mensagem-descricao {
+    font-size: 1rem;
+    color: var(--text-secondary, #999);
+    margin-bottom: 1.5rem;
+    line-height: 1.6;
+    max-width: 400px;
+    font-family: 'Poppins', sans-serif;
+}
+
+.mensagem-botao {
+    display: inline-block;
+    padding: 0.75rem 2rem;
+    background-color: var(--primary-color, #6C63FF);
+    color: #ffffff;
+    text-decoration: none;
+    border-radius: 0.5rem;
+    font-weight: 500;
+    font-family: 'Poppins', sans-serif;
+    transition: all 0.3s ease;
+}
+
+.mensagem-botao:hover {
+    background-color: var(--primary-hover, #5a52d5);
+    transform: translateY(-2px);
+    box-shadow: 0 4px 12px rgba(108, 99, 255, 0.3);
+}
+
+.mensagem-botao:focus-visible {
+    outline: 2px solid var(--primary-color, #6C63FF);
+    outline-offset: 2px;
+}
+
+/* Mensagem para busca sem resultados */
+.mensagem-vazia.busca-vazia .mensagem-titulo {
+    font-size: 1.25rem;
+}
+
+.mensagem-vazia.busca-vazia .mensagem-descricao {
+    font-size: 0.95rem;
+}
+
+.mensagem-vazia.busca-vazia .mensagem-botao {
+    display: none;
+}
+
 /* ==========================================================================
    Responsividade
    ========================================================================== */
@@ -71,6 +146,27 @@ legend{
     .filter-group legend,
     .filter-group button {
         flex-shrink: 0;
+    }
+}
+
+@media (max-width: 768px) {
+    .mensagem-vazia {
+        padding: 3rem 1.5rem;
+        margin: 1.5rem auto;
+        max-width: 100%;
+    }
+    
+    .mensagem-icone {
+        width: 60px;
+        height: 60px;
+    }
+    
+    .mensagem-titulo {
+        font-size: 1.25rem;
+    }
+    
+    .mensagem-descricao {
+        font-size: 0.9rem;
     }
 }
 

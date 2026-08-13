@@ -1,10 +1,13 @@
-import { Body, Controller, Delete, Get, Param, Post, Put } from "@nestjs/common";
+import { Body, Controller, Delete, Get, Param, Post, Put, Query } from "@nestjs/common";
+import { ApiTags } from "@nestjs/swagger";
 import { MatriculaServices } from "./matricula.services";
 import { CriarMatriculaRequestDto } from "./dto/requests/criar-matricula-request.dto";
 import { AtualizarMatriculaRequestDto } from "./dto/requests/atualizar-matricula-request.dto";
 import { MatriculaOutputDto } from "./dto/io/matricula-output.dto";
 import { MatriculaDetailOutputDto } from "./dto/io/matricula-detail-output.dto";
+import { FindMatriculaQueryDto } from "./dto/query-params/find-matricula-query.dto";
 
+@ApiTags("Matricula")
 @Controller("api/matricula")
 export class MatriculaController {
 
@@ -13,8 +16,8 @@ export class MatriculaController {
     ){}
 
     @Get()
-    async buscarTodos(): Promise<MatriculaDetailOutputDto[]> {
-        return await this.repo.buscarTodos();
+    async buscarTodos(@Query() query: FindMatriculaQueryDto): Promise<MatriculaDetailOutputDto[]> {
+        return await this.repo.buscarTodos(query);
     }
 
     @Get(":id")

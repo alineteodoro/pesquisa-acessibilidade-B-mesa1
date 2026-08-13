@@ -8,7 +8,6 @@ import { ContaOutputDto } from "./dto/io/conta-output.dto";
 import { ContaDetailOutputDto } from "./dto/io/conta-detail-output.dto";
 import { AtualizarContaRequestDto } from "./dto/requests/atualizar-conta-request.dto";
 import { FindContaQueryDto } from "./dto/query-params/find-conta-query.dto";
-import { JwtService } from '@nestjs/jwt';
 import * as bcrypt from 'bcryptjs';
 
 @Injectable()
@@ -16,7 +15,6 @@ export class AuthServices {
 
     constructor(
         private repo: AuthRepository,
-        private jwtService: JwtService,
     ) {}
 
     async buscarTodos(query: FindContaQueryDto): Promise<ContaDetailOutputDto[]> {
@@ -47,7 +45,6 @@ export class AuthServices {
             success: true,
             message: 'Usuário logado com sucesso.',
             is_instrutor: conta.is_instrutor,
-            token: await this.jwtService.signAsync({ sub: conta.id_usuario, email: conta.email, is_instrutor: conta.is_instrutor }),
             usuario: { id_usuario: conta.id_usuario, nome: conta.nome, email: conta.email, is_instrutor: conta.is_instrutor },
         };
     }

@@ -399,6 +399,68 @@ button[role="tab"][data-animate="true"] {
 .submit-button:active {
     transform: scale(0.98);
 }
+ 
+.rating-container {
+    background-color: #1b263b;
+    padding: 30px;
+    border-radius: 12px;
+    text-align: center;
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.3);
+}
+ 
+.rating-container h2 {
+    font-size: 1.2rem;
+    margin-bottom: 20px;
+    color: var(--branco);
+}
+ 
+/* Container das estrelas */
+.stars {
+    display: flex;
+    justify-content: center;
+    gap: 8px;
+    margin-bottom: 15px;
+}
+ 
+/* Botão da Estrela */
+.star-btn {
+    background: transparent;
+    border: none;
+    cursor: pointer;
+    padding: 5px;
+    outline: none;
+    color: var(--cinza-claro);
+    transition: transform 0.2s ease, color 0.2s ease;
+}
+ 
+.star-btn:hover,
+.star-btn:focus-visible {
+    transform: scale(1.2);
+}
+ 
+/* Estilo do SVG interno */
+.star-btn svg,
+.star-btn img {
+    width: 36px;
+    height: 36px;
+    transition: fill 0.2s ease, filter 0.2s ease;
+}
+ 
+.star-btn.filled {
+    color: var(--amarelo-estrela); /* Cor dourada do site */
+}
+
+/* Estado Preenchido (Ativo/Hover) */
+.star-btn.filled svg {
+    filter: drop-shadow(0 0 6px rgba(245, 158, 11, 0.6));
+}
+ 
+/* Texto do resultado */
+.rating-result {
+    font-size: 0.95rem;
+    color: var(--cinza-claro);
+    font-weight: 600;
+}
 
 /* ==========================================================================
    Sidebar: Cursos Relacionados

@@ -52,7 +52,7 @@ if (loginForm) {
             document.getElementById("login-email").value.trim();
 
         const senha =
-            document.getElementById("password").value;
+            document.getElementById("login-password").value;
 
         try {
             const response = await fetch(`${API_URL}/logarConta`, {
@@ -79,10 +79,13 @@ if (loginForm) {
              * Guarda as informações necessárias para
              * identificar o usuário no restante do front.
              */
-            localStorage.setItem("usuarioId", data.id_usuario);
+            localStorage.setItem(
+                "usuarioId",
+                data.usuario?.id_usuario ?? data.id_usuario
+            );
             localStorage.setItem(
                 "isInstrutor",
-                data.is_instrutor
+                data.usuario?.is_instrutor ?? data.is_instrutor
             );
 
             alert("Login realizado com sucesso!");
@@ -113,7 +116,7 @@ if (registerForm) {
             document.getElementById("register-name").value.trim();
 
         const email =
-            document.getElementById("email").value.trim();
+            document.getElementById("register-email").value.trim();
 
         const dataNascimento =
             document.getElementById("birthdate").value;
