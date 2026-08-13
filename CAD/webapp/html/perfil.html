@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -14,6 +15,7 @@
         rel="stylesheet">
     <script defer src="../js/menu.js"></script>
     <script defer src="../js/menuAcessibilidade.js"></script>
+    <script defer src="../js/perfil.js"></script>
     <title>Perfil</title>
 </head>
 
@@ -32,7 +34,7 @@
 
         <header inert>
             <p>Olá,</p>
-            <strong>Alanzoka!</strong>
+            <strong id="user-name">Carregando...</strong>
         </header>
         <nav>
             <div class="active-indicator"></div>
@@ -70,16 +72,13 @@
     <main id="main-content" class="auth" tabindex="-1">
         <header class="perfil-header">
             <div class="avatar-wrapper">
-                <img src="../assets/User.png" alt="Foto de perfil de Alanzoka gamer" class="avatar-img">
+                <img src="../assets/User.png" alt="Foto de perfil" class="avatar-img">
                 <label for="avatar-input" class="btn-editar-foto" aria-label="Alterar foto de perfil">✎</label>
                 <input type="file" id="avatar-input" accept="image/png, image/jpeg, image/webp" hidden />
             </div>
             <div class="user-info">
-                <h1 class="user-name">Alanzoka gamer</h1>
-                <p class="user-email">Alanzoka_gamer@gmail.com</p>
-                <p class="user-date">
-                    <span class="sr-only">Data de cadastro: </span>22/10/2009
-                </p>
+                <h1 class="user-nome">Carregando...</h1>
+                <p class="user-email">Carregando...</p>
             </div>
         </header>
 
@@ -128,76 +127,6 @@
                     </div>
 
                     <button type="submit" class="btn-secundario align-self-end">Atualizar senha</button>
-                </form>
-            </section>
-
-            <section class="perfil-card" aria-labelledby="heading-acessibilidade">
-                <h2 id="heading-acessibilidade" class="card-title">Preferências de acessibilidade</h2>
-                <div class="switches-list">
-
-                    <div class="switch-row">
-                        <div class="switch-text">
-                            <label id="lbl-legenda-1" for="legenda-auto-1" class="switch-label">Legendas
-                                automáticas</label>
-                            <p id="desc-legenda-1" class="switch-desc">Ative a legenda em todos os vídeos por padrão</p>
-                        </div>
-                        <label class="toggle-switch">
-                            <input type="checkbox" id="legenda-auto-1" aria-labelledby="lbl-legenda-1"
-                                aria-describedby="desc-legenda-1">
-                            <span class="slider" aria-hidden="true"></span>
-                        </label>
-                    </div>
-
-                    <div class="switch-row">
-                        <div class="switch-text">
-                            <label id="lbl-legenda-2" for="legenda-auto-2" class="switch-label">Legendas
-                                automáticas</label>
-                            <p id="desc-legenda-2" class="switch-desc">Ative a legenda em todos os vídeos por padrão</p>
-                        </div>
-                        <label class="toggle-switch">
-                            <input type="checkbox" id="legenda-auto-2" aria-labelledby="lbl-legenda-2"
-                                aria-describedby="desc-legenda-2">
-                            <span class="slider" aria-hidden="true"></span>
-                        </label>
-                    </div>
-
-                    <div class="switch-row">
-                        <div class="switch-text">
-                            <label id="lbl-destaque" for="destaque-foco" class="switch-label">Navegação por teclado com
-                                destaque</label>
-                            <p id="desc-destaque" class="switch-desc">Aumenta o contorno de foco ao usar Tab</p>
-                        </div>
-                        <label class="toggle-switch">
-                            <input type="checkbox" id="destaque-foco" aria-labelledby="lbl-destaque"
-                                aria-describedby="desc-destaque">
-                            <span class="slider" aria-hidden="true"></span>
-                        </label>
-                    </div>
-
-                </div>
-            </section>
-
-            <section class="perfil-card" aria-labelledby="heading-nascimento">
-                <h2 id="heading-nascimento" class="card-title">Data de Nascimento</h2>
-                <form class="card-form" id="form-nascimento">
-                    <div class="field-group">
-                        <label for="data-nascimento">Data de nascimento</label>
-                        <input type="text" id="data-nascimento" name="data-nascimento" value="22/10/2209">
-                    </div>
-
-                    <div class="field-group">
-                        <label for="email-nascimento">E-mail</label>
-                        <input type="email" id="email-nascimento" name="email-nascimento"
-                            value="VaiCorinthians@gmail.com">
-                    </div>
-
-                    <div class="field-group">
-                        <label for="idioma-nascimento">Idioma</label>
-                        <select id="idioma-nascimento" name="idioma-nascimento">
-                            <option value="pt-BR" selected>Português (Brasil)</option>
-                            <option value="en-US">English (US)</option>
-                        </select>
-                    </div>
                 </form>
             </section>
 
