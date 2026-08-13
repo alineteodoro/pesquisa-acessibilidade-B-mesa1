@@ -43,6 +43,22 @@ async function carregarUsuario() {
     }
 }
 
+function obterTermoBuscaDaUrl() {
+    const params = new URLSearchParams(window.location.search);
+    return params.get('search') || '';
+}
+
+function preencherCampoBusca() {
+    const termoBusca = obterTermoBuscaDaUrl();
+    const searchInput = document.getElementById('search-input');
+    
+    if (searchInput && termoBusca) {
+        searchInput.value = termoBusca;
+    }
+    
+    return termoBusca;
+}
+
 const API_CURSOS_URL = `${API_URL}/api/curso`;
 const CURSOS_POR_PAGINA = 16;
  
@@ -73,6 +89,7 @@ function obterIdUsuarioLogado() {
 async function buscarTodosCursos() {
     try {
         const idUsuario = obterIdUsuarioLogado();
+        const termoBusca = obterTermoBuscaDaUrl();
         const url = idUsuario
             ? `${API_CURSOS_URL}?id_usuario=${encodeURIComponent(idUsuario)}`
             : API_CURSOS_URL;
@@ -84,6 +101,16 @@ async function buscarTodosCursos() {
         }
  
         todosCursos = await resposta.json();
+
+        if (termoBusca) {
+            const termoLower = termoBusca.toLowerCase().trim();
+            todosCursos = todosCursos.filter(curso => 
+                curso.nome?.toLowerCase().includes(termoLower) ||
+                curso.categoria?.toLowerCase().includes(termoLower) ||
+                curso.descricao?.toLowerCase().includes(termoLower)
+            );
+        }
+
         atualizarListagem();
     } catch (erro) {
         console.error("Falha ao carregar cursos:", erro);
@@ -308,8 +335,8 @@ function irParaPagina(numeroPagina) {
     cursosGrid?.scrollIntoView({ behavior: "smooth", block: "start" });
 }
 
-document.addEventListener("DOMContentLoaded", 
-    carregarUsuario);
-
-document.addEventListener("DOMContentLoaded", 
-    buscarTodosCursos);
+document.addEventListener("DOMContentLoaded", () => {
+    carregarUsuario();
+    preencherCampoBusca();
+    buscarTodosCursos();
+});

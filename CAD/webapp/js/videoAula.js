@@ -46,6 +46,7 @@ async function carregarUsuario() {
 
 document.addEventListener("DOMContentLoaded", () => {
     carregarUsuario();
+    configurarPesquisa();
     const buttonSobre = document.getElementById("tab-sobre")
     const buttonAvaliacoes = document.getElementById("tab-avaliacoes")
     const panelSobre = document.getElementById("panel-sobre")
@@ -478,4 +479,37 @@ function criarCardRelacionado(curso) {
     item.appendChild(link);
 
     return item;
+}
+
+
+function configurarPesquisa() {
+    const searchForm = document.querySelector('.search-form');
+    const searchInput = document.getElementById('search-input');
+    
+    if (!searchForm || !searchInput) {
+        console.warn('Formulário de pesquisa não encontrado');
+        return;
+    }
+    
+    searchForm.addEventListener('submit', (evento) => {
+        evento.preventDefault();
+        
+        const termoBusca = searchInput.value.trim();
+        
+        if (!termoBusca) {
+            window.location.href = 'cursos.html';
+            return;
+        }
+        
+        const termoCodificado = encodeURIComponent(termoBusca);
+        
+        window.location.href = `cursos.html?search=${termoCodificado}`;
+    });
+    
+    searchInput.addEventListener('keydown', (evento) => {
+        if (evento.key === 'Enter') {
+            evento.preventDefault();
+            searchForm.dispatchEvent(new Event('submit'));
+        }
+    });
 }
