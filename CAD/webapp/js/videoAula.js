@@ -82,6 +82,64 @@ document.addEventListener("DOMContentLoaded", () => {
 
 const CHAVE_ID_USUARIO_LOCALSTORAGE = "usuarioId";
 
+const ICONE_ESTRELA_VAZIA = `<svg viewBox="0 0 24 23" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"><path d="M6.74157 5.32632L10.0974 0.938158C10.3371 0.615351 10.6217 0.378289 10.9513 0.226974C11.2809 0.0756579 11.6255 0 11.985 0C12.3446 0 12.6891 0.0756579 13.0187 0.226974C13.3483 0.378289 13.633 0.615351 13.8727 0.938158L17.2285 5.32632L22.3221 7.05132C22.8414 7.21272 23.2509 7.51031 23.5506 7.94408C23.8502 8.37785 24 8.85702 24 9.38158C24 9.62368 23.965 9.86579 23.8951 10.1079C23.8252 10.35 23.7104 10.582 23.5506 10.8039L20.2547 15.525L20.3745 20.4882C20.3945 21.1943 20.1648 21.7895 19.6854 22.2737C19.206 22.7579 18.6467 23 18.0075 23C17.9675 23 17.7478 22.9697 17.3483 22.9092L11.985 21.3961L6.62172 22.9092C6.52185 22.9496 6.41199 22.9748 6.29213 22.9849C6.17228 22.995 6.06242 23 5.96255 23C5.32335 23 4.76404 22.7579 4.28464 22.2737C3.80524 21.7895 3.57553 21.1943 3.59551 20.4882L3.71536 15.4947L0.449438 10.8039C0.289638 10.582 0.174782 10.35 0.104869 10.1079C0.0349563 9.86579 0 9.62368 0 9.38158C0 8.87719 0.144819 8.40811 0.434457 7.97434C0.724095 7.54057 1.12859 7.23289 1.64794 7.05132L6.74157 5.32632Z" fill="none" stroke="currentColor" stroke-width="1.2"/></svg>`;
+
+const ICONE_ESTRELA_PREENCHIDA = `<svg viewBox="0 0 24 23" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"><path d="M6.74157 5.32632L10.0974 0.938158C10.3371 0.615351 10.6217 0.378289 10.9513 0.226974C11.2809 0.0756579 11.6255 0 11.985 0C12.3446 0 12.6891 0.0756579 13.0187 0.226974C13.3483 0.378289 13.633 0.615351 13.8727 0.938158L17.2285 5.32632L22.3221 7.05132C22.8414 7.21272 23.2509 7.51031 23.5506 7.94408C23.8502 8.37785 24 8.85702 24 9.38158C24 9.62368 23.965 9.86579 23.8951 10.1079C23.8252 10.35 23.7104 10.582 23.5506 10.8039L20.2547 15.525L20.3745 20.4882C20.3945 21.1943 20.1648 21.7895 19.6854 22.2737C19.206 22.7579 18.6467 23 18.0075 23C17.9675 23 17.7478 22.9697 17.3483 22.9092L11.985 21.3961L6.62172 22.9092C6.52185 22.9496 6.41198 22.9748 6.29213 22.9849C6.17228 22.995 6.06242 23 5.96255 23C5.32335 23 4.76404 22.7579 4.28464 22.2737C3.80524 21.7895 3.57553 21.1943 3.59551 20.4882L3.71536 15.4947L0.449438 10.8039C0.289638 10.582 0.174782 10.35 0.104869 10.1079C0.0349563 9.86579 0 9.62368 0 9.38158C0 8.87719 0.144819 8.40811 0.434457 7.97434C0.724095 7.54057 1.12859 7.23289 1.64794 7.05132L6.74157 5.32632Z" fill="currentColor"/></svg>`;
+
+const TOTAL_ESTRELAS = 5;
+let notaSelecionada = 0;
+
+function criarArrayDeEstrelas(quantidade) {
+    return Array.from({ length: TOTAL_ESTRELAS }, (_, indice) => indice < quantidade);
+}
+
+function converterArrayEmNota(arrayEstrelas) {
+    return arrayEstrelas.filter(Boolean).length;
+}
+
+function renderizarEstrelas(quantidade) {
+    const arrayEstrelas = criarArrayDeEstrelas(quantidade);
+    const botoes = document.querySelectorAll("#star-rating .star-btn");
+
+    botoes.forEach((botao, indice) => {
+        const preenchida = arrayEstrelas[indice];
+        botao.classList.toggle("filled", preenchida);
+        botao.setAttribute("aria-pressed", preenchida ? "true" : "false");
+        botao.innerHTML = preenchida ? ICONE_ESTRELA_PREENCHIDA : ICONE_ESTRELA_VAZIA;
+    });
+
+    const resultado = document.getElementById("rating-result");
+    if (resultado) {
+        resultado.textContent = quantidade > 0 ? `${quantidade} de 5 estrelas` : "";
+    }
+}
+
+function configurarSeletorDeEstrelas() {
+    const container = document.getElementById("star-rating");
+    if (!container) return;
+
+    const botoes = container.querySelectorAll(".star-btn");
+
+    botoes.forEach((botao) => {
+        const valor = Number(botao.dataset.value);
+
+        botao.addEventListener("click", () => {
+            notaSelecionada = valor;
+            renderizarEstrelas(notaSelecionada);
+        });
+
+        botao.addEventListener("mouseenter", () => renderizarEstrelas(valor));
+    });
+
+    container.addEventListener("mouseleave", () => renderizarEstrelas(notaSelecionada));
+
+    renderizarEstrelas(0);
+}
+
+function obterEstrelasSelecionadas() {
+    return notaSelecionada > 0 ? notaSelecionada : null;
+}
+
 document.addEventListener("DOMContentLoaded", () => {
     const idCurso = obterIdCursoDaUrl();
 
@@ -92,7 +150,9 @@ document.addEventListener("DOMContentLoaded", () => {
 
     carregarDadosDoCurso(idCurso);
     carregarAvaliacoes(idCurso);
+    configurarSeletorDeEstrelas();
     configurarEnvioDeAvaliacao(idCurso);
+    carregarCursosRelacionados(idCurso);
 });
 
 function obterIdCursoDaUrl() {
@@ -124,7 +184,6 @@ async function carregarDadosDoCurso(idCurso) {
         }
 
         preencherTitulo(curso.nome);
-        preencherVideo(curso.videoUrl);
         preencherInstrutor(instrutor.nome);
         preencherResumoAvaliacao(curso.mediaEstrelas, curso.totalAvaliacoes);
         preencherDescricao(curso.descricao);
@@ -201,7 +260,7 @@ async function carregarAvaliacoes(idCurso) {
     if (!lista) return;
 
     try {
-        const resposta = await fetch(`${API_BASE_URL}/api/avaliacao-curso?id_curso=${idCurso}`);
+        const resposta = await fetch(`${API_URL}/api/avaliacao-curso?id_curso=${idCurso}`);
 
         if (!resposta.ok) {
             throw new Error(`Erro ${resposta.status} ao buscar avaliações`);
@@ -326,6 +385,8 @@ function configurarEnvioDeAvaliacao(idCurso) {
             }
 
             form.reset();
+            notaSelecionada = 0;
+            renderizarEstrelas(0);
             await carregarAvaliacoes(idCurso);
             await carregarDadosDoCurso(idCurso);
         } catch (erro) {
@@ -351,4 +412,70 @@ async function buscarIdMatricula(idUsuario, idCurso) {
 
     const matriculas = await resposta.json();
     return matriculas[0]?.id_matricula ?? null;
+}
+
+async function carregarCursosRelacionados(idCursoAtual) {
+    const lista = document.querySelector(".related-list");
+    if (!lista) return;
+
+    const idAtual = Number(idCursoAtual);
+
+    try {
+        const resposta = await fetch(`${API_URL}/api/curso`);
+
+        if (!resposta.ok) {
+            throw new Error(`Erro ${resposta.status} ao buscar cursos`);
+        }
+
+        const cursos = await resposta.json();
+        const relacionados = cursos.filter(curso => Number(curso.id_curso) !== idAtual);
+
+        lista.replaceChildren();
+
+        if (relacionados.length === 0) {
+            const itemVazio = document.createElement("li");
+            itemVazio.textContent = "Nenhum outro curso disponível no momento.";
+            lista.appendChild(itemVazio);
+            return;
+        }
+
+        const fragmento = document.createDocumentFragment();
+        relacionados.forEach(curso => fragmento.appendChild(criarCardRelacionado(curso)));
+        lista.appendChild(fragmento);
+    } catch (erro) {
+        console.error("Falha ao carregar cursos relacionados:", erro);
+    }
+}
+
+function criarCardRelacionado(curso) {
+    const item = document.createElement("li");
+
+    const link = document.createElement("a");
+    link.href = `videoAula.html?id=${encodeURIComponent(curso.id_curso)}`;
+    link.className = "related-card";
+
+    const thumb = document.createElement("img");
+    thumb.src = curso.imagem || "../assets/FundoPadrão.png";
+    thumb.alt = "";
+    thumb.className = "related-thumb";
+    thumb.setAttribute("aria-hidden", "true");
+
+    const detalhes = document.createElement("div");
+    detalhes.className = "related-details";
+
+    const titulo = document.createElement("h3");
+    titulo.textContent = curso.nome ?? "";
+
+    const categoria = document.createElement("p");
+    categoria.className = "course-category";
+    categoria.textContent = curso.categoria ?? "";
+
+    detalhes.appendChild(titulo);
+    detalhes.appendChild(categoria);
+
+    link.appendChild(thumb);
+    link.appendChild(detalhes);
+    item.appendChild(link);
+
+    return item;
 }

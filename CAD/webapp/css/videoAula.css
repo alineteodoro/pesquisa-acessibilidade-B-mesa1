@@ -411,6 +411,7 @@ button[role="tab"][data-animate="true"] {
 .rating-container h2 {
     font-size: 1.2rem;
     margin-bottom: 20px;
+    color: var(--branco);
 }
  
 /* Container das estrelas */
@@ -428,7 +429,8 @@ button[role="tab"][data-animate="true"] {
     cursor: pointer;
     padding: 5px;
     outline: none;
-    transition: transform 0.2s ease;
+    color: var(--cinza-claro);
+    transition: transform 0.2s ease, color 0.2s ease;
 }
  
 .star-btn:hover,
@@ -441,20 +443,22 @@ button[role="tab"][data-animate="true"] {
 .star-btn img {
     width: 36px;
     height: 36px;
-    fill: #4a5568; /* Cor padrão (desmarcada) */
     transition: fill 0.2s ease, filter 0.2s ease;
 }
  
+.star-btn.filled {
+    color: var(--amarelo-estrela); /* Cor dourada do site */
+}
+
 /* Estado Preenchido (Ativo/Hover) */
 .star-btn.filled svg {
-    fill: #ffc107; /* Cor amarela dourada */
-    filter: drop-shadow(0 0 6px rgba(255, 193, 7, 0.6));
+    filter: drop-shadow(0 0 6px rgba(245, 158, 11, 0.6));
 }
  
 /* Texto do resultado */
 .rating-result {
     font-size: 0.95rem;
-    color: #e0e1dd;
+    color: var(--cinza-claro);
     font-weight: 600;
 }
 
